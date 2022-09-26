@@ -117,8 +117,7 @@ describe("InsightFacade", function () {
 					.then((insightDatasets) => {
 						expect(insightDatasets).to.be.an.instanceof(Array);
 						expect(insightDatasets).to.have.length(2);
-						const insightDatasetCourses = insightDatasets
-							.find((dataset) => dataset.id === "sections");
+						const insightDatasetCourses = insightDatasets.find((dataset) => dataset.id === "sections");
 						expect(insightDatasetCourses).to.exist;
 						expect(insightDatasetCourses).to.deep.equal({
 							id: "courses",
@@ -169,11 +168,22 @@ describe("InsightFacade", function () {
 				return expect(result).eventually.to.be.rejectedWith(NotFoundError);
 			});
 
+			it("should reject remove w/ NotFoundError when deleting the same dataset", async function () {
+				const sections: string = datasetContents.get("sections") ?? "";
+				await insightFacade.addDataset("sections", sections, InsightDatasetKind.Sections);
+				let result = insightFacade.removeDataset("sections");
+				result = insightFacade.removeDataset("sections");
+				return expect(result).eventually.to.be.rejectedWith(NotFoundError);
+			});
+
 			it("should add and remove one dataset", async function () {
 				const sections: string = datasetContents.get("sections") ?? "";
 				await insightFacade.addDataset("sections", sections, InsightDatasetKind.Sections);
-				const result = insightFacade.removeDataset("sections");
-				return expect(result).eventually.to.be.equal("sections");
+				const result = await insightFacade.removeDataset("sections");
+				expect(result).to.be.equal("sections");
+				return insightFacade.listDatasets().then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([]);
+				});
 			});
 
 			it("should reject remove w/ InsightError (underscore)", async function () {
