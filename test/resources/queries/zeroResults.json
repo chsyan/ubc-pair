@@ -1,0 +1,18 @@
+{
+	"title": "zeroResults",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 100
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": []
+}

@@ -1,0 +1,28 @@
+{
+	"title": "validMKeyLT",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"sections_avg": 1
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 0
+		},
+		{
+			"sections_avg": 0
+		},
+		{
+			"sections_avg": 0
+		}
+	]
+}
