@@ -1,0 +1,14 @@
+{
+	"title": "invalidObjectWHERE",
+	"input": {
+		"WHERE": 0,
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
