@@ -6,6 +6,9 @@ import {
 	InsightResult,
 	NotFoundError,
 } from "./IInsightFacade";
+import {
+	QueryValidator,
+} from "./QueryValidator";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -13,8 +16,10 @@ import {
  *
  */
 export default class InsightFacade implements IInsightFacade {
+	private queryValidator: QueryValidator;
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
+		this.queryValidator = new QueryValidator();
 	}
 
 	public addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
@@ -25,7 +30,15 @@ export default class InsightFacade implements IInsightFacade {
 		return Promise.reject("Not implemented.");
 	}
 
-	public performQuery(query: unknown): Promise<InsightResult[]> {
+	public async performQuery(query: unknown): Promise<InsightResult[]> {
+		// Validate query
+		if (typeof query !== "object" || query === null) {
+			throw new InsightError("input query was not an 'object'");
+		}
+		this.queryValidator.validateQuery(query);
+
+		// TODO: Query Engine
+
 		return Promise.reject("Not implemented.");
 	}
 
