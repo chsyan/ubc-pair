@@ -8,9 +8,13 @@ import {IInsightFacade, InsightDataset, InsightDatasetKind, InsightError, Insigh
 export default class InsightFacade implements IInsightFacade {
 	private insightDatasets: InsightDataset[];
 
+	// TODO: Store loaded datasets here so not reading from fs everytime
+	private datasetEntries: Map<string, any[]>;
+
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
 		this.insightDatasets = [];
+		this.datasetEntries = new Map<string, any[]>();
 	}
 
 	private validateId(id: string): void {
@@ -39,37 +43,56 @@ export default class InsightFacade implements IInsightFacade {
 		this.validateId(id);
 
 		// Check for duplicate ids
-		const ids = [];
 		for (const dataset in this.insightDatasets) {
 			const storedId = this.insightDatasets[dataset].id;
-			ids.push(storedId);
 			if (storedId === id) {
 				throw new InsightError("id already exists");
 			}
 		}
 
-		// Content comes in as string decoded from b64, but JSZip requires it to be encoded
-		const contentEncoded = Buffer.from(content, "base64");
-		const zipContent = await JSZip.loadAsync(contentEncoded);
-		zipContent.forEach(async (_path: string, file: JSZip.JSZipObject) => {
-			if (!file.dir) {
-				const fileContent = await file.async("string");
-				const obj = JSON.parse(fileContent);
-				// Entries are in a result array
-				// TODO: Process content into a data structure
-			}
-		});
+		const sections: any[] = [];
 
-		// TODO: Write dataset to disk
+		// Unzip content and add to sections
+		try {
+			// JSZip requires content to be b64e
+			const contentEncoded = Buffer.from(content, "base64");
+			const zipContent = await JSZip.loadAsync(contentEncoded);
+			const filePaths = Object.keys(zipContent.files);
 
+			filePaths.map(async (path) => {
+				const fileObj = zipContent.file(path);
+
+				// Check if file exists to satisfy compiler
+				if (fileObj === null) {
+					return;
+				}
+
+				// Parse the file contents as JSON
+				const parsedContents = JSON.parse(await fileObj.async("string"));
+
+				// Add file data to entries
+				for (const entry of parsedContents.result) {
+					sections.push(entry);
+				}
+			});
+		} catch (err) {
+			throw new InsightError("Error decoding zip file");
+		}
+
+		// TODO: Write sections to disk
+		// Maybe add in a folder with the id as the directory name
+		// Can probably write the entire sections array as a JSON file or something
+
+		// Add this new dataset to datasets
 		const newDataset: InsightDataset = {
 			id: id,
 			kind: kind,
-			numRows: 0, // TODO: Get the number of rows
+			numRows: sections.length,
 		};
 		this.insightDatasets.push(newDataset);
-		ids.push(id);
-		return ids;
+
+		// Return the ids of all datasets
+		return this.insightDatasets.map((dataset) => dataset.id);
 	}
 
 	public removeDataset(id: string): Promise<string> {
