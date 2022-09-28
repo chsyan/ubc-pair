@@ -1,4 +1,4 @@
-import JSZip, {JSZipObject} from "jszip";
+import * as JSZip from "jszip";
 import {IInsightFacade, InsightDataset, InsightDatasetKind, InsightError, InsightResult} from "./IInsightFacade";
 
 /*
@@ -51,12 +51,12 @@ export default class InsightFacade implements IInsightFacade {
 		// Content comes in as string decoded from b64, but JSZip requires it to be encoded
 		const contentEncoded = Buffer.from(content, "base64");
 		const zipContent = await JSZip.loadAsync(contentEncoded);
-		zipContent.forEach(async (_path: string, file: JSZipObject) => {
+		zipContent.forEach(async (_path: string, file: JSZip.JSZipObject) => {
 			if (!file.dir) {
 				const fileContent = await file.async("string");
 				const obj = JSON.parse(fileContent);
 				// Entries are in a result array
-		// TODO: Process content into a data structure
+				// TODO: Process content into a data structure
 			}
 		});
 
