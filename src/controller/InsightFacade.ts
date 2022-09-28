@@ -59,22 +59,23 @@ export default class InsightFacade implements IInsightFacade {
 			const zipContent = await JSZip.loadAsync(contentEncoded);
 			const filePaths = Object.keys(zipContent.files);
 
-			filePaths.map(async (path) => {
+			const filePromises = filePaths.map(async (path) => {
 				const fileObj = zipContent.file(path);
 
 				// Check if file exists to satisfy compiler
 				if (fileObj === null) {
-					return;
+					return Promise.resolve();
 				}
 
 				// Parse the file contents as JSON
-				const parsedContents = JSON.parse(await fileObj.async("string"));
-
-				// Add file data to entries
-				for (const entry of parsedContents.result) {
-					sections.push(entry);
-				}
+				return fileObj.async("string").then((fileContent) => {
+					const parsedContent = JSON.parse(fileContent);
+					for (const entry of parsedContent.result) {
+						sections.push(entry);
+					}
+				});
 			});
+			await Promise.all(filePromises);
 		} catch (err) {
 			throw new InsightError("Error decoding zip file");
 		}
