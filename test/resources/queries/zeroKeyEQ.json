@@ -1,0 +1,16 @@
+{
+	"title": "zeroKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

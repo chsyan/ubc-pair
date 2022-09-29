@@ -1,0 +1,14 @@
+{
+	"title": "invalidKey",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_invalidKey"
+			],
+			"ORDER": "sections_invalidKey"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

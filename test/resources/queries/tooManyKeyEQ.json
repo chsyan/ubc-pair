@@ -1,0 +1,19 @@
+{
+	"title": "tooManyKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"sections_avg": 50,
+				"sections_year": 1900
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

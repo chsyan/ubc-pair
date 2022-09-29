@@ -1,0 +1,18 @@
+{
+	"title": "invalidMKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"sections_dept": 50
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

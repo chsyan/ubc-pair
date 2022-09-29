@@ -1,0 +1,28 @@
+{
+	"title": "validMKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"sections_avg": 50
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_avg": 50
+		},
+		{
+			"sections_avg": 50
+		},
+		{
+			"sections_avg": 50
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"title": "invalidObjectEQ",
+	"input": {
+		"WHERE": {
+			"EQ": 0
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
