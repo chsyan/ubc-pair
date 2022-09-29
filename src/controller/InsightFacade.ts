@@ -1,99 +1,59 @@
-import * as JSZip from "jszip";
+import {outputJSON, pathExists} from "fs-extra";
+import {dataDir, DatasetSections, parseBufferContent as parseContentBuffer, validateId} from "./DatasetUtils";
 import {IInsightFacade, InsightDataset, InsightDatasetKind, InsightError, InsightResult} from "./IInsightFacade";
-
 /*
  * This is the main programmatic entry point for the project.
  * Method documentation is in IInsightFacade
  */
 export default class InsightFacade implements IInsightFacade {
-	private insightDatasets: InsightDataset[];
-
-	// TODO: Store loaded datasets here so not reading from fs everytime
-	private datasetEntries: Map<string, any[]>;
+	private datasetSections: DatasetSections[];
 
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
-		this.insightDatasets = [];
-		this.datasetEntries = new Map<string, any[]>();
-	}
-
-	private validateId(id: string): void {
-		/*
-		 * From the spec:
-		 * An id is invalid if it contains an underscore, or is only whitespace characters.
-		 */
-		if (id.length === 0) {
-			throw new InsightError("id cannot be empty");
-		}
-		if (id.includes("_")) {
-			throw new InsightError("id cannot contain underscores");
-		}
-		if (id.trim().length === 0) {
-			throw new InsightError("id cannot only be whitespace");
-		}
-
-		// Parse the regex as an extra check
-		if (!id.match(/^[^_]+$/)) {
-			throw new InsightError("id is invalid");
-		}
+		this.datasetSections = [];
 	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		// Validate id
-		this.validateId(id);
+		validateId(id);
 
-		// Check for duplicate ids
-		for (const dataset in this.insightDatasets) {
-			const storedId = this.insightDatasets[dataset].id;
-			if (storedId === id) {
+		// Check for duplicate id in memory
+		for (const dataset in this.datasetSections) {
+			if (this.datasetSections[dataset].insight.id === id) {
 				throw new InsightError("id already exists");
 			}
 		}
 
-		const sections: any[] = [];
+		// Check for duplicate id in disk
+		if (await pathExists(`${dataDir}/${id}.json`)) {
+			throw new InsightError("id already exists");
+		}
+		// Maybe one of these checks for duplicates is redundant?
 
-		// Unzip content and add to sections
+		// Get sections from content buffer
+		const sections = await parseContentBuffer(content);
+
+		const newDataset: DatasetSections = {
+			insight: {
+				id: id,
+				kind: kind,
+				numRows: sections.length,
+			},
+			sections: sections,
+		};
+
+		// Add new dataset to memory
+		this.datasetSections.push(newDataset);
+
+		// Write new dataset to disk
 		try {
-			// JSZip requires content to be b64e
-			const contentEncoded = Buffer.from(content, "base64");
-			const zipContent = await JSZip.loadAsync(contentEncoded);
-			const filePaths = Object.keys(zipContent.files);
-
-			const filePromises = filePaths.map(async (path) => {
-				const fileObj = zipContent.file(path);
-
-				// Check if file exists to satisfy compiler
-				if (fileObj === null) {
-					return Promise.resolve();
-				}
-
-				// Parse the file contents as JSON
-				return fileObj.async("string").then((fileContent) => {
-					const parsedContent = JSON.parse(fileContent);
-					for (const entry of parsedContent.result) {
-						sections.push(entry);
-					}
-				});
-			});
-			await Promise.all(filePromises);
+			await outputJSON(`${dataDir}/${id}.json`, newDataset);
 		} catch (err) {
-			throw new InsightError("Error decoding zip file");
+			throw new InsightError("Error writing dataset to disk");
 		}
 
-		// TODO: Write sections to disk
-		// Maybe add in a folder with the id as the directory name
-		// Can probably write the entire sections array as a JSON file or something
-
-		// Add this new dataset to datasets
-		const newDataset: InsightDataset = {
-			id: id,
-			kind: kind,
-			numRows: sections.length,
-		};
-		this.insightDatasets.push(newDataset);
-
 		// Return the ids of all datasets
-		return this.insightDatasets.map((dataset) => dataset.id);
+		return this.datasetSections.map((dataset) => dataset.insight.id);
 	}
 
 	public removeDataset(id: string): Promise<string> {
