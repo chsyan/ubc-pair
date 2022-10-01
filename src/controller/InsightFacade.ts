@@ -18,18 +18,19 @@ export default class InsightFacade implements IInsightFacade {
 		// Validate id
 		validateId(id);
 
-		// Check for duplicate id in memory
+		/*
+		 * Check both in memory and disk for duplicate ids. If data dir is deleted, in memory datasets are still valid.
+		 * If we use a different instance of InsightFacade, we still want to check for duplicates across instances.
+		 */
 		for (const dataset in this.datasetSections) {
 			if (this.datasetSections[dataset].insight.id === id) {
 				throw new InsightError("id already exists");
 			}
 		}
 
-		// Check for duplicate id in disk
 		if (await pathExists(`${dataDir}/${id}.json`)) {
 			throw new InsightError("id already exists");
 		}
-		// Maybe one of these checks for duplicates is redundant?
 
 		// Get sections from content buffer
 		const sections = await parseContentBuffer(content);
