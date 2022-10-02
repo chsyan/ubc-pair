@@ -99,6 +99,3 @@ export default class InsightFacade implements IInsightFacade {
 		return this.datasetSections.map((dataset) => dataset.insight);
 	}
 }
-function parseContentBuffer(content: string) {
-	throw new Error("Function not implemented.");
-}
