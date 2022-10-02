@@ -1,4 +1,4 @@
-import {readJSON} from "fs-extra";
+import {pathExists, readdir, readJSON} from "fs-extra";
 import * as JSZip from "jszip";
 import {InsightDataset, InsightError} from "./IInsightFacade";
 
@@ -30,7 +30,7 @@ const validateId = (id: string): void => {
 	}
 };
 
-const parseBufferContent = async (content: string): Promise<any[]> => {
+const parseBuffer = async (content: string): Promise<any[]> => {
 	const sections: any[] = [];
 
 	// JSZip requied content to be b64e buffer
@@ -62,6 +62,26 @@ const parseBufferContent = async (content: string): Promise<any[]> => {
 	return sections;
 };
 
+const readDataDir = async (): Promise<DatasetSections[]> => {
+	// If data dir doesn't exist, return empty array
+	if (!(await pathExists(dataDir))) {
+		return [];
+	}
+
+	// Map filenames to datasets
+	const fileNames = await readdir(dataDir);
+	const datasets: DatasetSections[] = [];
+	const readDatasetPromises = fileNames.map(async (fileName) => {
+		// Remove the .json file extension
+		return readDataset(fileName.replace(".json", "")).then((dataset) => {
+			datasets.push(dataset);
+		});
+	});
+	await Promise.all(readDatasetPromises);
+
+	return datasets;
+};
+
 const readDataset = async (id: string): Promise<DatasetSections> => {
 	try {
 		const dataset = await readJSON(`${dataDir}/${id}.json`);
@@ -71,4 +91,4 @@ const readDataset = async (id: string): Promise<DatasetSections> => {
 	}
 };
 
-export {validateId, parseBufferContent, DatasetSections, dataDir, readDataset};
+export {validateId, parseBuffer, DatasetSections, dataDir, readDataDir};
