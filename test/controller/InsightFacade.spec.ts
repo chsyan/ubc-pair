@@ -120,7 +120,7 @@ describe("InsightFacade", function () {
 						const insightDatasetCourses = insightDatasets.find((dataset) => dataset.id === "sections");
 						expect(insightDatasetCourses).to.exist;
 						expect(insightDatasetCourses).to.deep.equal({
-							id: "courses",
+							id: "sections",
 							kind: InsightDatasetKind.Sections,
 							numRows: 64612,
 						});
@@ -171,8 +171,8 @@ describe("InsightFacade", function () {
 			it("should reject remove w/ NotFoundError when deleting the same dataset", async function () {
 				const sections: string = datasetContents.get("sections") ?? "";
 				await insightFacade.addDataset("sections", sections, InsightDatasetKind.Sections);
-				let result = insightFacade.removeDataset("sections");
-				result = insightFacade.removeDataset("sections");
+				await insightFacade.removeDataset("sections");
+				const result = insightFacade.removeDataset("sections");
 				return expect(result).eventually.to.be.rejectedWith(NotFoundError);
 			});
 
