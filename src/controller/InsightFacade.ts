@@ -1,6 +1,13 @@
-import {outputJSON, pathExists} from "fs-extra";
-import {dataDir, DatasetSections, parseBufferContent as parseContentBuffer, validateId} from "./DatasetUtils";
-import {IInsightFacade, InsightDataset, InsightDatasetKind, InsightError, InsightResult} from "./IInsightFacade";
+import {outputJSON, pathExists, remove} from "fs-extra";
+import {dataDir, DatasetSections, parseBuffer, validateId} from "./DatasetUtils";
+import {
+	IInsightFacade,
+	InsightDataset,
+	InsightDatasetKind,
+	InsightError,
+	InsightResult,
+	NotFoundError,
+} from "./IInsightFacade";
 
 /*
  * This is the main programmatic entry point for the project.
@@ -10,7 +17,6 @@ export default class InsightFacade implements IInsightFacade {
 	private datasetSections: DatasetSections[];
 
 	constructor() {
-		console.log("InsightFacadeImpl::init()");
 		this.datasetSections = [];
 	}
 
@@ -33,7 +39,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		// Get sections from content buffer
-		const sections = await parseContentBuffer(content);
+		const sections = await parseBuffer(content);
 
 		const newDataset: DatasetSections = {
 			insight: {
@@ -58,15 +64,38 @@ export default class InsightFacade implements IInsightFacade {
 		return this.datasetSections.map((dataset) => dataset.insight.id);
 	}
 
-	public removeDataset(id: string): Promise<string> {
-		return Promise.reject("Not implemented.");
+	public async removeDataset(id: string): Promise<string> {
+		// Validate id
+		validateId(id);
+
+		// Search disk for dataset
+		const path = `${dataDir}/${id}.json`;
+		if (await pathExists(path)) {
+			// Remove dataset from disk
+			try {
+				await remove(path);
+			} catch (err) {
+				throw new InsightError("Error removing dataset from disk");
+			}
+		}
+
+		// Search memory for dataset
+		for (let i = 0; i < this.datasetSections.length; i++) {
+			if (this.datasetSections[i].insight.id === id) {
+				// Remove dataset from memory
+				return this.datasetSections.splice(i, 1)[0].insight.id;
+			}
+		}
+
+		throw new NotFoundError("id not found");
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
 		return Promise.reject("Not implemented.");
 	}
 
-	public listDatasets(): Promise<InsightDataset[]> {
-		return Promise.reject("Not implemented.");
+	public async listDatasets(): Promise<InsightDataset[]> {
+		// Get added datasets from memory
+		return this.datasetSections.map((dataset) => dataset.insight);
 	}
 }
