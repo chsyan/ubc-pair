@@ -74,6 +74,8 @@ const validateFilter = (filter: any, name: string): void => {
 
 const validateOptions = (opt: any): void => {
 	const optKeysLength = Object.keys(opt).length;
+	let currDataset = "";
+	let columns: string[] = [];
 
 	// Validate COLUMNS
 	if (optKeysLength === 0 || opt.COLUMNS === undefined) {
@@ -84,6 +86,12 @@ const validateOptions = (opt: any): void => {
 			if (!isValidKey(column)) {
 				throw new InsightError("Invalid key " + column + " in COLUMNS");
 			}
+			if (currDataset === "" && typeof column === "string") {
+				currDataset = column.split("_", 1)[0];
+			} else if (typeof column === "string" && column.split("_", 1)[0] !== currDataset) {
+				throw new InsightError("Queries should only reference one dataset");
+			}
+			columns.push(column);
 		}
 	} else {
 		throw new InsightError("OPTIONS has too many keys");
@@ -94,6 +102,8 @@ const validateOptions = (opt: any): void => {
 		throw new InsightError("Invalid key in OPTIONS");
 	} else if (optKeysLength === 2 && !isValidKey(opt.ORDER)) {
 		throw new InsightError("Invalid key " + opt.ORDER + " in COLUMNS");
+	} else if (optKeysLength === 2 && !columns.includes(opt.ORDER)) {
+		throw new InsightError("ORDER must be in COLUMNS");
 	}
 };
 
@@ -117,8 +127,6 @@ const validateQuery = (query: any): void => {
 
 	// Validate Syntax - OPTIONS Block
 	validateOptions(query.OPTIONS);
-
-	// TODO: Validate Semantic
 };
 
 export {validateQuery};
