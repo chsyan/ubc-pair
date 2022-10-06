@@ -1,5 +1,5 @@
 
-import {validateQuery,} from "./QueryValidator";
+import {validateQuery, getQueryDataset} from "./QueryUtils";
 import {outputJSON, pathExists, remove} from "fs-extra";
 import {dataDir, DatasetSections, parseBuffer, validateId} from "./DatasetUtils";
 import {
@@ -101,6 +101,19 @@ export default class InsightFacade implements IInsightFacade {
 		validateQuery(query);
 
 		// TODO: Query Engine
+		const queryDatasetID = getQueryDataset(query);
+		const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
+		const existInMemory = (): boolean => {
+			for (const dataset in this.datasetSections) {
+				if (this.datasetSections[dataset].insight.id === queryDatasetID) {
+					return  true;
+				}
+			}
+			return false;
+		};
+		if (!existInDisk || !existInMemory()) {
+			throw new InsightError("Query references dataset not added");
+		}
 
 		return Promise.reject("Not implemented.");
 	}

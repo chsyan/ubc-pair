@@ -129,4 +129,8 @@ const validateQuery = (query: any): void => {
 	validateOptions(query.OPTIONS);
 };
 
-export {validateQuery};
+const getQueryDataset = (query: any): string => {
+	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
+};
+
+export {validateQuery, getQueryDataset};
