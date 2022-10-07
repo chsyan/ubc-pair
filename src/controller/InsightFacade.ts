@@ -1,3 +1,5 @@
+
+import {validateQuery, getQueryDataset} from "./QueryUtils";
 import {outputJSON, pathExists, remove} from "fs-extra";
 import {dataDir, DatasetSections, parseBuffer, validateId} from "./DatasetUtils";
 import {
@@ -14,9 +16,10 @@ import {
  * Method documentation is in IInsightFacade
  */
 export default class InsightFacade implements IInsightFacade {
-	private datasetSections: DatasetSections[];
+	private readonly datasetSections: DatasetSections[];
 
 	constructor() {
+		console.log("InsightFacadeImpl::init()");
 		this.datasetSections = [];
 	}
 
@@ -90,7 +93,28 @@ export default class InsightFacade implements IInsightFacade {
 		throw new NotFoundError("id not found");
 	}
 
-	public performQuery(query: unknown): Promise<InsightResult[]> {
+	public async performQuery(query: unknown): Promise<InsightResult[]> {
+		// Validate query
+		if (typeof query !== "object" || query === null) {
+			throw new InsightError("input query was not an 'object'");
+		}
+		validateQuery(query);
+
+		// TODO: Query Engine
+		const queryDatasetID = getQueryDataset(query);
+		const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
+		const existInMemory = (): boolean => {
+			for (const dataset in this.datasetSections) {
+				if (this.datasetSections[dataset].insight.id === queryDatasetID) {
+					return  true;
+				}
+			}
+			return false;
+		};
+		if (!existInDisk || !existInMemory()) {
+			throw new InsightError("Query references dataset not added");
+		}
+
 		return Promise.reject("Not implemented.");
 	}
 
@@ -99,3 +123,4 @@ export default class InsightFacade implements IInsightFacade {
 		return this.datasetSections.map((dataset) => dataset.insight);
 	}
 }
+
