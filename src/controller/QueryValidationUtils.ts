@@ -1,5 +1,11 @@
 import {InsightError} from "./IInsightFacade";
 
+/*
+*
+* Validate Query Util
+*
+*/
+
 const isExistingObject = (maybeObj: any, objName: string): boolean => {
 	if (maybeObj === undefined) {
 		return false;
@@ -129,8 +135,4 @@ const validateQuery = (query: any): void => {
 	validateOptions(query.OPTIONS);
 };
 
-const getQueryDataset = (query: any): string => {
-	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
-};
-
-export {validateQuery, getQueryDataset};
+export {validateQuery};
