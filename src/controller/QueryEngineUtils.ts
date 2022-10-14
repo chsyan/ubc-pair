@@ -37,7 +37,6 @@ const parseDatasetKey = (key: string, id: string): string => {
 };
 
 const handleMCompare = (section: any, mComparison: any, id: string, comparator: "GT" | "EQ" | "LT"): boolean => {
-	let result = true;
 	const mkey = Object.keys(mComparison)[0];
 	const sectionKey = parseDatasetKey(mkey, id);
 	let sectionValue: number;
@@ -48,13 +47,12 @@ const handleMCompare = (section: any, mComparison: any, id: string, comparator: 
 	}
 
 	if (comparator === "GT") {
-		result = sectionValue > mComparison[mkey];
+		return sectionValue > mComparison[mkey];
 	} else if (comparator === "EQ") {
-		result = sectionValue === mComparison[mkey];
-	} else if (comparator === "LT") {
-		result = sectionValue < mComparison[mkey];
+		return sectionValue === mComparison[mkey];
+	} else { // "LT"
+		return sectionValue < mComparison[mkey];
 	}
-	return result;
 };
 
 const handleSCompare = (section: any, sComparison: any, id: string): boolean => {
@@ -102,25 +100,21 @@ const handleLogic = (section: any, logicFilters: any, id: string, logic: "AND" |
 };
 
 const handleFilter = (section: any, filter: any, id: string): boolean => {
-	let result = true;
-
 	if (filter.GT !== undefined) {
-		result = handleMCompare(section, filter.GT, id, "GT");
+		return handleMCompare(section, filter.GT, id, "GT");
 	} else if (filter.EQ !== undefined) {
-		result = handleMCompare(section, filter.EQ, id, "EQ");
+		return handleMCompare(section, filter.EQ, id, "EQ");
 	} else if (filter.LT !== undefined) {
-		result = handleMCompare(section, filter.LT, id, "LT");
+		return handleMCompare(section, filter.LT, id, "LT");
 	} else if (filter.IS !== undefined) {
-		result = handleSCompare(section, filter.IS, id);
+		return handleSCompare(section, filter.IS, id);
 	} else if (filter.NOT !== undefined) {
-		result = handleNegation(section, filter.NOT, id);
+		return handleNegation(section, filter.NOT, id);
 	} else if (filter.AND !== undefined) {
-		result = handleLogic(section, filter.AND, id, "AND");
-	} else if (filter.OR !== undefined) {
-		result = handleLogic(section, filter.OR, id, "OR");
+		return handleLogic(section, filter.AND, id, "AND");
+	} else { // OR
+		return handleLogic(section, filter.OR, id, "OR");
 	}
-
-	return result;
 };
 
 const handleWhere = (section: any, query: any, id: string): boolean => {

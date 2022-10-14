@@ -102,10 +102,9 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		validateQuery(query);
 
-		// Check memory and disk for dataset id being queried
 		const queryDatasetID = getQueryDatasetID(query);
-		const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
 		let queryDatasetIndex: any = null;
+		let queryResult: InsightResult[];
 		const existInMemory = (): boolean => {
 			for (const dataset in this.datasetSections) {
 				if (this.datasetSections[dataset].insight.id === queryDatasetID) {
@@ -116,17 +115,18 @@ export default class InsightFacade implements IInsightFacade {
 			return false;
 		};
 
-		// Process Query By Memory (By Disk If Not Found In Memory)
-		let queryResult: InsightResult[];
-		if (!existInDisk || !existInMemory()) {
-			throw new InsightError("Query references dataset not added");
-		} else if (existInMemory()) {
+		if (existInMemory()) {
 			let queryDataset = this.datasetSections[queryDatasetIndex];
-			let filtered = queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
-			let unordered = filtered.map((section) => handleColumns(section, query, queryDatasetID));
+			let filtered = queryDataset.sections.filter((section: any) => handleWhere(section, query, queryDatasetID));
+			let unordered = filtered.map((section: any) => handleColumns(section, query, queryDatasetID));
 			queryResult = handleOrder(unordered, query, queryDatasetID);
 		} else {
+			const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
+			if (!existInDisk) {
+				throw new InsightError("Query references dataset not added");
+			}
 			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
+				this.datasetSections.push(queryDataset);
 				return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
 			}).then((filteredSections) => {
 				return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
@@ -134,6 +134,24 @@ export default class InsightFacade implements IInsightFacade {
 				return handleOrder(unorderedQueryResult, query, queryDatasetID);
 			});
 		}
+
+		// Process Query By Memory (By Disk If Not Found In Memory)
+		// if (!existInDisk || !existInMemory()) {
+		// 	throw new InsightError("Query references dataset not added");
+		// } else if (existInMemory()) {
+		// 	let queryDataset = this.datasetSections[queryDatasetIndex];
+		// 	let filtered = queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
+		// 	let unordered = filtered.map((section) => handleColumns(section, query, queryDatasetID));
+		// 	queryResult = handleOrder(unordered, query, queryDatasetID);
+		// } else {
+		// 	queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
+		// 		return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
+		// 	}).then((filteredSections) => {
+		// 		return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
+		// 	}).then((unorderedQueryResult) => {
+		// 		return handleOrder(unorderedQueryResult, query, queryDatasetID);
+		// 	});
+		// }
 
 		if (queryResult.length > 5000) {
 			throw new ResultTooLargeError("Query resulted in more than 5000 results");
