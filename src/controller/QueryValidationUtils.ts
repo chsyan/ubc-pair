@@ -60,8 +60,7 @@ const validateFilter = (filter: any, name: string): void => {
 	} else if (isExistingObject(filter.IS, "IS")) {
 		checkKeysLength(filter.IS, "IS", 1);
 		const sKey = Object.keys(filter.IS)[0];
-		let invalidIsString = typeof filter.IS[sKey] !== "string" ||
-				!filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
+		let invalidIsString = typeof filter.IS[sKey] !== "string" || !filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
 		if (!isValidKey(sKey, "skey") || invalidIsString) {
 			throw new InsightError("invalid skey or value used");
 		}

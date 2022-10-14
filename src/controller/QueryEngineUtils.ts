@@ -58,11 +58,25 @@ const handleMCompare = (section: any, mComparison: any, id: string, comparator: 
 };
 
 const handleSCompare = (section: any, sComparison: any, id: string): boolean => {
-	// TODO: HANDLE WILDCARDS
 	const skey = Object.keys(sComparison)[0];
+	const inputString = sComparison[skey];
 	const sectionKey = parseDatasetKey(skey, id);
+	if (!(typeof inputString === "string")) {
+		throw new InsightError("IS input string must be a string");
+	}
+	const inputNoAsterisk = inputString.replaceAll("*", "");
+	const startsWithAsterisk = inputString.startsWith("*");
+	const endsWithAsterisk = inputString.endsWith("*");
 
-	return section[sectionKey] === sComparison[skey];
+	if (startsWithAsterisk && endsWithAsterisk) {
+		return section[sectionKey].includes(inputNoAsterisk);
+	} else if (startsWithAsterisk) {
+		return section[sectionKey].endsWith(inputNoAsterisk);
+	} else if (endsWithAsterisk) {
+		return section[sectionKey].startsWith(inputNoAsterisk);
+	} else {
+		return section[sectionKey] === sComparison[skey];
+	}
 };
 
 const handleNegation = (section: any, negatedFilter: any, id: string): boolean => {
