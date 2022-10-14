@@ -91,4 +91,4 @@ const readDataset = async (id: string): Promise<DatasetSections> => {
 	}
 };
 
-export {validateId, parseBuffer, DatasetSections, dataDir, readDataDir};
+export {validateId, parseBuffer, DatasetSections, dataDir, readDataDir, readDataset};

@@ -1,7 +1,8 @@
 
-import {validateQuery, getQueryDataset} from "./QueryUtils";
+import {validateQuery} from "./QueryValidationUtils";
+import {getQueryDatasetID, handleWhere, handleColumns, handleOrder} from "./QueryEngineUtils";
 import {outputJSON, pathExists, remove} from "fs-extra";
-import {dataDir, DatasetSections, parseBuffer, validateId} from "./DatasetUtils";
+import {dataDir, DatasetSections, parseBuffer, validateId, readDataset} from "./DatasetUtils";
 import {
 	IInsightFacade,
 	InsightDataset,
@@ -9,6 +10,7 @@ import {
 	InsightError,
 	InsightResult,
 	NotFoundError,
+	ResultTooLargeError
 } from "./IInsightFacade";
 
 /*
@@ -100,22 +102,44 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		validateQuery(query);
 
-		// TODO: Query Engine
-		const queryDatasetID = getQueryDataset(query);
-		const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
+		const queryDatasetID = getQueryDatasetID(query);
+		let queryDatasetIndex: any = null;
+		let queryResult: InsightResult[];
 		const existInMemory = (): boolean => {
 			for (const dataset in this.datasetSections) {
 				if (this.datasetSections[dataset].insight.id === queryDatasetID) {
-					return  true;
+					queryDatasetIndex = dataset;
+					return true;
 				}
 			}
 			return false;
 		};
-		if (!existInDisk || !existInMemory()) {
-			throw new InsightError("Query references dataset not added");
+
+		if (existInMemory()) {
+			let queryDataset = this.datasetSections[queryDatasetIndex];
+			let filtered = queryDataset.sections.filter((section: any) => handleWhere(section, query, queryDatasetID));
+			let unordered = filtered.map((section: any) => handleColumns(section, query, queryDatasetID));
+			queryResult = handleOrder(unordered, query, queryDatasetID);
+		} else {
+			const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
+			if (!existInDisk) {
+				throw new InsightError("Query references dataset not added");
+			}
+			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
+				this.datasetSections.push(queryDataset);
+				return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
+			}).then((filteredSections) => {
+				return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
+			}).then((unorderedQueryResult) => {
+				return handleOrder(unorderedQueryResult, query, queryDatasetID);
+			});
 		}
 
-		return Promise.reject("Not implemented.");
+		if (queryResult.length > 5000) {
+			throw new ResultTooLargeError("Query resulted in more than 5000 results");
+		}
+
+		return queryResult;
 	}
 
 	public async listDatasets(): Promise<InsightDataset[]> {

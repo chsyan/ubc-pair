@@ -1,5 +1,11 @@
 import {InsightError} from "./IInsightFacade";
 
+/*
+*
+* Validate Query Util
+*
+*/
+
 const isExistingObject = (maybeObj: any, objName: string): boolean => {
 	if (maybeObj === undefined) {
 		return false;
@@ -54,8 +60,7 @@ const validateFilter = (filter: any, name: string): void => {
 	} else if (isExistingObject(filter.IS, "IS")) {
 		checkKeysLength(filter.IS, "IS", 1);
 		const sKey = Object.keys(filter.IS)[0];
-		let invalidIsString = typeof filter.IS[sKey] !== "string" ||
-				!filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
+		let invalidIsString = typeof filter.IS[sKey] !== "string" || !filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
 		if (!isValidKey(sKey, "skey") || invalidIsString) {
 			throw new InsightError("invalid skey or value used");
 		}
@@ -129,8 +134,4 @@ const validateQuery = (query: any): void => {
 	validateOptions(query.OPTIONS);
 };
 
-const getQueryDataset = (query: any): string => {
-	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
-};
-
-export {validateQuery, getQueryDataset};
+export {validateQuery};
