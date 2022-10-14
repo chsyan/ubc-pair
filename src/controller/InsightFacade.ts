@@ -135,24 +135,6 @@ export default class InsightFacade implements IInsightFacade {
 			});
 		}
 
-		// Process Query By Memory (By Disk If Not Found In Memory)
-		// if (!existInDisk || !existInMemory()) {
-		// 	throw new InsightError("Query references dataset not added");
-		// } else if (existInMemory()) {
-		// 	let queryDataset = this.datasetSections[queryDatasetIndex];
-		// 	let filtered = queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
-		// 	let unordered = filtered.map((section) => handleColumns(section, query, queryDatasetID));
-		// 	queryResult = handleOrder(unordered, query, queryDatasetID);
-		// } else {
-		// 	queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
-		// 		return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
-		// 	}).then((filteredSections) => {
-		// 		return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
-		// 	}).then((unorderedQueryResult) => {
-		// 		return handleOrder(unorderedQueryResult, query, queryDatasetID);
-		// 	});
-		// }
-
 		if (queryResult.length > 5000) {
 			throw new ResultTooLargeError("Query resulted in more than 5000 results");
 		}
