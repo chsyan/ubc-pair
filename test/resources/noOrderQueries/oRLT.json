@@ -1,0 +1,80 @@
+{
+	"title": "OR LT",
+	"input": {
+		"WHERE": {
+			"OR": [
+				{
+					"GT": {
+						"sections_avg": 99
+					}
+				},
+				{
+					"LT": {
+						"sections_avg": 30
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_id",
+				"sections_avg"
+			],
+			"ORDER": "sections_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "lfs",
+			"sections_id": "100",
+			"sections_avg": 0
+		},
+		{
+			"sections_dept": "lfs",
+			"sections_id": "100",
+			"sections_avg": 0
+		},
+		{
+			"sections_dept": "frst",
+			"sections_id": "202",
+			"sections_avg": 0
+		},
+		{
+			"sections_dept": "wood",
+			"sections_id": "475",
+			"sections_avg": 1
+		},
+		{
+			"sections_dept": "busi",
+			"sections_id": "330",
+			"sections_avg": 4
+		},
+		{
+			"sections_dept": "busi",
+			"sections_id": "330",
+			"sections_avg": 4
+		},
+		{
+			"sections_dept": "fopr",
+			"sections_id": "362",
+			"sections_avg": 4.5
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_id": "574",
+			"sections_avg": 99.19
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "527",
+			"sections_avg": 99.78
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "527",
+			"sections_avg": 99.78
+		}
+	]
+}

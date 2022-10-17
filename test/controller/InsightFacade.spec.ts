@@ -245,5 +245,30 @@ describe("InsightFacade", function () {
 				},
 			}
 		);
+
+		// Run the tests in test/resources/noOrderQueries without any regard to order
+		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+			"Dynamic InsightFacade PerformQuery tests without order",
+			(input) => insightFacade.performQuery(input),
+			"./test/resources/noOrderQueries",
+			{
+				errorValidator: (error): error is PQErrorKind =>
+					error === "ResultTooLargeError" || error === "InsightError",
+				assertOnError: (actual, expected) => {
+					if (expected === "ResultTooLargeError") {
+						expect(actual).to.be.instanceof(ResultTooLargeError);
+					} else {
+						expect(actual).to.be.instanceof(InsightError);
+					}
+				},
+				assertOnResult: (actual: any, expected: any) => {
+					expect(actual.length).to.equal(expected.length);
+
+					for (const key in actual) {
+						expect(expected).to.deep.include(actual[key]);
+					}
+				},
+			}
+		);
 	});
 });
