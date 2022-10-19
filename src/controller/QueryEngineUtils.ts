@@ -139,6 +139,10 @@ const handleColumns = (section: any, query: any, id: string): InsightResult => {
 		const sectionKey = parseDatasetKey(column, id);
 		if (sectionKey === "Year" && section.Section === "overall") {
 			sectionValue = 1900;
+		} else if (sectionKey === "Year") {
+			sectionValue = Number(section[sectionKey]);
+		} else if (sectionKey === "id") {
+			sectionValue = section[sectionKey].toString();
 		} else {
 			sectionValue = section[sectionKey];
 		}
