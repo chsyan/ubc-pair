@@ -9,6 +9,8 @@ interface DatasetSections {
 
 const dataDir = "./data";
 
+const queryKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
+
 const validateId = (id: string): void => {
 	/*
 	 * From the spec:
@@ -38,7 +40,10 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 
 	try {
 		const zip = await JSZip.loadAsync(contentEncoded);
+
+		// Only consider files inside ./courses/ dir
 		const filePaths = Object.keys(zip.files).filter((filePath) => /courses\/*/.test(filePath));
+
 		const filePromises = filePaths.map(async (filePath) => {
 			const file = zip.file(filePath);
 
@@ -50,7 +55,18 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 			return file.async("string").then((fileContent) => {
 				// Parse the file contents as JSON
 				for (const section of JSON.parse(fileContent).result) {
-					sections.push(section);
+					// Check that the file has all appropriate fields
+					let keysPresent = true;
+					for (const key of queryKeys) {
+						if (section[key] === undefined) {
+							keysPresent = false;
+							break;
+						}
+					}
+
+					if (keysPresent) {
+						sections.push(section);
+					}
 				}
 			});
 		});
