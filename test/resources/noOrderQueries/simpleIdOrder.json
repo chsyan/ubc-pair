@@ -1,0 +1,216 @@
+{
+	"title": "simple id order",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 97
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_id"
+			],
+			"ORDER": "sections_id"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "spph",
+			"sections_id": "300"
+		},
+		{
+			"sections_dept": "spph",
+			"sections_id": "300"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "421"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "421"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "421"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "421"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "421"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "449"
+		},
+		{
+			"sections_dept": "educ",
+			"sections_id": "500"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "509"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "509"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "509"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "509"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "519"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "519"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "525"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "525"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "527"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "527"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "532"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "532"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "534"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "534"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "541"
+		},
+		{
+			"sections_dept": "math",
+			"sections_id": "541"
+		},
+		{
+			"sections_dept": "eece",
+			"sections_id": "541"
+		},
+		{
+			"sections_dept": "eece",
+			"sections_id": "541"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "549"
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_id": "574"
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_id": "574"
+		},
+		{
+			"sections_dept": "cnps",
+			"sections_id": "574"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "578"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "591"
+		},
+		{
+			"sections_dept": "nurs",
+			"sections_id": "591"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "596"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "596"
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_id": "599"
+		},
+		{
+			"sections_dept": "crwr",
+			"sections_id": "599"
+		},
+		{
+			"sections_dept": "epse",
+			"sections_id": "606"
+		}
+	]
+}
