@@ -1,0 +1,14 @@
+{
+	"title": "invalidKey",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_invalidKey"
+			],
+			"ORDER": "classes123_invalidKey"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

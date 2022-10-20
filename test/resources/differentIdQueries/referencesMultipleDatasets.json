@@ -1,0 +1,15 @@
+{
+	"title": "referencesMultipleDatasets",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg",
+				"classes1232_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

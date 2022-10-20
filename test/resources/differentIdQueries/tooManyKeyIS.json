@@ -1,0 +1,19 @@
+{
+	"title": "tooManyKeyIS",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"classes123_dept": "anth",
+				"classes123_id": "100"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

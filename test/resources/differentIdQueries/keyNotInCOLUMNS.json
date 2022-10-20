@@ -1,0 +1,14 @@
+{
+	"title": "keyNotInCOLUMNS",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_id"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -1,0 +1,147 @@
+{
+	"title": "validNOT",
+	"input": {
+		"WHERE": {
+			"NOT": {
+				"GT": {
+					"classes123_avg": 50
+				}
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"classes123_avg": 0
+		},
+		{
+			"classes123_avg": 0
+		},
+		{
+			"classes123_avg": 0
+		},
+		{
+			"classes123_avg": 1
+		},
+		{
+			"classes123_avg": 4
+		},
+		{
+			"classes123_avg": 4
+		},
+		{
+			"classes123_avg": 4.5
+		},
+		{
+			"classes123_avg": 33
+		},
+		{
+			"classes123_avg": 33.2
+		},
+		{
+			"classes123_avg": 34
+		},
+		{
+			"classes123_avg": 39.03
+		},
+		{
+			"classes123_avg": 39.03
+		},
+		{
+			"classes123_avg": 42
+		},
+		{
+			"classes123_avg": 42.5
+		},
+		{
+			"classes123_avg": 42.64
+		},
+		{
+			"classes123_avg": 42.64
+		},
+		{
+			"classes123_avg": 43.33
+		},
+		{
+			"classes123_avg": 44.88
+		},
+		{
+			"classes123_avg": 46.33
+		},
+		{
+			"classes123_avg": 46.33
+		},
+		{
+			"classes123_avg": 46.5
+		},
+		{
+			"classes123_avg": 46.52
+		},
+		{
+			"classes123_avg": 46.59
+		},
+		{
+			"classes123_avg": 46.71
+		},
+		{
+			"classes123_avg": 46.95
+		},
+		{
+			"classes123_avg": 47.13
+		},
+		{
+			"classes123_avg": 47.29
+		},
+		{
+			"classes123_avg": 47.82
+		},
+		{
+			"classes123_avg": 48.9
+		},
+		{
+			"classes123_avg": 49.07
+		},
+		{
+			"classes123_avg": 49.14
+		},
+		{
+			"classes123_avg": 49.15
+		},
+		{
+			"classes123_avg": 49.17
+		},
+		{
+			"classes123_avg": 49.25
+		},
+		{
+			"classes123_avg": 49.47
+		},
+		{
+			"classes123_avg": 49.47
+		},
+		{
+			"classes123_avg": 49.73
+		},
+		{
+			"classes123_avg": 49.86
+		},
+		{
+			"classes123_avg": 49.95
+		},
+		{
+			"classes123_avg": 50
+		},
+		{
+			"classes123_avg": 50
+		},
+		{
+			"classes123_avg": 50
+		}
+	]
+}

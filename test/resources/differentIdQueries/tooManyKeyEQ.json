@@ -1,0 +1,19 @@
+{
+	"title": "tooManyKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"classes123_avg": 50,
+				"classes123_year": 1900
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

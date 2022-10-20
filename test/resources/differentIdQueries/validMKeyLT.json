@@ -1,0 +1,28 @@
+{
+	"title": "validMKeyLT",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"classes123_avg": 1
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"classes123_avg": 0
+		},
+		{
+			"classes123_avg": 0
+		},
+		{
+			"classes123_avg": 0
+		}
+	]
+}

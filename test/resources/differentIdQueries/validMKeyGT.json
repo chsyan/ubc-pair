@@ -1,0 +1,28 @@
+{
+	"title": "validMKeyGT",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"classes123_avg": 99
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"classes123_avg": 99.19
+		},
+		{
+			"classes123_avg": 99.78
+		},
+		{
+			"classes123_avg": 99.78
+		}
+	]
+}

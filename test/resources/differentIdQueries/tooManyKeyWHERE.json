@@ -1,0 +1,21 @@
+{
+	"title": "tooManyKeyWHERE",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"classes123_avg": 90
+			},
+			"IS": {
+				"classes123_dept": "math"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

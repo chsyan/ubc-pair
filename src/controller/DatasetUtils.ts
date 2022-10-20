@@ -9,6 +9,8 @@ interface DatasetSections {
 
 const dataDir = "./data";
 
+const requiredKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
+
 const validateId = (id: string): void => {
 	/*
 	 * From the spec:
@@ -38,7 +40,10 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 
 	try {
 		const zip = await JSZip.loadAsync(contentEncoded);
-		const filePaths = Object.keys(zip.files);
+
+		// Only consider files inside ./courses/ dir
+		const filePaths = Object.keys(zip.files).filter((filePath) => /courses\/*/.test(filePath));
+
 		const filePromises = filePaths.map(async (filePath) => {
 			const file = zip.file(filePath);
 
@@ -50,7 +55,19 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 			return file.async("string").then((fileContent) => {
 				// Parse the file contents as JSON
 				for (const section of JSON.parse(fileContent).result) {
-					sections.push(section);
+					// Check that the file has all appropriate fields
+					const keysPresent = () => {
+						for (const key of requiredKeys) {
+							if (section[key] === undefined) {
+								return false;
+							}
+						}
+						return true;
+					};
+
+					if (keysPresent()) {
+						sections.push(section);
+					}
 				}
 			});
 		});
@@ -58,6 +75,9 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 		await Promise.all(filePromises);
 	} catch (err) {
 		throw new InsightError("Error decoding zip file");
+	}
+	if (sections.length === 0) {
+		throw new InsightError("Must have at least one valid section");
 	}
 	return sections;
 };
