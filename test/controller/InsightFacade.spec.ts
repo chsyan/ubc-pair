@@ -28,6 +28,7 @@ describe("InsightFacade", function () {
 		sections: "./test/resources/archives/pair.zip",
 		noCoursesDir: "./test/resources/archives/notCourses.zip",
 		noValidSection: "./test/resources/archives/notValid.zip",
+		extra: "./test/resources/archives/extra.zip",
 	};
 
 	before(function () {
@@ -104,6 +105,25 @@ describe("InsightFacade", function () {
 					});
 			});
 
+			it("should list extra dataset", function () {
+				const sections: string = datasetContents.get("extra") ?? "";
+				return insightFacade
+					.addDataset("sections", sections, InsightDatasetKind.Sections)
+					.then(() => {
+						return insightFacade.listDatasets();
+					})
+					.then((insightDatasets) => {
+						expect(insightDatasets).to.deep.equal([
+							{
+								id: "sections",
+								kind: InsightDatasetKind.Sections,
+								numRows: 64612,
+							},
+						]);
+						expect(insightDatasets).to.be.an.instanceof(Array);
+						expect(insightDatasets).to.have.length(1);
+					});
+			});
 			it("should list multiple datasets", function () {
 				const sections: string = datasetContents.get("sections") ?? "";
 				return insightFacade
@@ -217,6 +237,12 @@ describe("InsightFacade", function () {
 					datasetContents.get("sections") ?? "",
 					InsightDatasetKind.Sections
 				),
+				insightFacade.addDataset("courses", datasetContents.get("sections") ?? "", InsightDatasetKind.Sections),
+				insightFacade.addDataset(
+					"classes123",
+					datasetContents.get("sections") ?? "",
+					InsightDatasetKind.Sections
+				),
 			];
 
 			return Promise.all(loadDatasetPromises);
@@ -233,6 +259,24 @@ describe("InsightFacade", function () {
 			"Dynamic InsightFacade PerformQuery tests",
 			(input) => insightFacade.performQuery(input),
 			"./test/resources/queries",
+			{
+				errorValidator: (error): error is PQErrorKind =>
+					error === "ResultTooLargeError" || error === "InsightError",
+				assertOnError: (actual, expected) => {
+					if (expected === "ResultTooLargeError") {
+						expect(actual).to.be.instanceof(ResultTooLargeError);
+					} else {
+						expect(actual).to.be.instanceof(InsightError);
+					}
+				},
+			}
+		);
+
+		// Run tests in ./differentIdQueries which queries with a different id than sections
+		folderTest<unknown, Promise<InsightResult[]>, PQErrorKind>(
+			"Dynamic InsightFacade PerformQuery tests with different ids",
+			(input) => insightFacade.performQuery(input),
+			"./test/resources/differentIdQueries",
 			{
 				errorValidator: (error): error is PQErrorKind =>
 					error === "ResultTooLargeError" || error === "InsightError",

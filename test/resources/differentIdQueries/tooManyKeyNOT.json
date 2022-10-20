@@ -1,0 +1,23 @@
+{
+	"title": "tooManyKeyNOT",
+	"input": {
+		"WHERE": {
+			"NOT": {
+				"GT": {
+					"classes123_avg": 50
+				},
+				"IS": {
+					"classes123_dept": "anth"
+				}
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

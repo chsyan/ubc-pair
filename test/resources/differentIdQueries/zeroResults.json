@@ -1,0 +1,18 @@
+{
+	"title": "zeroResults",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"classes123_avg": 100
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": []
+}

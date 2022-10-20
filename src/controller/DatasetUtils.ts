@@ -38,7 +38,7 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 
 	try {
 		const zip = await JSZip.loadAsync(contentEncoded);
-		const filePaths = Object.keys(zip.files);
+		const filePaths = Object.keys(zip.files).filter((filePath) => /courses\/*/.test(filePath));
 		const filePromises = filePaths.map(async (filePath) => {
 			const file = zip.file(filePath);
 
@@ -58,6 +58,9 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 		await Promise.all(filePromises);
 	} catch (err) {
 		throw new InsightError("Error decoding zip file");
+	}
+	if (sections.length === 0) {
+		throw new InsightError("Must have at least one valid section");
 	}
 	return sections;
 };

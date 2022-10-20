@@ -1,0 +1,19 @@
+{
+	"title": "tooManyKeyLT",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"classes123_avg": 1,
+				"classes123_year": 2022
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

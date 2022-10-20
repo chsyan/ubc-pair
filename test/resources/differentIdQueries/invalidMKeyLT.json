@@ -1,0 +1,18 @@
+{
+	"title": "invalidMKeyLT",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"classes123_dept": 1
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

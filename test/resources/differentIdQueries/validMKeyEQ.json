@@ -1,0 +1,28 @@
+{
+	"title": "validMKeyEQ",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"classes123_avg": 50
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"classes123_avg": 50
+		},
+		{
+			"classes123_avg": 50
+		},
+		{
+			"classes123_avg": 50
+		}
+	]
+}

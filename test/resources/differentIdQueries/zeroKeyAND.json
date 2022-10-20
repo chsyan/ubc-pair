@@ -1,0 +1,18 @@
+{
+	"title": "zeroKeyAND",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

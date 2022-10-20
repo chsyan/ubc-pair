@@ -1,0 +1,14 @@
+{
+	"title": "missingCOLUMNS",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"": [
+				"classes123_avg"
+			],
+			"ORDER": "classes123_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

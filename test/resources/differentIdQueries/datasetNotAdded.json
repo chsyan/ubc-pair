@@ -1,0 +1,14 @@
+{
+	"title": "datasetNotAdded",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"notAdded_avg"
+			],
+			"ORDER": "notAdded_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
