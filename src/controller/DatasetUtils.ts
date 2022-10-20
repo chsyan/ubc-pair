@@ -9,7 +9,7 @@ interface DatasetSections {
 
 const dataDir = "./data";
 
-const queryKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
+const requiredKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
 
 const validateId = (id: string): void => {
 	/*
@@ -56,15 +56,16 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 				// Parse the file contents as JSON
 				for (const section of JSON.parse(fileContent).result) {
 					// Check that the file has all appropriate fields
-					let keysPresent = true;
-					for (const key of queryKeys) {
-						if (section[key] === undefined) {
-							keysPresent = false;
-							break;
+					const keysPresent = () => {
+						for (const key of requiredKeys) {
+							if (section[key] === undefined) {
+								return false;
+							}
 						}
-					}
+						return true;
+					};
 
-					if (keysPresent) {
+					if (keysPresent()) {
 						sections.push(section);
 					}
 				}
