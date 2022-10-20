@@ -1,0 +1,496 @@
+{
+	"title": "simple fail order",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_fail": 100
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_dept",
+				"sections_fail"
+			],
+			"ORDER": "sections_fail"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_dept": "math",
+			"sections_fail": 101
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 102
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 102
+		},
+		{
+			"sections_dept": "comm",
+			"sections_fail": 102
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 103
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 106
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 106
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 107
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 108
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 108
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 109
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 110
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 110
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 110
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 111
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 111
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 112
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 112
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 112
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 113
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 113
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 114
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 114
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 115
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 115
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 116
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 116
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_fail": 118
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 118
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 118
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 119
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 120
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 120
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 121
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 122
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 122
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 123
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 123
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 125
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 126
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 128
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 129
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 131
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 132
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 133
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 134
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 135
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 135
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 135
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 135
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 136
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 137
+		},
+		{
+			"sections_dept": "apsc",
+			"sections_fail": 141
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 142
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 142
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 142
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 143
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 144
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 145
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 145
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 145
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 146
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 147
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 147
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 147
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 149
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_fail": 150
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 150
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_fail": 157
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 157
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 162
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 162
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 162
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 166
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 168
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 169
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 170
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 171
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 171
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 172
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 172
+		},
+		{
+			"sections_dept": "psyc",
+			"sections_fail": 175
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 175
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 177
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 180
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 181
+		},
+		{
+			"sections_dept": "phys",
+			"sections_fail": 184
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 186
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 186
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 187
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 187
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 188
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 190
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 190
+		},
+		{
+			"sections_dept": "cpsc",
+			"sections_fail": 190
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 190
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 192
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 193
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 196
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 203
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 204
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 205
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 213
+		},
+		{
+			"sections_dept": "econ",
+			"sections_fail": 221
+		},
+		{
+			"sections_dept": "math",
+			"sections_fail": 222
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 226
+		},
+		{
+			"sections_dept": "biol",
+			"sections_fail": 230
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 235
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 250
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 251
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 260
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 264
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 266
+		},
+		{
+			"sections_dept": "chem",
+			"sections_fail": 287
+		}
+	]
+}
