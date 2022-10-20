@@ -10,6 +10,8 @@ interface DatasetSections {
 const dataDir = "./data";
 
 const requiredKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
+const requiredMKeys = ["Avg", "Pass", "Fail", "Audit", "Year"];
+const requiredSKeys = ["Subject", "Course", "Professor", "Title", "id"];
 
 const validateId = (id: string): void => {
 	/*
@@ -55,18 +57,9 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 			return file.async("string").then((fileContent) => {
 				// Parse the file contents as JSON
 				for (const section of JSON.parse(fileContent).result) {
-					// Check that the file has all appropriate fields
-					const keysPresent = () => {
-						for (const key of requiredKeys) {
-							if (section[key] === undefined) {
-								return false;
-							}
-						}
-						return true;
-					};
-
-					if (keysPresent()) {
-						sections.push(section);
+					const parsedSection = parseSection(section);
+					if (parsedSection) {
+						sections.push(parseSection(section));
 					}
 				}
 			});
@@ -80,6 +73,24 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 		throw new InsightError("Must have at least one valid section");
 	}
 	return sections;
+};
+
+const parseSection = (section: any) => {
+	// Check that the file has all appropriate fields.
+  // Return undefined if it doesn't.
+	for (const sKey of requiredSKeys) {
+		if (section[sKey] === undefined) {
+			return;
+		}
+		section[sKey] = String(section[sKey]);
+	}
+	for (const mKey of requiredMKeys) {
+		if (section[mKey] === undefined) {
+			return;
+		}
+		section[mKey] = Number(section[mKey]);
+	}
+	return section;
 };
 
 const readDataDir = async (): Promise<DatasetSections[]> => {
