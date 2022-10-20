@@ -166,8 +166,8 @@ const handleOrder = (unorderedQueryResult: any[], query: any, id: string): Insig
 	} else if (order === id + "_dept" ||
 		order === id + "_id" ||
 		order === id + "_instructor" ||
-		order === id + "title" ||
-		order === id + "uuid") {
+		order === id + "_title" ||
+		order === id + "_uuid") {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
 			if(insightResA[order] < insightResB[order]) {
 				return -1;
