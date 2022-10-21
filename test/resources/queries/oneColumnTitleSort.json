@@ -1,0 +1,4144 @@
+{
+	"title": "oneColumnTitleSort",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 92
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_title"
+			],
+			"ORDER": "sections_title"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": ""
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "able&creatv lrnr"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad assess schl"
+		},
+		{
+			"sections_title": "acad libraries"
+		},
+		{
+			"sections_title": "acad libraries"
+		},
+		{
+			"sections_title": "acquired lng dis"
+		},
+		{
+			"sections_title": "acquired lng dis"
+		},
+		{
+			"sections_title": "ad top vlsi desg"
+		},
+		{
+			"sections_title": "ad top vlsi desg"
+		},
+		{
+			"sections_title": "adlt edu pract"
+		},
+		{
+			"sections_title": "adlt edu pract"
+		},
+		{
+			"sections_title": "adlt psychpathlg"
+		},
+		{
+			"sections_title": "adlt psychpathlg"
+		},
+		{
+			"sections_title": "adlt psychpathlg"
+		},
+		{
+			"sections_title": "adlt psychpathlg"
+		},
+		{
+			"sections_title": "admn ldrshp nurs"
+		},
+		{
+			"sections_title": "admn ldrshp nurs"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "admn of injectns"
+		},
+		{
+			"sections_title": "adu edu pro"
+		},
+		{
+			"sections_title": "adu edu pro"
+		},
+		{
+			"sections_title": "adv comp archtct"
+		},
+		{
+			"sections_title": "adv comp archtct"
+		},
+		{
+			"sections_title": "adv geotechnics"
+		},
+		{
+			"sections_title": "adv geotechnics"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv hlth assess"
+		},
+		{
+			"sections_title": "adv human gene"
+		},
+		{
+			"sections_title": "adv human gene"
+		},
+		{
+			"sections_title": "adv immunogeneti"
+		},
+		{
+			"sections_title": "adv immunogeneti"
+		},
+		{
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_title": "adv int seminar"
+		},
+		{
+			"sections_title": "adv rad biophys"
+		},
+		{
+			"sections_title": "adv rad biophys"
+		},
+		{
+			"sections_title": "adv std min area"
+		},
+		{
+			"sections_title": "adv std min area"
+		},
+		{
+			"sections_title": "advancd span iii"
+		},
+		{
+			"sections_title": "advancd span iii"
+		},
+		{
+			"sections_title": "algb geometry i"
+		},
+		{
+			"sections_title": "algb geometry i"
+		},
+		{
+			"sections_title": "algb geometry i"
+		},
+		{
+			"sections_title": "algb geometry i"
+		},
+		{
+			"sections_title": "algb topology i"
+		},
+		{
+			"sections_title": "algb topology i"
+		},
+		{
+			"sections_title": "algb topology i"
+		},
+		{
+			"sections_title": "algb topology i"
+		},
+		{
+			"sections_title": "algebra i"
+		},
+		{
+			"sections_title": "algebra i"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "algebra ii"
+		},
+		{
+			"sections_title": "amplification ii"
+		},
+		{
+			"sections_title": "amplification ii"
+		},
+		{
+			"sections_title": "an meth epid res"
+		},
+		{
+			"sections_title": "an meth epid res"
+		},
+		{
+			"sections_title": "animal dvl gntcs"
+		},
+		{
+			"sections_title": "animal dvl gntcs"
+		},
+		{
+			"sections_title": "appl hlth serv"
+		},
+		{
+			"sections_title": "appl hlth serv"
+		},
+		{
+			"sections_title": "appl hlth serv"
+		},
+		{
+			"sections_title": "appl hlth serv"
+		},
+		{
+			"sections_title": "appl lear theor"
+		},
+		{
+			"sections_title": "as in s&s disord"
+		},
+		{
+			"sections_title": "as in s&s disord"
+		},
+		{
+			"sections_title": "asmnt spec needs"
+		},
+		{
+			"sections_title": "asmnt spec needs"
+		},
+		{
+			"sections_title": "asmnt spec needs"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "assess lrn diffi"
+		},
+		{
+			"sections_title": "aud&non-txt arch"
+		},
+		{
+			"sections_title": "aud&non-txt arch"
+		},
+		{
+			"sections_title": "audi adv prc i"
+		},
+		{
+			"sections_title": "audi adv prc i"
+		},
+		{
+			"sections_title": "audi adv prc ii"
+		},
+		{
+			"sections_title": "audi adv prc ii"
+		},
+		{
+			"sections_title": "audi prctcm iii"
+		},
+		{
+			"sections_title": "audi prctcm iii"
+		},
+		{
+			"sections_title": "audi prctcm iii"
+		},
+		{
+			"sections_title": "audi prctcm iii"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "audi prctcm iv"
+		},
+		{
+			"sections_title": "augmt&alt comm"
+		},
+		{
+			"sections_title": "augmt&alt comm"
+		},
+		{
+			"sections_title": "augmt&alt comm"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "basic princ meas"
+		},
+		{
+			"sections_title": "behav economics"
+		},
+		{
+			"sections_title": "behav economics"
+		},
+		{
+			"sections_title": "biology research"
+		},
+		{
+			"sections_title": "biology research"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "cad algrthm i cr"
+		},
+		{
+			"sections_title": "career counselng"
+		},
+		{
+			"sections_title": "career counselng"
+		},
+		{
+			"sections_title": "career counselng"
+		},
+		{
+			"sections_title": "career counselng"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "career planning"
+		},
+		{
+			"sections_title": "case res&analys"
+		},
+		{
+			"sections_title": "ch&ad psyco-path"
+		},
+		{
+			"sections_title": "ch&ad psyco-path"
+		},
+		{
+			"sections_title": "chldren&families"
+		},
+		{
+			"sections_title": "chldren&families"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "cl pro prim care"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "classroom mgmt"
+		},
+		{
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_title": "clin make iv"
+		},
+		{
+			"sections_title": "clinical clerkship"
+		},
+		{
+			"sections_title": "clinical clerkship"
+		},
+		{
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_title": "clinical dec ii"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnsl mat cr prov"
+		},
+		{
+			"sections_title": "cnt tme stchastc"
+		},
+		{
+			"sections_title": "cnt tme stchastc"
+		},
+		{
+			"sections_title": "coaching effctv"
+		},
+		{
+			"sections_title": "cog lang proc ed"
+		},
+		{
+			"sections_title": "cog lang proc ed"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "coll&uni teachng"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "com hlth prom"
+		},
+		{
+			"sections_title": "combinatorial op"
+		},
+		{
+			"sections_title": "combinatorial op"
+		},
+		{
+			"sections_title": "combinatorial op"
+		},
+		{
+			"sections_title": "combinatorial op"
+		},
+		{
+			"sections_title": "comm disorders"
+		},
+		{
+			"sections_title": "comm disorders"
+		},
+		{
+			"sections_title": "comm disorders"
+		},
+		{
+			"sections_title": "comm disorders"
+		},
+		{
+			"sections_title": "comp animal phyl"
+		},
+		{
+			"sections_title": "comp animal phyl"
+		},
+		{
+			"sections_title": "comp animal phyl"
+		},
+		{
+			"sections_title": "comp animal phyl"
+		},
+		{
+			"sections_title": "complex analy"
+		},
+		{
+			"sections_title": "complex analy"
+		},
+		{
+			"sections_title": "complex analy"
+		},
+		{
+			"sections_title": "complex analy"
+		},
+		{
+			"sections_title": "complex analy i"
+		},
+		{
+			"sections_title": "complex analy i"
+		},
+		{
+			"sections_title": "computl ling 1"
+		},
+		{
+			"sections_title": "computl ling 1"
+		},
+		{
+			"sections_title": "concepts in onco"
+		},
+		{
+			"sections_title": "concepts in onco"
+		},
+		{
+			"sections_title": "concepts in onco"
+		},
+		{
+			"sections_title": "concepts in onco"
+		},
+		{
+			"sections_title": "cond matter ii"
+		},
+		{
+			"sections_title": "cond matter ii"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "constr strat"
+		},
+		{
+			"sections_title": "contem players"
+		},
+		{
+			"sections_title": "contem players"
+		},
+		{
+			"sections_title": "contem players"
+		},
+		{
+			"sections_title": "contem players"
+		},
+		{
+			"sections_title": "contemp players"
+		},
+		{
+			"sections_title": "contemp players"
+		},
+		{
+			"sections_title": "contxt ed policy"
+		},
+		{
+			"sections_title": "contxt ed policy"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "cor des ed res"
+		},
+		{
+			"sections_title": "costume constr"
+		},
+		{
+			"sections_title": "costume constr"
+		},
+		{
+			"sections_title": "costume constr"
+		},
+		{
+			"sections_title": "costume constr"
+		},
+		{
+			"sections_title": "counsl adolescnt"
+		},
+		{
+			"sections_title": "counsl adolescnt"
+		},
+		{
+			"sections_title": "counsl adolescnt"
+		},
+		{
+			"sections_title": "counsl adolescnt"
+		},
+		{
+			"sections_title": "cr-fc grwth&dev"
+		},
+		{
+			"sections_title": "cr-fc grwth&dev"
+		},
+		{
+			"sections_title": "crit anly sci ed"
+		},
+		{
+			"sections_title": "crit anly sci ed"
+		},
+		{
+			"sections_title": "crit apprais lit"
+		},
+		{
+			"sections_title": "crit apprais lit"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "crit spec ed"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "cross-cltr cnsl"
+		},
+		{
+			"sections_title": "crystal structre"
+		},
+		{
+			"sections_title": "crystal structre"
+		},
+		{
+			"sections_title": "cultural studies"
+		},
+		{
+			"sections_title": "cultural studies"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "cur dev e df&hrd"
+		},
+		{
+			"sections_title": "curr hist contxt"
+		},
+		{
+			"sections_title": "curr hist contxt"
+		},
+		{
+			"sections_title": "curr iss oral hl"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric as&interv"
+		},
+		{
+			"sections_title": "curric iss&thry"
+		},
+		{
+			"sections_title": "curric iss&thry"
+		},
+		{
+			"sections_title": "curric iss&thry"
+		},
+		{
+			"sections_title": "curric iss&thry"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "curric issu"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "des tech"
+		},
+		{
+			"sections_title": "dev el sk df&hrd"
+		},
+		{
+			"sections_title": "dev el sk df&hrd"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev neuropsych"
+		},
+		{
+			"sections_title": "dev scale&measur"
+		},
+		{
+			"sections_title": "dev scale&measur"
+		},
+		{
+			"sections_title": "dev wkshp/sem"
+		},
+		{
+			"sections_title": "dev wkshp/sem"
+		},
+		{
+			"sections_title": "dev wkshp/sem"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "diff geometry i"
+		},
+		{
+			"sections_title": "directed study"
+		},
+		{
+			"sections_title": "directed study"
+		},
+		{
+			"sections_title": "discourse & talk"
+		},
+		{
+			"sections_title": "discourse & talk"
+		},
+		{
+			"sections_title": "discourse & talk"
+		},
+		{
+			"sections_title": "discourse & talk"
+		},
+		{
+			"sections_title": "discrete math"
+		},
+		{
+			"sections_title": "discrete math"
+		},
+		{
+			"sections_title": "drug safety"
+		},
+		{
+			"sections_title": "drug safety"
+		},
+		{
+			"sections_title": "ds intl forstry"
+		},
+		{
+			"sections_title": "ds intl forstry"
+		},
+		{
+			"sections_title": "ds tec ii sc c&p"
+		},
+		{
+			"sections_title": "ds tec ii sc c&p"
+		},
+		{
+			"sections_title": "dsgn&anl smp&sub"
+		},
+		{
+			"sections_title": "dsgn&anl smp&sub"
+		},
+		{
+			"sections_title": "dynam struct 2"
+		},
+		{
+			"sections_title": "dynam struct 2"
+		},
+		{
+			"sections_title": "eco-based mgmt"
+		},
+		{
+			"sections_title": "eco-based mgmt"
+		},
+		{
+			"sections_title": "ecol plnt bioch"
+		},
+		{
+			"sections_title": "ecol plnt bioch"
+		},
+		{
+			"sections_title": "ecolg plant bioc"
+		},
+		{
+			"sections_title": "ecolg plant bioc"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed prg hghly abl"
+		},
+		{
+			"sections_title": "ed st dvl ds inc"
+		},
+		{
+			"sections_title": "ed st dvl ds inc"
+		},
+		{
+			"sections_title": "ed st dvl ds inc"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ stds autism"
+		},
+		{
+			"sections_title": "educ theories"
+		},
+		{
+			"sections_title": "educ theories"
+		},
+		{
+			"sections_title": "electronics lab"
+		},
+		{
+			"sections_title": "electronics lab"
+		},
+		{
+			"sections_title": "electronics lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "eng mtls lab"
+		},
+		{
+			"sections_title": "env phil & educ"
+		},
+		{
+			"sections_title": "env phil & educ"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth & prof clin"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eth&profl issues"
+		},
+		{
+			"sections_title": "eval src evidenc"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exp des anl ed"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "exptl med method"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "fam nrs pract"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "family counsl ii"
+		},
+		{
+			"sections_title": "fdmt inj biomech"
+		},
+		{
+			"sections_title": "fdmt inj biomech"
+		},
+		{
+			"sections_title": "fdns highr educ"
+		},
+		{
+			"sections_title": "fdns highr educ"
+		},
+		{
+			"sections_title": "fisheries mngmt"
+		},
+		{
+			"sections_title": "fisheries mngmt"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fluor microscpy"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "fn & educ change"
+		},
+		{
+			"sections_title": "food theor app"
+		},
+		{
+			"sections_title": "food theor app"
+		},
+		{
+			"sections_title": "food theor app"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "found ed tech"
+		},
+		{
+			"sections_title": "frst busn enterp"
+		},
+		{
+			"sections_title": "frst busn enterp"
+		},
+		{
+			"sections_title": "frst ntns rsorcs"
+		},
+		{
+			"sections_title": "frst ntns rsorcs"
+		},
+		{
+			"sections_title": "fst ntns soc iss"
+		},
+		{
+			"sections_title": "fst ntns soc iss"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "functional analy"
+		},
+		{
+			"sections_title": "gen&cell therapy"
+		},
+		{
+			"sections_title": "gen&cell therapy"
+		},
+		{
+			"sections_title": "genetics& ethics"
+		},
+		{
+			"sections_title": "genetics& ethics"
+		},
+		{
+			"sections_title": "genome analysis"
+		},
+		{
+			"sections_title": "genome analysis"
+		},
+		{
+			"sections_title": "grad prac"
+		},
+		{
+			"sections_title": "grad prac"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "harmonic anal i"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "health psych"
+		},
+		{
+			"sections_title": "hearing sci ii"
+		},
+		{
+			"sections_title": "hearing sci ii"
+		},
+		{
+			"sections_title": "hearing sci ii"
+		},
+		{
+			"sections_title": "hearing sci ii"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hier lin modelng"
+		},
+		{
+			"sections_title": "hist poplr music"
+		},
+		{
+			"sections_title": "hist poplr music"
+		},
+		{
+			"sections_title": "hlth & soc care"
+		},
+		{
+			"sections_title": "hlth tech asmnt"
+		},
+		{
+			"sections_title": "hlth tech asmnt"
+		},
+		{
+			"sections_title": "hmec ii sec c&p"
+		},
+		{
+			"sections_title": "hn dev, lrn, cul"
+		},
+		{
+			"sections_title": "hn dev, lrn, cul"
+		},
+		{
+			"sections_title": "hn dev, lrn, cul"
+		},
+		{
+			"sections_title": "hn dev, lrn, cul"
+		},
+		{
+			"sections_title": "hn dev: inf-adlt"
+		},
+		{
+			"sections_title": "hn dev: inf-adlt"
+		},
+		{
+			"sections_title": "hn dev: inf-adlt"
+		},
+		{
+			"sections_title": "hn dev: inf-adlt"
+		},
+		{
+			"sections_title": "home ec: 2nd ii"
+		},
+		{
+			"sections_title": "home ec: 2nd ii"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "honours thesis"
+		},
+		{
+			"sections_title": "hydrmtllgcl rctr"
+		},
+		{
+			"sections_title": "hydrmtllgcl rctr"
+		},
+		{
+			"sections_title": "hydrmtllgcl rctr"
+		},
+		{
+			"sections_title": "hydrmtllgcl rctr"
+		},
+		{
+			"sections_title": "ict educ ethics"
+		},
+		{
+			"sections_title": "ict educ ethics"
+		},
+		{
+			"sections_title": "imprv pblic hlth"
+		},
+		{
+			"sections_title": "imprv pblic hlth"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "incl bl vis-imp"
+		},
+		{
+			"sections_title": "ind peo frst lnd"
+		},
+		{
+			"sections_title": "ind peo frst lnd"
+		},
+		{
+			"sections_title": "ind skl vis imp"
+		},
+		{
+			"sections_title": "ind skl vis imp"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "indig, tech&ed"
+		},
+		{
+			"sections_title": "info services i"
+		},
+		{
+			"sections_title": "info tech&archvs"
+		},
+		{
+			"sections_title": "info tech&archvs"
+		},
+		{
+			"sections_title": "info tech&archvs"
+		},
+		{
+			"sections_title": "info tech&archvs"
+		},
+		{
+			"sections_title": "int sem in sw th"
+		},
+		{
+			"sections_title": "intr dyn systems"
+		},
+		{
+			"sections_title": "intr dyn systems"
+		},
+		{
+			"sections_title": "intr hindi-urdu"
+		},
+		{
+			"sections_title": "intr hindi-urdu"
+		},
+		{
+			"sections_title": "intr stat rs edu"
+		},
+		{
+			"sections_title": "intr stat rs edu"
+		},
+		{
+			"sections_title": "intr stat rs edu"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro excp child"
+		},
+		{
+			"sections_title": "intro musc thry"
+		},
+		{
+			"sections_title": "intro musc thry"
+		},
+		{
+			"sections_title": "intro psychthrpy"
+		},
+		{
+			"sections_title": "intro psychthrpy"
+		},
+		{
+			"sections_title": "intro psychthrpy"
+		},
+		{
+			"sections_title": "intro psychthrpy"
+		},
+		{
+			"sections_title": "intro sanskrit"
+		},
+		{
+			"sections_title": "intro sanskrit"
+		},
+		{
+			"sections_title": "intro tech prod"
+		},
+		{
+			"sections_title": "intro tech prod"
+		},
+		{
+			"sections_title": "intrv ch&ad bh d"
+		},
+		{
+			"sections_title": "intrv ch&ad bh d"
+		},
+		{
+			"sections_title": "intrv ch&ad bh d"
+		},
+		{
+			"sections_title": "intrv ch&ad bh d"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "islnd wild mgmt"
+		},
+		{
+			"sections_title": "ital lit cult"
+		},
+		{
+			"sections_title": "ital lit cult"
+		},
+		{
+			"sections_title": "ital lit cult"
+		},
+		{
+			"sections_title": "ital lit cult"
+		},
+		{
+			"sections_title": "item respns thry"
+		},
+		{
+			"sections_title": "item respns thry"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kin project"
+		},
+		{
+			"sections_title": "kinder curriclm"
+		},
+		{
+			"sections_title": "kinder curriclm"
+		},
+		{
+			"sections_title": "labour economics"
+		},
+		{
+			"sections_title": "labour economics"
+		},
+		{
+			"sections_title": "landsc plan&mgmt"
+		},
+		{
+			"sections_title": "landsc plan&mgmt"
+		},
+		{
+			"sections_title": "lang dev life"
+		},
+		{
+			"sections_title": "lang dev life"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp ethcs pol"
+		},
+		{
+			"sections_title": "ldrshp, ethics"
+		},
+		{
+			"sections_title": "ldrshp, ethics"
+		},
+		{
+			"sections_title": "lie theory i"
+		},
+		{
+			"sections_title": "lie theory i"
+		},
+		{
+			"sections_title": "linear vibrtns"
+		},
+		{
+			"sections_title": "linear vibrtns"
+		},
+		{
+			"sections_title": "lit review ii"
+		},
+		{
+			"sections_title": "log & crit think"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "lrn'g disablties"
+		},
+		{
+			"sections_title": "m.sc major essay"
+		},
+		{
+			"sections_title": "m.sc major essay"
+		},
+		{
+			"sections_title": "m.sc. thesis"
+		},
+		{
+			"sections_title": "market structure"
+		},
+		{
+			"sections_title": "market structure"
+		},
+		{
+			"sections_title": "masc thesis"
+		},
+		{
+			"sections_title": "master eng proj"
+		},
+		{
+			"sections_title": "master eng proj"
+		},
+		{
+			"sections_title": "master's thesis"
+		},
+		{
+			"sections_title": "master's thesis"
+		},
+		{
+			"sections_title": "masters thesis"
+		},
+		{
+			"sections_title": "masters thesis"
+		},
+		{
+			"sections_title": "masters thesis"
+		},
+		{
+			"sections_title": "masters thesis"
+		},
+		{
+			"sections_title": "masters thesis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math mdl com dis"
+		},
+		{
+			"sections_title": "math operations"
+		},
+		{
+			"sections_title": "math operations"
+		},
+		{
+			"sections_title": "math operations"
+		},
+		{
+			"sections_title": "math operations"
+		},
+		{
+			"sections_title": "math prblm slvng"
+		},
+		{
+			"sections_title": "math prblm slvng"
+		},
+		{
+			"sections_title": "math prblm slvng"
+		},
+		{
+			"sections_title": "mch tool str&vib"
+		},
+		{
+			"sections_title": "mch tool str&vib"
+		},
+		{
+			"sections_title": "meas health care"
+		},
+		{
+			"sections_title": "meas health care"
+		},
+		{
+			"sections_title": "meas thry&integr"
+		},
+		{
+			"sections_title": "meas thry&integr"
+		},
+		{
+			"sections_title": "med tech project"
+		},
+		{
+			"sections_title": "med tech project"
+		},
+		{
+			"sections_title": "mgmt sc meth"
+		},
+		{
+			"sections_title": "mgmt sc meth"
+		},
+		{
+			"sections_title": "mgmt sc meth"
+		},
+		{
+			"sections_title": "mgmt sc meth"
+		},
+		{
+			"sections_title": "mgmt sc meth"
+		},
+		{
+			"sections_title": "micb eco genomic"
+		},
+		{
+			"sections_title": "micb eco genomic"
+		},
+		{
+			"sections_title": "mntl hlth concrn"
+		},
+		{
+			"sections_title": "mntl hlth concrn"
+		},
+		{
+			"sections_title": "mo pict prod i"
+		},
+		{
+			"sections_title": "mo pict prod i"
+		},
+		{
+			"sections_title": "modl dynam systm"
+		},
+		{
+			"sections_title": "modl dynam systm"
+		},
+		{
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_title": "ms thesis"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc major essay"
+		},
+		{
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_title": "msc thesis"
+		},
+		{
+			"sections_title": "msn major essay"
+		},
+		{
+			"sections_title": "mt-anl qnt rs sy"
+		},
+		{
+			"sections_title": "mt-anl qnt rs sy"
+		},
+		{
+			"sections_title": "mt-anl qnt rs sy"
+		},
+		{
+			"sections_title": "mt-anl qnt rs sy"
+		},
+		{
+			"sections_title": "mth&mdl ptrl&gch"
+		},
+		{
+			"sections_title": "mth&mdl ptrl&gch"
+		},
+		{
+			"sections_title": "mthds asymp anal"
+		},
+		{
+			"sections_title": "mthds asymp anal"
+		},
+		{
+			"sections_title": "mtrl manufact"
+		},
+		{
+			"sections_title": "mtrl manufact"
+		},
+		{
+			"sections_title": "mult des anal rs"
+		},
+		{
+			"sections_title": "mult des anal rs"
+		},
+		{
+			"sections_title": "mult des anal rs"
+		},
+		{
+			"sections_title": "mult des anal rs"
+		},
+		{
+			"sections_title": "multimedia sys"
+		},
+		{
+			"sections_title": "multimedia sys"
+		},
+		{
+			"sections_title": "nanosc model&sim"
+		},
+		{
+			"sections_title": "nanosc model&sim"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "nat resrce mngmt"
+		},
+		{
+			"sections_title": "obsv&doc erly ch"
+		},
+		{
+			"sections_title": "obsv&doc erly ch"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "orch repertoire"
+		},
+		{
+			"sections_title": "org&admin hi edu"
+		},
+		{
+			"sections_title": "org&admin hi edu"
+		},
+		{
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_title": "pcol anaesthesia"
+		},
+		{
+			"sections_title": "pediatric audio"
+		},
+		{
+			"sections_title": "pediatric audio"
+		},
+		{
+			"sections_title": "pediatric audio"
+		},
+		{
+			"sections_title": "pediatric audio"
+		},
+		{
+			"sections_title": "perinatal epidem"
+		},
+		{
+			"sections_title": "perinatal epidem"
+		},
+		{
+			"sections_title": "phrm in practc 1"
+		},
+		{
+			"sections_title": "phrm in practc 1"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl asp phy act"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "phyl ms aud func"
+		},
+		{
+			"sections_title": "pln pe,sp&ex prg"
+		},
+		{
+			"sections_title": "pln pe,sp&ex prg"
+		},
+		{
+			"sections_title": "power syst dynam"
+		},
+		{
+			"sections_title": "power syst dynam"
+		},
+		{
+			"sections_title": "pr mental health"
+		},
+		{
+			"sections_title": "pr mental health"
+		},
+		{
+			"sections_title": "pr mental health"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prep writ career"
+		},
+		{
+			"sections_title": "prev spts inj i"
+		},
+		{
+			"sections_title": "prev spts inj i"
+		},
+		{
+			"sections_title": "prev spts inj i"
+		},
+		{
+			"sections_title": "prev spts inj i"
+		},
+		{
+			"sections_title": "prg child sp lrn"
+		},
+		{
+			"sections_title": "prg child sp lrn"
+		},
+		{
+			"sections_title": "prg child sp lrn"
+		},
+		{
+			"sections_title": "prg child sp lrn"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "prgm devl cnsl"
+		},
+		{
+			"sections_title": "primary care iii"
+		},
+		{
+			"sections_title": "primary care iii"
+		},
+		{
+			"sections_title": "prin behav anlys"
+		},
+		{
+			"sections_title": "prin behav anlys"
+		},
+		{
+			"sections_title": "prin behav anlys"
+		},
+		{
+			"sections_title": "prin behav anlys"
+		},
+		{
+			"sections_title": "prin behav anlys"
+		},
+		{
+			"sections_title": "prin chem separ"
+		},
+		{
+			"sections_title": "prin chem separ"
+		},
+		{
+			"sections_title": "prin&meth rsch i"
+		},
+		{
+			"sections_title": "prin&meth rsch i"
+		},
+		{
+			"sections_title": "prob-bsd lrn bio"
+		},
+		{
+			"sections_title": "prob-bsd lrn bio"
+		},
+		{
+			"sections_title": "prob-bsd lrn bio"
+		},
+		{
+			"sections_title": "prob-bsd lrn bio"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability i"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "probability ii"
+		},
+		{
+			"sections_title": "problty & stat"
+		},
+		{
+			"sections_title": "problty & stat"
+		},
+		{
+			"sections_title": "prof prct larc"
+		},
+		{
+			"sections_title": "prof prct larc"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prof,eth&lgl iss"
+		},
+		{
+			"sections_title": "prog pln & eval"
+		},
+		{
+			"sections_title": "prog pln & eval"
+		},
+		{
+			"sections_title": "prog pln & eval"
+		},
+		{
+			"sections_title": "project & report"
+		},
+		{
+			"sections_title": "project & report"
+		},
+		{
+			"sections_title": "project & report"
+		},
+		{
+			"sections_title": "project & report"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "prt diff equa i"
+		},
+		{
+			"sections_title": "pulmonry pthphyl"
+		},
+		{
+			"sections_title": "pulmonry pthphyl"
+		},
+		{
+			"sections_title": "pulmonry pthphyl"
+		},
+		{
+			"sections_title": "pulmonry pthphyl"
+		},
+		{
+			"sections_title": "qual mth res des"
+		},
+		{
+			"sections_title": "qual mth res des"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quant fld theory"
+		},
+		{
+			"sections_title": "quantum mech ii"
+		},
+		{
+			"sections_title": "quantum mech ii"
+		},
+		{
+			"sections_title": "rdngs orch rep"
+		},
+		{
+			"sections_title": "rdngs orch rep"
+		},
+		{
+			"sections_title": "rehab learning"
+		},
+		{
+			"sections_title": "res meth educ"
+		},
+		{
+			"sections_title": "res meth educ"
+		},
+		{
+			"sections_title": "res meth educ"
+		},
+		{
+			"sections_title": "res meth educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "res mthd in educ"
+		},
+		{
+			"sections_title": "research problem"
+		},
+		{
+			"sections_title": "research problem"
+		},
+		{
+			"sections_title": "research problem"
+		},
+		{
+			"sections_title": "research problem"
+		},
+		{
+			"sections_title": "rev res curr&ped"
+		},
+		{
+			"sections_title": "rev res curr&ped"
+		},
+		{
+			"sections_title": "rev res curr&ped"
+		},
+		{
+			"sections_title": "rev res curr&ped"
+		},
+		{
+			"sections_title": "rl div hlth expr"
+		},
+		{
+			"sections_title": "rl div hlth expr"
+		},
+		{
+			"sections_title": "role tcher guid"
+		},
+		{
+			"sections_title": "rs mth&sem orbi"
+		},
+		{
+			"sections_title": "rs mth&sem orbi"
+		},
+		{
+			"sections_title": "rsc trd edu admn"
+		},
+		{
+			"sections_title": "rsc trd edu admn"
+		},
+		{
+			"sections_title": "rsch surgical pr"
+		},
+		{
+			"sections_title": "rsch surgical pr"
+		},
+		{
+			"sections_title": "rsrch methdlgy"
+		},
+		{
+			"sections_title": "rsrch methdlgy"
+		},
+		{
+			"sections_title": "sbst use addictn"
+		},
+		{
+			"sections_title": "sbst use addictn"
+		},
+		{
+			"sections_title": "scenery prod i"
+		},
+		{
+			"sections_title": "scenery prod i"
+		},
+		{
+			"sections_title": "schl counselling"
+		},
+		{
+			"sections_title": "schl counselling"
+		},
+		{
+			"sections_title": "schl counselling"
+		},
+		{
+			"sections_title": "schl counselling"
+		},
+		{
+			"sections_title": "seismic rsp strc"
+		},
+		{
+			"sections_title": "seismic rsp strc"
+		},
+		{
+			"sections_title": "sem hum mtr perf"
+		},
+		{
+			"sections_title": "sem hum mtr perf"
+		},
+		{
+			"sections_title": "sem in autism"
+		},
+		{
+			"sections_title": "sem medical anth"
+		},
+		{
+			"sections_title": "sem medical anth"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem r prpty dv&p"
+		},
+		{
+			"sections_title": "sem sociol educ"
+		},
+		{
+			"sections_title": "sem sociol educ"
+		},
+		{
+			"sections_title": "sem theor"
+		},
+		{
+			"sections_title": "sem theor"
+		},
+		{
+			"sections_title": "semicon thy appl"
+		},
+		{
+			"sections_title": "semicon thy appl"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "seminar"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc & econ measu"
+		},
+		{
+			"sections_title": "soc wrk & justce"
+		},
+		{
+			"sections_title": "soc-psych fndtns"
+		},
+		{
+			"sections_title": "soc-psych fndtns"
+		},
+		{
+			"sections_title": "soc-psych fndtns"
+		},
+		{
+			"sections_title": "soc-psych fndtns"
+		},
+		{
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_title": "social analysis"
+		},
+		{
+			"sections_title": "sociocult determ"
+		},
+		{
+			"sections_title": "sociocult determ"
+		},
+		{
+			"sections_title": "sociocult determ"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "socl&emtl assess"
+		},
+		{
+			"sections_title": "solid earth sci"
+		},
+		{
+			"sections_title": "solid earth sci"
+		},
+		{
+			"sections_title": "sound design"
+		},
+		{
+			"sections_title": "sound design"
+		},
+		{
+			"sections_title": "spc tpcs macroec"
+		},
+		{
+			"sections_title": "spc tpcs macroec"
+		},
+		{
+			"sections_title": "spc tpcs macroec"
+		},
+		{
+			"sections_title": "spc tpcs macroec"
+		},
+		{
+			"sections_title": "spec tpcs kin"
+		},
+		{
+			"sections_title": "spec tpcs kin"
+		},
+		{
+			"sections_title": "spec tpcs kin"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "specific lrn dis"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "stats methlgy i"
+		},
+		{
+			"sections_title": "std in sign lang"
+		},
+		{
+			"sections_title": "std in sign lang"
+		},
+		{
+			"sections_title": "std in sign lang"
+		},
+		{
+			"sections_title": "std in sign lang"
+		},
+		{
+			"sections_title": "student seminar"
+		},
+		{
+			"sections_title": "student seminar"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surgical rsrch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "surv bhvr dis ch"
+		},
+		{
+			"sections_title": "survlnc&monitrng"
+		},
+		{
+			"sections_title": "survlnc&monitrng"
+		},
+		{
+			"sections_title": "survlnc&monitrng"
+		},
+		{
+			"sections_title": "survlnc&monitrng"
+		},
+		{
+			"sections_title": "syst rev hlth rs"
+		},
+		{
+			"sections_title": "syst rev hlth rs"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tch'g hghly able"
+		},
+		{
+			"sections_title": "tchg st visl imp"
+		},
+		{
+			"sections_title": "tchg st visl imp"
+		},
+		{
+			"sections_title": "tec comm skls ii"
+		},
+		{
+			"sections_title": "tec comm skls ii"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech arts hum"
+		},
+		{
+			"sections_title": "tech comm skills"
+		},
+		{
+			"sections_title": "tech for vis imp"
+		},
+		{
+			"sections_title": "tech for vis imp"
+		},
+		{
+			"sections_title": "tech in hlthcare"
+		},
+		{
+			"sections_title": "tech in hlthcare"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "tech math sci"
+		},
+		{
+			"sections_title": "thermodynamics"
+		},
+		{
+			"sections_title": "thermodynamics"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "thesis"
+		},
+		{
+			"sections_title": "third-year russ"
+		},
+		{
+			"sections_title": "third-year russ"
+		},
+		{
+			"sections_title": "thr lng&lit rsrc"
+		},
+		{
+			"sections_title": "thr lng&lit rsrc"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry of automata"
+		},
+		{
+			"sections_title": "thry&prc prg evl"
+		},
+		{
+			"sections_title": "thry&prc prg evl"
+		},
+		{
+			"sections_title": "thry&rs soc cont"
+		},
+		{
+			"sections_title": "thry&rs soc cont"
+		},
+		{
+			"sections_title": "ths prop: biotec"
+		},
+		{
+			"sections_title": "ths prop: biotec"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "thy cognt assess"
+		},
+		{
+			"sections_title": "tops public plcy"
+		},
+		{
+			"sections_title": "tops public plcy"
+		},
+		{
+			"sections_title": "tpc cytosk&cl mo"
+		},
+		{
+			"sections_title": "tpc cytosk&cl mo"
+		},
+		{
+			"sections_title": "tpc cytosk&cl mo"
+		},
+		{
+			"sections_title": "tpc cytosk&cl mo"
+		},
+		{
+			"sections_title": "tpc int-cel traf"
+		},
+		{
+			"sections_title": "tpc int-cel traf"
+		},
+		{
+			"sections_title": "tpc int-cel traf"
+		},
+		{
+			"sections_title": "tpc int-cel traf"
+		},
+		{
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_title": "tpcs path rsrch"
+		},
+		{
+			"sections_title": "tpcs sociol educ"
+		},
+		{
+			"sections_title": "tpcs sociol educ"
+		},
+		{
+			"sections_title": "trends & topics"
+		},
+		{
+			"sections_title": "trends & topics"
+		},
+		{
+			"sections_title": "txt pol& id cdev"
+		},
+		{
+			"sections_title": "txt pol& id cdev"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "typ atyp inf/ch"
+		},
+		{
+			"sections_title": "ubc chamb string"
+		},
+		{
+			"sections_title": "ubc chamb string"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "ubc singers"
+		},
+		{
+			"sections_title": "urb dsgn thr&met"
+		},
+		{
+			"sections_title": "urb dsgn thr&met"
+		},
+		{
+			"sections_title": "urbn trans systm"
+		},
+		{
+			"sections_title": "urbn trans systm"
+		},
+		{
+			"sections_title": "vocal techniques"
+		},
+		{
+			"sections_title": "vocal techniques"
+		},
+		{
+			"sections_title": "work int health"
+		},
+		{
+			"sections_title": "work int health"
+		}
+	]
+}

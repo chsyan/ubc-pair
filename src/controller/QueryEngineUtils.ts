@@ -169,9 +169,7 @@ const handleOrder = (unorderedQueryResult: any[], query: any, id: string): Insig
 		order === id + "_title" ||
 		order === id + "_uuid") {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
-			if (!isNaN(Number(insightResA)) && !isNaN(Number(insightResB))) {
-				return Number(insightResA) - Number(insightResB);
-			} else if(insightResA[order] < insightResB[order]) {
+			if(insightResA[order] < insightResB[order]) {
 				return -1;
 			} else if (insightResA[order] > insightResB[order]) {
 				return 1;

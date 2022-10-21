@@ -1,0 +1,4144 @@
+{
+	"title": "oneColumnInstructorSort",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"sections_avg": 92
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_instructor"
+			],
+			"ORDER": "sections_instructor"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": ""
+		},
+		{
+			"sections_instructor": "acheson, alison"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon"
+		},
+		{
+			"sections_instructor": "adelman, sharon;hicks, darlene"
+		},
+		{
+			"sections_instructor": "adelman, sharon;macleod, elizabeth d"
+		},
+		{
+			"sections_instructor": "adem, alejandro"
+		},
+		{
+			"sections_instructor": "adler, james douglas"
+		},
+		{
+			"sections_instructor": "adler, james douglas;scott, sandra"
+		},
+		{
+			"sections_instructor": "adler, james douglas;scott, sandra"
+		},
+		{
+			"sections_instructor": "affleck, ian keith"
+		},
+		{
+			"sections_instructor": "ahenakew, cash"
+		},
+		{
+			"sections_instructor": "alam, matiul"
+		},
+		{
+			"sections_instructor": "alam, matiul"
+		},
+		{
+			"sections_instructor": "altintas, yusuf"
+		},
+		{
+			"sections_instructor": "amaral, deborah"
+		},
+		{
+			"sections_instructor": "amaral, deborah"
+		},
+		{
+			"sections_instructor": "amaral, deborah"
+		},
+		{
+			"sections_instructor": "amaral, deborah;ford, laurie"
+		},
+		{
+			"sections_instructor": "amaral, deborah;ford, laurie"
+		},
+		{
+			"sections_instructor": "amaral, deborah;missiaen, sharon anne"
+		},
+		{
+			"sections_instructor": "amundson, norman"
+		},
+		{
+			"sections_instructor": "andreou, theresa"
+		},
+		{
+			"sections_instructor": "angel, omer"
+		},
+		{
+			"sections_instructor": "angel, omer"
+		},
+		{
+			"sections_instructor": "ayas, najib"
+		},
+		{
+			"sections_instructor": "ayas, najib"
+		},
+		{
+			"sections_instructor": "bally, marcel bertran;bennewith, kevin;cote, helene;devlin, angela;rajcan-separovic, evica;shah, sohrab;steidl, christian;verchere, bruce;wellington, cheryl lea;weng, andrew"
+		},
+		{
+			"sections_instructor": "bayrampour basmenj, hamideh"
+		},
+		{
+			"sections_instructor": "behrend, kai"
+		},
+		{
+			"sections_instructor": "benimeo, maria"
+		},
+		{
+			"sections_instructor": "benimeo, maria"
+		},
+		{
+			"sections_instructor": "bhagavatula, sastry"
+		},
+		{
+			"sections_instructor": "birnbaum, david"
+		},
+		{
+			"sections_instructor": "bishundayal, deonarine"
+		},
+		{
+			"sections_instructor": "bishundayal, deonarine"
+		},
+		{
+			"sections_instructor": "bishundayal, deonarine"
+		},
+		{
+			"sections_instructor": "bohlmann, jorg"
+		},
+		{
+			"sections_instructor": "bohlmann, jorg"
+		},
+		{
+			"sections_instructor": "bortolussi, paolo;hamm, corey"
+		},
+		{
+			"sections_instructor": "both, pauline;ervin, ruth"
+		},
+		{
+			"sections_instructor": "brew, nancy"
+		},
+		{
+			"sections_instructor": "brew, nancy"
+		},
+		{
+			"sections_instructor": "brew, nancy"
+		},
+		{
+			"sections_instructor": "brew, nancy"
+		},
+		{
+			"sections_instructor": "brew, nancy;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "bruno, talino"
+		},
+		{
+			"sections_instructor": "bruno, talino"
+		},
+		{
+			"sections_instructor": "brydges, david"
+		},
+		{
+			"sections_instructor": "bryson, mary"
+		},
+		{
+			"sections_instructor": "bryson, stephanie"
+		},
+		{
+			"sections_instructor": "bryson, stephanie;o'connor, deborah;stainton, timothy;sullivan, t richard;tester, frank"
+		},
+		{
+			"sections_instructor": "bungay, victoria"
+		},
+		{
+			"sections_instructor": "burrows, marlene"
+		},
+		{
+			"sections_instructor": "burrows, marlene"
+		},
+		{
+			"sections_instructor": "burrows, marlene"
+		},
+		{
+			"sections_instructor": "burrows, marlene;harding, jillian;krist, jennifer;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "burrows, marlene;harding, jillian;krist, jennifer;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "burrows, marlene;harding, jillian;krist, jennifer;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "burrows, marlene;harding, jillian;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "burrows, marlene;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, deborah"
+		},
+		{
+			"sections_instructor": "campbell, kim;vedam, saraswathi"
+		},
+		{
+			"sections_instructor": "cannon, joanna"
+		},
+		{
+			"sections_instructor": "cannon, joanna"
+		},
+		{
+			"sections_instructor": "cannon, joanna"
+		},
+		{
+			"sections_instructor": "carenini, giuseppe"
+		},
+		{
+			"sections_instructor": "carter, john"
+		},
+		{
+			"sections_instructor": "carter, john"
+		},
+		{
+			"sections_instructor": "carter, john"
+		},
+		{
+			"sections_instructor": "carter, john"
+		},
+		{
+			"sections_instructor": "carter, john"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "champion, kathleen"
+		},
+		{
+			"sections_instructor": "chan, eric"
+		},
+		{
+			"sections_instructor": "chan, eric"
+		},
+		{
+			"sections_instructor": "chan, eric"
+		},
+		{
+			"sections_instructor": "chan, eric"
+		},
+		{
+			"sections_instructor": "chartres, lynn"
+		},
+		{
+			"sections_instructor": "chartres, lynn"
+		},
+		{
+			"sections_instructor": "chartres, lynn"
+		},
+		{
+			"sections_instructor": "chau, albert"
+		},
+		{
+			"sections_instructor": "chen, david"
+		},
+		{
+			"sections_instructor": "cho, sunah"
+		},
+		{
+			"sections_instructor": "cho, sunah"
+		},
+		{
+			"sections_instructor": "cho, sunah"
+		},
+		{
+			"sections_instructor": "cho, sunah"
+		},
+		{
+			"sections_instructor": "clark, natalie"
+		},
+		{
+			"sections_instructor": "clarke, lorne"
+		},
+		{
+			"sections_instructor": "cockcroft, steven"
+		},
+		{
+			"sections_instructor": "cole, kenneth"
+		},
+		{
+			"sections_instructor": "cole, kenneth"
+		},
+		{
+			"sections_instructor": "cole, kenneth"
+		},
+		{
+			"sections_instructor": "cole, kenneth"
+		},
+		{
+			"sections_instructor": "coria, lino"
+		},
+		{
+			"sections_instructor": "cote, helene"
+		},
+		{
+			"sections_instructor": "cox, daniel"
+		},
+		{
+			"sections_instructor": "cox, daniel"
+		},
+		{
+			"sections_instructor": "cox, daniel"
+		},
+		{
+			"sections_instructor": "cox, daniel"
+		},
+		{
+			"sections_instructor": "cox, michael"
+		},
+		{
+			"sections_instructor": "cripton, peter"
+		},
+		{
+			"sections_instructor": "curle, deirdre;jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "curle, deirdre;jordan, elizabeth;norman, nancy"
+		},
+		{
+			"sections_instructor": "curle, deirdre;jordan, elizabeth;norman, nancy"
+		},
+		{
+			"sections_instructor": "darwich, lina"
+		},
+		{
+			"sections_instructor": "davis, brent"
+		},
+		{
+			"sections_instructor": "de cosson, alexander"
+		},
+		{
+			"sections_instructor": "de cosson, alexander"
+		},
+		{
+			"sections_instructor": "de cosson, alexander"
+		},
+		{
+			"sections_instructor": "de cosson, alexander"
+		},
+		{
+			"sections_instructor": "de cosson, alexander"
+		},
+		{
+			"sections_instructor": "de longis, anita"
+		},
+		{
+			"sections_instructor": "de longis, anita"
+		},
+		{
+			"sections_instructor": "de longis, anita"
+		},
+		{
+			"sections_instructor": "de silva, clarence wilfred"
+		},
+		{
+			"sections_instructor": "diewert, w erwin"
+		},
+		{
+			"sections_instructor": "diewert, w erwin"
+		},
+		{
+			"sections_instructor": "diewert, w erwin"
+		},
+		{
+			"sections_instructor": "dixon, david"
+		},
+		{
+			"sections_instructor": "dixon, david"
+		},
+		{
+			"sections_instructor": "dommel, hermann"
+		},
+		{
+			"sections_instructor": "dorcey, anthony h j"
+		},
+		{
+			"sections_instructor": "dorcey, anthony h j"
+		},
+		{
+			"sections_instructor": "dorcey, anthony h j"
+		},
+		{
+			"sections_instructor": "douglas, carl;schulte, patricia"
+		},
+		{
+			"sections_instructor": "doyle-waters, mary;taylor, darlene"
+		},
+		{
+			"sections_instructor": "driscoll-bell, jean"
+		},
+		{
+			"sections_instructor": "dumont, guy a"
+		},
+		{
+			"sections_instructor": "dunbar, w scott"
+		},
+		{
+			"sections_instructor": "dunbar, w scott"
+		},
+		{
+			"sections_instructor": "dunbar, w scott"
+		},
+		{
+			"sections_instructor": "dunster, katherine"
+		},
+		{
+			"sections_instructor": "dyer, brenda"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "el khatib, lara"
+		},
+		{
+			"sections_instructor": "englezos, peter"
+		},
+		{
+			"sections_instructor": "ercikan, kadriye"
+		},
+		{
+			"sections_instructor": "ercikan, kadriye"
+		},
+		{
+			"sections_instructor": "ervin, ruth"
+		},
+		{
+			"sections_instructor": "ervin, ruth"
+		},
+		{
+			"sections_instructor": "escueta, mok"
+		},
+		{
+			"sections_instructor": "faber, shawna"
+		},
+		{
+			"sections_instructor": "faber, shawna"
+		},
+		{
+			"sections_instructor": "farrell, adam"
+		},
+		{
+			"sections_instructor": "fatemi, sayyed mohsen"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "feng, francis"
+		},
+		{
+			"sections_instructor": "firkins, jacqueline"
+		},
+		{
+			"sections_instructor": "flood, karen"
+		},
+		{
+			"sections_instructor": "flood, karen"
+		},
+		{
+			"sections_instructor": "ford, laurie"
+		},
+		{
+			"sections_instructor": "ford, laurie"
+		},
+		{
+			"sections_instructor": "ford, laurie"
+		},
+		{
+			"sections_instructor": "ford, laurie"
+		},
+		{
+			"sections_instructor": "ford, laurie;robinson, georgina"
+		},
+		{
+			"sections_instructor": "ford, laurie;robinson, georgina"
+		},
+		{
+			"sections_instructor": "fossett, brenda"
+		},
+		{
+			"sections_instructor": "frackman, kyle"
+		},
+		{
+			"sections_instructor": "frank, erica"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james"
+		},
+		{
+			"sections_instructor": "frankish, charles james;guhn, martin;tanimura, kanna"
+		},
+		{
+			"sections_instructor": "fraser, ailana"
+		},
+		{
+			"sections_instructor": "fraser, ailana"
+		},
+		{
+			"sections_instructor": "friedman, joel"
+		},
+		{
+			"sections_instructor": "friedman, joel"
+		},
+		{
+			"sections_instructor": "friedman, joel"
+		},
+		{
+			"sections_instructor": "gallipoli, giovanni"
+		},
+		{
+			"sections_instructor": "gallipoli, giovanni"
+		},
+		{
+			"sections_instructor": "galloway, steve"
+		},
+		{
+			"sections_instructor": "galloway, steve"
+		},
+		{
+			"sections_instructor": "galloway, steve"
+		},
+		{
+			"sections_instructor": "gartner, zsu zsi"
+		},
+		{
+			"sections_instructor": "gaster, sean"
+		},
+		{
+			"sections_instructor": "gaster, sean"
+		},
+		{
+			"sections_instructor": "gauvin, emma"
+		},
+		{
+			"sections_instructor": "ghement, isabella"
+		},
+		{
+			"sections_instructor": "ghement, isabella"
+		},
+		{
+			"sections_instructor": "ghement, isabella"
+		},
+		{
+			"sections_instructor": "ghement, isabella"
+		},
+		{
+			"sections_instructor": "gill, deana"
+		},
+		{
+			"sections_instructor": "gill, deana"
+		},
+		{
+			"sections_instructor": "gill, deana"
+		},
+		{
+			"sections_instructor": "girard, jonathan"
+		},
+		{
+			"sections_instructor": "girard, jonathan"
+		},
+		{
+			"sections_instructor": "girard, jonathan"
+		},
+		{
+			"sections_instructor": "girling, cynthia"
+		},
+		{
+			"sections_instructor": "gomez, jose"
+		},
+		{
+			"sections_instructor": "gopaluni, bhushan"
+		},
+		{
+			"sections_instructor": "gopaluni, bhushan"
+		},
+		{
+			"sections_instructor": "gordon, julia yulia"
+		},
+		{
+			"sections_instructor": "gordon, julia yulia"
+		},
+		{
+			"sections_instructor": "gordon, terence;russell, james kelly"
+		},
+		{
+			"sections_instructor": "gouzouasis, peter"
+		},
+		{
+			"sections_instructor": "grady, albert wayne"
+		},
+		{
+			"sections_instructor": "grady, albert wayne"
+		},
+		{
+			"sections_instructor": "graefe, sara"
+		},
+		{
+			"sections_instructor": "graefe, sara"
+		},
+		{
+			"sections_instructor": "green, david"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "grow, laura"
+		},
+		{
+			"sections_instructor": "guhn, martin"
+		},
+		{
+			"sections_instructor": "haas, kurt"
+		},
+		{
+			"sections_instructor": "haas, kurt"
+		},
+		{
+			"sections_instructor": "haas, kurt"
+		},
+		{
+			"sections_instructor": "habajova, irina"
+		},
+		{
+			"sections_instructor": "hafeli, urs"
+		},
+		{
+			"sections_instructor": "halevy, yoram"
+		},
+		{
+			"sections_instructor": "hallam, steven"
+		},
+		{
+			"sections_instructor": "hamm, corey;magnanensi, giorgio;wilson, eric"
+		},
+		{
+			"sections_instructor": "hamm, corey;wilson, eric"
+		},
+		{
+			"sections_instructor": "haney, colleen;hawley, jody;tba"
+		},
+		{
+			"sections_instructor": "harding, jillian"
+		},
+		{
+			"sections_instructor": "harding, jillian"
+		},
+		{
+			"sections_instructor": "harvey, nicholas"
+		},
+		{
+			"sections_instructor": "hatton, jennifer;herdman, anthony"
+		},
+		{
+			"sections_instructor": "hatzikiriakos, savvas"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "heikkila, mary"
+		},
+		{
+			"sections_instructor": "henczel, lisa"
+		},
+		{
+			"sections_instructor": "henry, annette"
+		},
+		{
+			"sections_instructor": "herdman, anthony"
+		},
+		{
+			"sections_instructor": "herdman, anthony"
+		},
+		{
+			"sections_instructor": "herdman, anthony"
+		},
+		{
+			"sections_instructor": "herdman, anthony"
+		},
+		{
+			"sections_instructor": "herdman, anthony"
+		},
+		{
+			"sections_instructor": "hesselink, nathan"
+		},
+		{
+			"sections_instructor": "hieter, philip;jones, steven j;rose, ann"
+		},
+		{
+			"sections_instructor": "hodgson, antony"
+		},
+		{
+			"sections_instructor": "horka, andy"
+		},
+		{
+			"sections_instructor": "hungr, oldrich"
+		},
+		{
+			"sections_instructor": "hunter, thomas"
+		},
+		{
+			"sections_instructor": "hymel, shelley"
+		},
+		{
+			"sections_instructor": "hymel, shelley"
+		},
+		{
+			"sections_instructor": "ishiyama, fumio ishu"
+		},
+		{
+			"sections_instructor": "ishiyama, fumio ishu"
+		},
+		{
+			"sections_instructor": "jackson, howard"
+		},
+		{
+			"sections_instructor": "james, susan"
+		},
+		{
+			"sections_instructor": "james, susan"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janes, diane"
+		},
+		{
+			"sections_instructor": "janssen, patricia"
+		},
+		{
+			"sections_instructor": "jenkins, dr jacqueline"
+		},
+		{
+			"sections_instructor": "jhangiani, rajiv"
+		},
+		{
+			"sections_instructor": "jillings, carol"
+		},
+		{
+			"sections_instructor": "jones, steven j"
+		},
+		{
+			"sections_instructor": "jones, steven j"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "jordan, elizabeth"
+		},
+		{
+			"sections_instructor": "kamat, vinay ramnath"
+		},
+		{
+			"sections_instructor": "karres, debora"
+		},
+		{
+			"sections_instructor": "karu, kalle"
+		},
+		{
+			"sections_instructor": "karu, kalle"
+		},
+		{
+			"sections_instructor": "karu, kalle"
+		},
+		{
+			"sections_instructor": "kazanjian, arminee"
+		},
+		{
+			"sections_instructor": "kealy, david"
+		},
+		{
+			"sections_instructor": "kent, debra ann"
+		},
+		{
+			"sections_instructor": "kieffer, tim"
+		},
+		{
+			"sections_instructor": "kim, young-heon"
+		},
+		{
+			"sections_instructor": "kion, tracy"
+		},
+		{
+			"sections_instructor": "kishchenko, svetlana"
+		},
+		{
+			"sections_instructor": "kishchenko, svetlana"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "kishor, nand"
+		},
+		{
+			"sections_instructor": "knorr, edwin max"
+		},
+		{
+			"sections_instructor": "knorr, edwin max"
+		},
+		{
+			"sections_instructor": "konoval, michael brandon"
+		},
+		{
+			"sections_instructor": "kozak, robert antal;panwar, rajat"
+		},
+		{
+			"sections_instructor": "krist, jennifer"
+		},
+		{
+			"sections_instructor": "krist, jennifer"
+		},
+		{
+			"sections_instructor": "krist, jennifer;mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "laba, izabella"
+		},
+		{
+			"sections_instructor": "laba, izabella"
+		},
+		{
+			"sections_instructor": "lacroix, serge"
+		},
+		{
+			"sections_instructor": "lalji, fawziah;seto, katherine"
+		},
+		{
+			"sections_instructor": "lalji, fawziah;seto, katherine"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "langager, graeme"
+		},
+		{
+			"sections_instructor": "launeanu, mihaela"
+		},
+		{
+			"sections_instructor": "lauridsen, kristi"
+		},
+		{
+			"sections_instructor": "lee, hyekyung"
+		},
+		{
+			"sections_instructor": "letain, anne"
+		},
+		{
+			"sections_instructor": "leung, larry"
+		},
+		{
+			"sections_instructor": "levinson, tami"
+		},
+		{
+			"sections_instructor": "levinson, tami"
+		},
+		{
+			"sections_instructor": "li, guofang"
+		},
+		{
+			"sections_instructor": "lis, mieszko"
+		},
+		{
+			"sections_instructor": "lo, chih shen"
+		},
+		{
+			"sections_instructor": "lo, chih shen"
+		},
+		{
+			"sections_instructor": "lo, chih shen"
+		},
+		{
+			"sections_instructor": "loewen, christopher;nabi, ivan robert"
+		},
+		{
+			"sections_instructor": "loewen, christopher;nabi, ivan robert"
+		},
+		{
+			"sections_instructor": "lovato, chris"
+		},
+		{
+			"sections_instructor": "lovato, chris"
+		},
+		{
+			"sections_instructor": "lucus, calin"
+		},
+		{
+			"sections_instructor": "lucus, calin"
+		},
+		{
+			"sections_instructor": "lyon, annabel"
+		},
+		{
+			"sections_instructor": "macleod, bernard a"
+		},
+		{
+			"sections_instructor": "macphee, maura"
+		},
+		{
+			"sections_instructor": "macphee, maura"
+		},
+		{
+			"sections_instructor": "macphee, maura"
+		},
+		{
+			"sections_instructor": "macphee, maura"
+		},
+		{
+			"sections_instructor": "macphee, maura"
+		},
+		{
+			"sections_instructor": "magee, theresa"
+		},
+		{
+			"sections_instructor": "magyar, akos"
+		},
+		{
+			"sections_instructor": "maillard, keith"
+		},
+		{
+			"sections_instructor": "maillard, keith"
+		},
+		{
+			"sections_instructor": "maillard, keith"
+		},
+		{
+			"sections_instructor": "malone, sharon"
+		},
+		{
+			"sections_instructor": "marcoux, caroline;poirier, brigitte"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "marker, michael"
+		},
+		{
+			"sections_instructor": "martell, steve"
+		},
+		{
+			"sections_instructor": "massaro, davide"
+		},
+		{
+			"sections_instructor": "masse, louise"
+		},
+		{
+			"sections_instructor": "mathison, sandra"
+		},
+		{
+			"sections_instructor": "mathison, sandra"
+		},
+		{
+			"sections_instructor": "matthewson, lisa"
+		},
+		{
+			"sections_instructor": "mazawi, andre"
+		},
+		{
+			"sections_instructor": "mazawi, andre"
+		},
+		{
+			"sections_instructor": "mazawi, andre;waithman, marilynne"
+		},
+		{
+			"sections_instructor": "mazzi, eric"
+		},
+		{
+			"sections_instructor": "mazzi, eric"
+		},
+		{
+			"sections_instructor": "mccuaig, fairleth"
+		},
+		{
+			"sections_instructor": "mceachern hughes, tammy"
+		},
+		{
+			"sections_instructor": "mceachern hughes, tammy"
+		},
+		{
+			"sections_instructor": "mcfarlane, rae"
+		},
+		{
+			"sections_instructor": "mcfarlane, rae"
+		},
+		{
+			"sections_instructor": "mcfarlane, rae"
+		},
+		{
+			"sections_instructor": "mcfarlane, rae"
+		},
+		{
+			"sections_instructor": "mckee, william"
+		},
+		{
+			"sections_instructor": "mckee, william"
+		},
+		{
+			"sections_instructor": "mclean, jayson"
+		},
+		{
+			"sections_instructor": "mclean, jayson"
+		},
+		{
+			"sections_instructor": "mcquarrie, maureen"
+		},
+		{
+			"sections_instructor": "mcquarrie, maureen"
+		},
+		{
+			"sections_instructor": "mcrae, lorna"
+		},
+		{
+			"sections_instructor": "medved, maureen"
+		},
+		{
+			"sections_instructor": "medved, maureen"
+		},
+		{
+			"sections_instructor": "medved, maureen"
+		},
+		{
+			"sections_instructor": "mercer, sterett"
+		},
+		{
+			"sections_instructor": "mercer, sterett"
+		},
+		{
+			"sections_instructor": "mercer, sterett"
+		},
+		{
+			"sections_instructor": "mercer, sterett"
+		},
+		{
+			"sections_instructor": "mercer, sterett"
+		},
+		{
+			"sections_instructor": "metcalfe, amy"
+		},
+		{
+			"sections_instructor": "miller, lynn delaine"
+		},
+		{
+			"sections_instructor": "milner-bolotin, marina"
+		},
+		{
+			"sections_instructor": "milner-bolotin, marina"
+		},
+		{
+			"sections_instructor": "milner-bolotin, marina"
+		},
+		{
+			"sections_instructor": "min, jason"
+		},
+		{
+			"sections_instructor": "missiaen, sharon anne"
+		},
+		{
+			"sections_instructor": "missiaen, sharon anne"
+		},
+		{
+			"sections_instructor": "mitchell, allison rugh"
+		},
+		{
+			"sections_instructor": "mizumoto, kota"
+		},
+		{
+			"sections_instructor": "mohammadhasani khorasany, rami"
+		},
+		{
+			"sections_instructor": "morgan, tannis"
+		},
+		{
+			"sections_instructor": "mortensen, james"
+		},
+		{
+			"sections_instructor": "motavas, saloome"
+		},
+		{
+			"sections_instructor": "motavas, saloome"
+		},
+		{
+			"sections_instructor": "motl, thomas"
+		},
+		{
+			"sections_instructor": "motl, thomas"
+		},
+		{
+			"sections_instructor": "mulpuri, kishore"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "munteanu, mircea"
+		},
+		{
+			"sections_instructor": "murugan, mathav"
+		},
+		{
+			"sections_instructor": "musgrave, susan"
+		},
+		{
+			"sections_instructor": "nachmias, asaf"
+		},
+		{
+			"sections_instructor": "nagata, k wayne"
+		},
+		{
+			"sections_instructor": "neault, roberta a"
+		},
+		{
+			"sections_instructor": "ng, john"
+		},
+		{
+			"sections_instructor": "nicholson, kathleen;petersen, susan"
+		},
+		{
+			"sections_instructor": "nicholson, kathleen;petersen, susan"
+		},
+		{
+			"sections_instructor": "nicks, david"
+		},
+		{
+			"sections_instructor": "nojeh, alireza"
+		},
+		{
+			"sections_instructor": "o'neill, brian"
+		},
+		{
+			"sections_instructor": "o'neill, brian"
+		},
+		{
+			"sections_instructor": "oviedo-joekes, eugenia"
+		},
+		{
+			"sections_instructor": "owens, rhea"
+		},
+		{
+			"sections_instructor": "palacios, carolina"
+		},
+		{
+			"sections_instructor": "patrick, brian"
+		},
+		{
+			"sections_instructor": "perkins, edwin"
+		},
+		{
+			"sections_instructor": "perkins, edwin"
+		},
+		{
+			"sections_instructor": "perkins, edwin"
+		},
+		{
+			"sections_instructor": "perona wright, georgia"
+		},
+		{
+			"sections_instructor": "perry, nancy"
+		},
+		{
+			"sections_instructor": "petrina, stephen"
+		},
+		{
+			"sections_instructor": "petrina, stephen"
+		},
+		{
+			"sections_instructor": "petrina, stephen"
+		},
+		{
+			"sections_instructor": "petrina, stephen"
+		},
+		{
+			"sections_instructor": "phillips, craig"
+		},
+		{
+			"sections_instructor": "pighini, maria"
+		},
+		{
+			"sections_instructor": "pinar, william"
+		},
+		{
+			"sections_instructor": "pinar, william"
+		},
+		{
+			"sections_instructor": "pinar, william"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "porath, marion"
+		},
+		{
+			"sections_instructor": "pourbohloul, babak"
+		},
+		{
+			"sections_instructor": "pourbohloul, babak"
+		},
+		{
+			"sections_instructor": "pourbohloul, babak"
+		},
+		{
+			"sections_instructor": "pramanik, malabika"
+		},
+		{
+			"sections_instructor": "pramanik, malabika"
+		},
+		{
+			"sections_instructor": "pramanik, malabika"
+		},
+		{
+			"sections_instructor": "purves, barbara"
+		},
+		{
+			"sections_instructor": "quinton, bradley"
+		},
+		{
+			"sections_instructor": "raftery, james"
+		},
+		{
+			"sections_instructor": "ramey, william d"
+		},
+		{
+			"sections_instructor": "rathwell, david"
+		},
+		{
+			"sections_instructor": "rathwell, david"
+		},
+		{
+			"sections_instructor": "rathwell, david"
+		},
+		{
+			"sections_instructor": "rathwell, david"
+		},
+		{
+			"sections_instructor": "reid, gavin"
+		},
+		{
+			"sections_instructor": "reinsberg, stefan"
+		},
+		{
+			"sections_instructor": "robinson, georgina"
+		},
+		{
+			"sections_instructor": "rocha perkerwicz, samuel"
+		},
+		{
+			"sections_instructor": "rodney, patricia"
+		},
+		{
+			"sections_instructor": "roman, leslie"
+		},
+		{
+			"sections_instructor": "roman, leslie"
+		},
+		{
+			"sections_instructor": "roman, leslie"
+		},
+		{
+			"sections_instructor": "romero, amber"
+		},
+		{
+			"sections_instructor": "romero, amber"
+		},
+		{
+			"sections_instructor": "romero, amber"
+		},
+		{
+			"sections_instructor": "ross, eddie wayne"
+		},
+		{
+			"sections_instructor": "ross, eddie wayne"
+		},
+		{
+			"sections_instructor": "ross, eddie wayne"
+		},
+		{
+			"sections_instructor": "russell, debra"
+		},
+		{
+			"sections_instructor": "russell, debra"
+		},
+		{
+			"sections_instructor": "sakata, shinichi"
+		},
+		{
+			"sections_instructor": "savage, ken;shadwick, robert edward"
+		},
+		{
+			"sections_instructor": "schendlinger, mary"
+		},
+		{
+			"sections_instructor": "schoen, michael"
+		},
+		{
+			"sections_instructor": "schrimpf, paul"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "schultz, izabela"
+		},
+		{
+			"sections_instructor": "scott, sandra"
+		},
+		{
+			"sections_instructor": "scott, sandra"
+		},
+		{
+			"sections_instructor": "semenoff, gordon walter"
+		},
+		{
+			"sections_instructor": "seto, katherine"
+		},
+		{
+			"sections_instructor": "sinha, srija"
+		},
+		{
+			"sections_instructor": "slade, gordon"
+		},
+		{
+			"sections_instructor": "small, jeff alan"
+		},
+		{
+			"sections_instructor": "small, susan"
+		},
+		{
+			"sections_instructor": "small, susan"
+		},
+		{
+			"sections_instructor": "smith, gillian"
+		},
+		{
+			"sections_instructor": "smith, gillian"
+		},
+		{
+			"sections_instructor": "smith, gillian"
+		},
+		{
+			"sections_instructor": "smith, mary"
+		},
+		{
+			"sections_instructor": "smith, veronica"
+		},
+		{
+			"sections_instructor": "sobolev, boris"
+		},
+		{
+			"sections_instructor": "sobolev, boris"
+		},
+		{
+			"sections_instructor": "sochting, ingrid"
+		},
+		{
+			"sections_instructor": "sochting, ingrid"
+		},
+		{
+			"sections_instructor": "sochting, ingrid"
+		},
+		{
+			"sections_instructor": "solymosi, jozsef"
+		},
+		{
+			"sections_instructor": "solymosi, jozsef"
+		},
+		{
+			"sections_instructor": "stamp, philip c"
+		},
+		{
+			"sections_instructor": "stock, richard"
+		},
+		{
+			"sections_instructor": "stockman, james"
+		},
+		{
+			"sections_instructor": "stockman, james"
+		},
+		{
+			"sections_instructor": "stockman, james"
+		},
+		{
+			"sections_instructor": "svendsen, linda jane"
+		},
+		{
+			"sections_instructor": "svendsen, linda jane"
+		},
+		{
+			"sections_instructor": "svendsen, linda jane"
+		},
+		{
+			"sections_instructor": "tan, yuen sze michelle"
+		},
+		{
+			"sections_instructor": "taylor, timothy"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "tba"
+		},
+		{
+			"sections_instructor": "thom, marie"
+		},
+		{
+			"sections_instructor": "thomson, sharon"
+		},
+		{
+			"sections_instructor": "timko, joleen"
+		},
+		{
+			"sections_instructor": "tregebov, rhea"
+		},
+		{
+			"sections_instructor": "tregebov, rhea"
+		},
+		{
+			"sections_instructor": "trosper, ronald"
+		},
+		{
+			"sections_instructor": "tsai, tai-peng"
+		},
+		{
+			"sections_instructor": "tsai, tai-peng"
+		},
+		{
+			"sections_instructor": "tsiknis, georgios"
+		},
+		{
+			"sections_instructor": "tsiknis, georgios"
+		},
+		{
+			"sections_instructor": "turriff, wendy"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "vadeboncoeur, jennifer"
+		},
+		{
+			"sections_instructor": "van deursen, john"
+		},
+		{
+			"sections_instructor": "van deursen, john"
+		},
+		{
+			"sections_instructor": "vanwynsberghe, robert"
+		},
+		{
+			"sections_instructor": "vanwynsberghe, robert"
+		},
+		{
+			"sections_instructor": "vedan, richard"
+		},
+		{
+			"sections_instructor": "veiga, marcello"
+		},
+		{
+			"sections_instructor": "ventura, carlos estuardo"
+		},
+		{
+			"sections_instructor": "ventura, carlos estuardo"
+		},
+		{
+			"sections_instructor": "villagomez, erick"
+		},
+		{
+			"sections_instructor": "virani, alice"
+		},
+		{
+			"sections_instructor": "vogl, a wayne"
+		},
+		{
+			"sections_instructor": "wagner, john"
+		},
+		{
+			"sections_instructor": "wagner, john"
+		},
+		{
+			"sections_instructor": "walus, konrad"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "wassink, berend"
+		},
+		{
+			"sections_instructor": "watson, scott"
+		},
+		{
+			"sections_instructor": "watts, susan"
+		},
+		{
+			"sections_instructor": "watts, susan"
+		},
+		{
+			"sections_instructor": "weber, barbara"
+		},
+		{
+			"sections_instructor": "weber, rachel"
+		},
+		{
+			"sections_instructor": "weber, rachel"
+		},
+		{
+			"sections_instructor": "weber, rachel"
+		},
+		{
+			"sections_instructor": "weber, rachel"
+		},
+		{
+			"sections_instructor": "weber, rachel"
+		},
+		{
+			"sections_instructor": "wei, juncheng"
+		},
+		{
+			"sections_instructor": "weinberg, mark"
+		},
+		{
+			"sections_instructor": "weinberg, mark"
+		},
+		{
+			"sections_instructor": "weinberg, mark"
+		},
+		{
+			"sections_instructor": "wenzek, rob"
+		},
+		{
+			"sections_instructor": "white, aaron"
+		},
+		{
+			"sections_instructor": "white, aaron"
+		},
+		{
+			"sections_instructor": "white, aaron"
+		},
+		{
+			"sections_instructor": "wilk, diana"
+		},
+		{
+			"sections_instructor": "wilk, diana"
+		},
+		{
+			"sections_instructor": "wilton, steven"
+		},
+		{
+			"sections_instructor": "wilton, steven"
+		},
+		{
+			"sections_instructor": "wollenberg, jay"
+		},
+		{
+			"sections_instructor": "wollenberg, jay"
+		},
+		{
+			"sections_instructor": "wollenberg, jay"
+		},
+		{
+			"sections_instructor": "wollenberg, jay"
+		},
+		{
+			"sections_instructor": "wollenberg, jay"
+		},
+		{
+			"sections_instructor": "wormeli, ted"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "wu, amery"
+		},
+		{
+			"sections_instructor": "yip, stephen"
+		},
+		{
+			"sections_instructor": "yip, stephen"
+		},
+		{
+			"sections_instructor": "yorke, erin"
+		},
+		{
+			"sections_instructor": "zamar, ruben"
+		},
+		{
+			"sections_instructor": "zhitnitsky, ariel"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		},
+		{
+			"sections_instructor": "zumbo, bruno"
+		}
+	]
+}
