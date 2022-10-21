@@ -155,7 +155,9 @@ const handleOrder = (unorderedQueryResult: any[], query: any, id: string): Insig
 	let queryResult: InsightResult[];
 	const order = query.OPTIONS.ORDER;
 
-	if (order === id + "_avg" ||
+	if (order === undefined) {
+		queryResult = unorderedQueryResult;
+	} else if (order === id + "_avg" ||
 		order === id + "_pass" ||
 		order === id + "_fail" ||
 		order === id + "_audit" ||
