@@ -9,7 +9,6 @@ interface DatasetSections {
 
 const dataDir = "./data";
 
-const requiredKeys = ["Avg", "Pass", "Fail", "Audit", "Year", "Subject", "Course", "Professor", "Title", "id"];
 const requiredMKeys = ["Avg", "Pass", "Fail", "Audit", "Year"];
 const requiredSKeys = ["Subject", "Course", "Professor", "Title", "id"];
 
