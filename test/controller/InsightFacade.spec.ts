@@ -29,6 +29,7 @@ describe("InsightFacade", function () {
 		noCoursesDir: "./test/resources/archives/notCourses.zip",
 		noValidSection: "./test/resources/archives/notValid.zip",
 		extra: "./test/resources/archives/extra.zip",
+		nestedFolders: "./test/resources/archives/nestedFolders.zip",
 	};
 
 	before(function () {
@@ -124,6 +125,7 @@ describe("InsightFacade", function () {
 						expect(insightDatasets).to.have.length(1);
 					});
 			});
+
 			it("should list multiple datasets", function () {
 				const sections: string = datasetContents.get("sections") ?? "";
 				return insightFacade
@@ -146,6 +148,26 @@ describe("InsightFacade", function () {
 						});
 					});
 			});
+		});
+
+		it("should ignore subfolders", function () {
+			const sections: string = datasetContents.get("nestedFolders") ?? "";
+			return insightFacade
+				.addDataset("sections", sections, InsightDatasetKind.Sections)
+				.then(() => {
+					return insightFacade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([
+						{
+							id: "sections",
+							kind: InsightDatasetKind.Sections,
+							numRows: 39,
+						},
+					]);
+					expect(insightDatasets).to.be.an.instanceof(Array);
+					expect(insightDatasets).to.have.length(1);
+				});
 		});
 
 		describe("Add Datasets", function () {

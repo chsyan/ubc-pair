@@ -42,8 +42,15 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 	try {
 		const zip = await JSZip.loadAsync(contentEncoded);
 
-		// Only consider files inside ./courses/ dir
-		const filePaths = Object.keys(zip.files).filter((filePath) => /courses\/*/.test(filePath));
+		// Only consider entries inside courses dir
+		const coursesZip = zip.folder("courses");
+		let filePaths: string[] = [];
+		if (coursesZip) {
+			// Ignore subdirs
+			filePaths = Object.keys(coursesZip.files).filter(
+				(path) => /courses\/*/.test(path) && path.split("/").length === 2
+			);
+		}
 
 		const filePromises = filePaths.map(async (filePath) => {
 			const file = zip.file(filePath);
@@ -76,7 +83,7 @@ const parseBuffer = async (content: string): Promise<any[]> => {
 
 const parseSection = (section: any) => {
 	// Check that the file has all appropriate fields.
-  // Return undefined if it doesn't.
+	// Return undefined if it doesn't.
 	for (const sKey of requiredSKeys) {
 		if (section[sKey] === undefined) {
 			return;
