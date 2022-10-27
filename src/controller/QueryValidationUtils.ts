@@ -46,70 +46,89 @@ const isValidKey = (key: any, type?: "mkey" | "skey"): boolean => {
 	return isValidSKey || isValidMKey;
 };
 
+const validateMCompare = (filter: any, mComparator: string): void => {
+	checkKeysLength(filter[mComparator], mComparator, 1);
+	const mKey = Object.keys(filter[mComparator])[0];
+	if (!isValidKey(mKey, "mkey") || typeof filter[mComparator][mKey] !== "number") {
+		throw new InsightError("invalid mkey or value used in " + mComparator);
+	}
+};
+
+const validateSCompare = (filter: any): void => {
+	checkKeysLength(filter.IS, "IS", 1);
+	const sKey = Object.keys(filter.IS)[0];
+	let invalidIsString = typeof filter.IS[sKey] !== "string" || !filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
+	if (!isValidKey(sKey, "skey") || invalidIsString) {
+		throw new InsightError("invalid skey or value used");
+	}
+};
+
+const validateLogic = (filter: any, logic: string): void => {
+	checkNonEmptyArray(filter[logic], logic);
+	for (const logicFilter of filter[logic]) {
+		validateFilter(logicFilter, "Filters in " + logic);
+	}
+};
+
 const validateFilter = (filter: any, name: string): void => {
 	checkKeysLength(filter, name, 1);
-	if (isExistingObject(filter.LT, "LT") ||
-			isExistingObject(filter.EQ, "EQ") ||
-			isExistingObject(filter.GT, "GT")) {
-		const mComparator = Object.keys(filter)[0];
-		checkKeysLength(filter[mComparator], mComparator, 1);
-		const mKey = Object.keys(filter[mComparator])[0];
-		if (!isValidKey(mKey, "mkey") || typeof filter[mComparator][mKey] !== "number") {
-			throw new InsightError("invalid mkey or value used in " + mComparator);
-		}
+	if (isExistingObject(filter.LT, "LT") || isExistingObject(filter.EQ, "EQ") || isExistingObject(filter.GT, "GT")) {
+		validateMCompare(filter, Object.keys(filter)[0]);
 	} else if (isExistingObject(filter.IS, "IS")) {
-		checkKeysLength(filter.IS, "IS", 1);
-		const sKey = Object.keys(filter.IS)[0];
-		let invalidIsString = typeof filter.IS[sKey] !== "string" || !filter.IS[sKey].match(/^\*?[^*]*\*?$/g);
-		if (!isValidKey(sKey, "skey") || invalidIsString) {
-			throw new InsightError("invalid skey or value used");
-		}
+		validateSCompare(filter);
 	} else if (isExistingObject(filter.NOT, "NOT")) {
 		validateFilter(filter.NOT, "NOT");
 	} else if (filter.OR !== undefined || filter.AND !== undefined) {
-		const logic = Object.keys(filter)[0];
-		checkNonEmptyArray(filter[logic], logic);
-		for (const logicFilter of filter[logic]) {
-			validateFilter(logicFilter, "Filters in " + logic);
-		}
+		validateLogic(filter, Object.keys(filter)[0]);
 	} else {
 		throw new InsightError("Invalid filter key");
 	}
 };
 
-const validateOptions = (opt: any): void => {
-	const optKeysLength = Object.keys(opt).length;
+const validateColumns = (options: any): string[] => {
 	let currDataset = "";
 	let columns: string[] = [];
 
-	// Validate COLUMNS
-	if (optKeysLength === 0 || opt.COLUMNS === undefined) {
-		throw new InsightError("OPTIONS missing COLUMNS");
-	} else if (optKeysLength <= 2) {
-		checkNonEmptyArray(opt.COLUMNS, "COLUMNS");
-		for (const column of opt.COLUMNS) {
-			if (!isValidKey(column)) {
-				throw new InsightError("Invalid key " + column + " in COLUMNS");
-			}
-			if (currDataset === "" && typeof column === "string") {
-				currDataset = column.split("_", 1)[0];
-			} else if (typeof column === "string" && column.split("_", 1)[0] !== currDataset) {
-				throw new InsightError("Queries should only reference one dataset");
-			}
-			columns.push(column);
+	checkNonEmptyArray(options.COLUMNS, "COLUMNS");
+	for (const column of options.COLUMNS) {
+		if (!isValidKey(column)) {
+			throw new InsightError("Invalid key " + column + " in COLUMNS");
 		}
+		if (currDataset === "" && typeof column === "string") {
+			currDataset = column.split("_", 1)[0];
+		} else if (typeof column === "string" && column.split("_", 1)[0] !== currDataset) {
+			throw new InsightError("Queries should only reference one dataset");
+		}
+		columns.push(column);
+	}
+	return columns;
+};
+
+const validateOrder = (options: any, numOptionKeys: number, columns: string[]): void => {
+	if (numOptionKeys === 2 && options.ORDER === undefined) {
+		throw new InsightError("Invalid key in OPTIONS");
+	} else if (numOptionKeys === 2 && !isValidKey(options.ORDER)) {
+		throw new InsightError("Invalid key " + options.ORDER + " in COLUMNS");
+	} else if (numOptionKeys === 2 && !columns.includes(options.ORDER)) {
+		throw new InsightError("ORDER must be in COLUMNS");
+	}
+};
+
+const validateOptions = (options: any): void => {
+	const numOptionKeys = Object.keys(options).length;
+	let columns: string[] = [];
+
+	// Validate COLUMNS
+	if (numOptionKeys === 0 || options.COLUMNS === undefined) {
+		throw new InsightError("OPTIONS missing COLUMNS");
+	} else if (numOptionKeys <= 2) {
+		columns = validateColumns(options);
 	} else {
 		throw new InsightError("OPTIONS has too many keys");
 	}
 
 	// Validate Possible ORDER
-	if (optKeysLength === 2 && opt.ORDER === undefined) {
-		throw new InsightError("Invalid key in OPTIONS");
-	} else if (optKeysLength === 2 && !isValidKey(opt.ORDER)) {
-		throw new InsightError("Invalid key " + opt.ORDER + " in COLUMNS");
-	} else if (optKeysLength === 2 && !columns.includes(opt.ORDER)) {
-		throw new InsightError("ORDER must be in COLUMNS");
-	}
+	validateOrder(options, numOptionKeys, columns);
 };
 
 const validateQuery = (query: any): void => {
