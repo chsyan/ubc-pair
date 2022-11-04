@@ -1,8 +1,7 @@
-
 import {validateQuery} from "./QueryValidationUtils";
 import {getQueryDatasetID, handleWhere, handleColumns, handleOrder} from "./QueryEngineUtils";
 import {outputJSON, pathExists, remove} from "fs-extra";
-import {dataDir, DatasetSections, parseBuffer, validateId, readDataset} from "./DatasetUtils";
+import {dataDir, Dataset, parseSections, validateId, readDataset, parseRooms} from "./DatasetUtils";
 import {
 	IInsightFacade,
 	InsightDataset,
@@ -10,7 +9,7 @@ import {
 	InsightError,
 	InsightResult,
 	NotFoundError,
-	ResultTooLargeError
+	ResultTooLargeError,
 } from "./IInsightFacade";
 
 /*
@@ -18,11 +17,11 @@ import {
  * Method documentation is in IInsightFacade
  */
 export default class InsightFacade implements IInsightFacade {
-	private readonly datasetSections: DatasetSections[];
+	private readonly dataset: Dataset[];
 
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
-		this.datasetSections = [];
+		this.dataset = [];
 	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
@@ -33,8 +32,8 @@ export default class InsightFacade implements IInsightFacade {
 		 * Check both in memory and disk for duplicate ids. If data dir is deleted, in memory datasets are still valid.
 		 * If we use a different instance of InsightFacade, we still want to check for duplicates across instances.
 		 */
-		for (const dataset in this.datasetSections) {
-			if (this.datasetSections[dataset].insight.id === id) {
+		for (const dataset in this.dataset) {
+			if (this.dataset[dataset].insight.id === id) {
 				throw new InsightError("id already exists");
 			}
 		}
@@ -44,19 +43,34 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		// Get sections from content buffer
-		const sections = await parseBuffer(content);
+		let newDataset: Dataset;
+		if (kind === InsightDatasetKind.Sections) {
+			const sections = await parseSections(content);
 
-		const newDataset: DatasetSections = {
-			insight: {
-				id: id,
-				kind: kind,
-				numRows: sections.length,
-			},
-			sections: sections,
-		};
+			newDataset = {
+				insight: {
+					id: id,
+					kind: kind,
+					numRows: sections.length,
+				},
+				sections: sections,
+			};
+		} else {
+			// InsightDatasetKind.Courses
+			const sections = await parseRooms(content);
+
+			newDataset = {
+				insight: {
+					id: id,
+					kind: kind,
+					numRows: sections.length,
+				},
+				sections: sections,
+			};
+		}
 
 		// Add new dataset to memory
-		this.datasetSections.push(newDataset);
+		this.dataset.push(newDataset);
 
 		// Write new dataset to disk
 		try {
@@ -66,7 +80,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		// Return the ids of all datasets
-		return this.datasetSections.map((dataset) => dataset.insight.id);
+		return this.dataset.map((dataset) => dataset.insight.id);
 	}
 
 	public async removeDataset(id: string): Promise<string> {
@@ -85,10 +99,10 @@ export default class InsightFacade implements IInsightFacade {
 		}
 
 		// Search memory for dataset
-		for (let i = 0; i < this.datasetSections.length; i++) {
-			if (this.datasetSections[i].insight.id === id) {
+		for (let i = 0; i < this.dataset.length; i++) {
+			if (this.dataset[i].insight.id === id) {
 				// Remove dataset from memory
-				return this.datasetSections.splice(i, 1)[0].insight.id;
+				return this.dataset.splice(i, 1)[0].insight.id;
 			}
 		}
 
@@ -106,8 +120,8 @@ export default class InsightFacade implements IInsightFacade {
 		let queryDatasetIndex: any = null;
 		let queryResult: InsightResult[];
 		const existInMemory = (): boolean => {
-			for (const dataset in this.datasetSections) {
-				if (this.datasetSections[dataset].insight.id === queryDatasetID) {
+			for (const dataset in this.dataset) {
+				if (this.dataset[dataset].insight.id === queryDatasetID) {
 					queryDatasetIndex = dataset;
 					return true;
 				}
@@ -116,7 +130,7 @@ export default class InsightFacade implements IInsightFacade {
 		};
 
 		if (existInMemory()) {
-			let queryDataset = this.datasetSections[queryDatasetIndex];
+			let queryDataset = this.dataset[queryDatasetIndex];
 			let filtered = queryDataset.sections.filter((section: any) => handleWhere(section, query, queryDatasetID));
 			let unordered = filtered.map((section: any) => handleColumns(section, query, queryDatasetID));
 			queryResult = handleOrder(unordered, query, queryDatasetID);
@@ -125,14 +139,17 @@ export default class InsightFacade implements IInsightFacade {
 			if (!existInDisk) {
 				throw new InsightError("Query references dataset not added");
 			}
-			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
-				this.datasetSections.push(queryDataset);
-				return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
-			}).then((filteredSections) => {
-				return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
-			}).then((unorderedQueryResult) => {
-				return handleOrder(unorderedQueryResult, query, queryDatasetID);
-			});
+			queryResult = await readDataset(queryDatasetID)
+				.then((queryDataset) => {
+					this.dataset.push(queryDataset);
+					return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
+				})
+				.then((filteredSections) => {
+					return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
+				})
+				.then((unorderedQueryResult) => {
+					return handleOrder(unorderedQueryResult, query, queryDatasetID);
+				});
 		}
 
 		if (queryResult.length > 5000) {
@@ -144,7 +161,6 @@ export default class InsightFacade implements IInsightFacade {
 
 	public async listDatasets(): Promise<InsightDataset[]> {
 		// Get added datasets from memory
-		return this.datasetSections.map((dataset) => dataset.insight);
+		return this.dataset.map((dataset) => dataset.insight);
 	}
 }
-

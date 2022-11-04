@@ -1,8 +1,9 @@
 import {pathExists, readdir, readJSON} from "fs-extra";
-import * as JSZip from "jszip";
+import JSZip from "jszip";
+import {parse} from "parse5";
 import {InsightDataset, InsightError} from "./IInsightFacade";
 
-interface DatasetSections {
+interface Dataset {
 	insight: InsightDataset;
 	sections: any[];
 }
@@ -33,7 +34,7 @@ const validateId = (id: string): void => {
 	}
 };
 
-const parseBuffer = async (content: string): Promise<any[]> => {
+const parseSections = async (content: string): Promise<any[]> => {
 	const sections: any[] = [];
 
 	// JSZip requied content to be b64e buffer
@@ -99,7 +100,39 @@ const parseSection = (section: any) => {
 	return section;
 };
 
-const readDataDir = async (): Promise<DatasetSections[]> => {
+const parseRooms = async (content: string): Promise<any[]> => {
+	const rooms: any[] = [];
+
+	// JSZip requied content to be b64e buffer
+	const contentEncoded = Buffer.from(content, "base64");
+
+	let zip: JSZip;
+	try {
+		zip = await JSZip.loadAsync(contentEncoded);
+	} catch (err) {
+		throw new InsightError("Error decoding zip file");
+	}
+
+	// Look for index.htm
+	const indexFile = zip.file("index.htm");
+
+	if (indexFile === null) {
+		throw new InsightError("index.htm not found");
+	}
+
+	const indexContent = await indexFile.async("string");
+	const indexParsed = parse(indexContent);
+	console.log(indexParsed.childNodes);
+	// Get all links using childNodes;
+	// Recursive?
+
+	// if (rooms.length === 0) {
+	// 	throw new InsightError("Must have at least one valid section");
+	// }
+	return rooms;
+};
+
+const readDataDir = async (): Promise<Dataset[]> => {
 	// If data dir doesn't exist, return empty array
 	if (!(await pathExists(dataDir))) {
 		return [];
@@ -107,7 +140,7 @@ const readDataDir = async (): Promise<DatasetSections[]> => {
 
 	// Map filenames to datasets
 	const fileNames = await readdir(dataDir);
-	const datasets: DatasetSections[] = [];
+	const datasets: Dataset[] = [];
 	const readDatasetPromises = fileNames.map(async (fileName) => {
 		// Remove the .json file extension
 		return readDataset(fileName.replace(".json", "")).then((dataset) => {
@@ -119,7 +152,7 @@ const readDataDir = async (): Promise<DatasetSections[]> => {
 	return datasets;
 };
 
-const readDataset = async (id: string): Promise<DatasetSections> => {
+const readDataset = async (id: string): Promise<Dataset> => {
 	try {
 		const dataset = await readJSON(`${dataDir}/${id}.json`);
 		return dataset;
@@ -128,4 +161,4 @@ const readDataset = async (id: string): Promise<DatasetSections> => {
 	}
 };
 
-export {validateId, parseBuffer, DatasetSections, dataDir, readDataDir, readDataset};
+export {validateId, parseSections, parseRooms, Dataset, dataDir, readDataDir, readDataset};
