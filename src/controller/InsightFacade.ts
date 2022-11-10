@@ -1,7 +1,5 @@
-import {validateQuery} from "./QueryValidationUtils";
-import {getQueryDatasetID, handleWhere, handleColumns, handleOrder} from "./QueryEngineUtils";
 import {outputJSON, pathExists, remove} from "fs-extra";
-import {dataDir, Dataset, parseSections, validateId, readDataset, parseRooms} from "./DatasetUtils";
+import {dataDir, Dataset, readDataset, validateId} from "./DatasetUtils";
 import {
 	IInsightFacade,
 	InsightDataset,
@@ -11,6 +9,10 @@ import {
 	NotFoundError,
 	ResultTooLargeError,
 } from "./IInsightFacade";
+import {getQueryDatasetID, handleColumns, handleOrder, handleWhere} from "./QueryEngineUtils";
+import {validateQuery} from "./QueryValidationUtils";
+import {parseRooms} from "./RoomUtils";
+import {parseSections} from "./SectionsUtils";
 
 /*
  * This is the main programmatic entry point for the project.
