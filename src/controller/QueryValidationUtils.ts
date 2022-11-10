@@ -36,11 +36,6 @@ const isValidKey = (key: any, type?: "mkey" | "skey"): boolean => {
 	if (typeof key !== "string") {
 		return false;
 	}
-	let roomRegex = /^rooms_(fullname|shortname|number|name|address|type|furniture|href|lat|lon|seats)$/g;
-	let isValidRoomKey = key.match(roomRegex) !== null;
-	if (key.split("_", 1)[0] === "rooms" && !isValidRoomKey) {
-		throw new InsightError("\"rooms\" dataset id uses invalid key");
-	}
 	let mRegex = /^[^_]+_(avg|pass|fail|audit|year|lat|lon|seats)$/g;
 	let sRegex = /^[^_]+_(dept|id|instructor|title|uuid|fullname|shortname|number|name|address|type|furniture|href)$/g;
 	let isValidMKey = key.match(mRegex) !== null;
@@ -50,7 +45,7 @@ const isValidKey = (key: any, type?: "mkey" | "skey"): boolean => {
 	} else if (type === "skey") {
 		return isValidSKey;
 	}
-	return isValidSKey || isValidMKey || isValidRoomKey;
+	return isValidSKey || isValidMKey;
 };
 
 const isValidApplyKey = (applyKey: any): boolean => {
