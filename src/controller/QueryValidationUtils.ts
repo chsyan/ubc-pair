@@ -176,6 +176,75 @@ const validateOptions = (options: any): string[] => {
 	return columns;
 };
 
+const validateGroup = (group: any): string[] => {
+	checkNonEmptyArray(group, "GROUP");
+	for (const key of group) {
+		isValidKey(key);
+	}
+	return group;
+};
+
+const isValidApplyToken = (applyToken: string, key: string): void => {
+	if (!applyToken.match(/^(MAX|MIN|AVG|COUNT|SUM)$/g)) {
+		throw new InsightError("Invalid Transformation Operator");
+	}
+	if (applyToken.match(/^(MAX|MIN|AVG|SUM)$/g) !== null && !isValidKey(key, "mkey")) {
+		throw new InsightError("Invalid key type in " + applyToken);
+	}
+};
+
+const validateApplyRule = (applyRule: any): void => {
+	const expectedRuleNumKeys = 1;
+	isExistingObject(applyRule, "APPLYRULE");
+	checkKeysLength(applyRule, "APPLYRULE", expectedRuleNumKeys);
+
+	const applyKey = Object.keys(applyRule)[0];
+	isValidApplyKey(applyKey);
+
+	const applyBody = applyRule[applyKey];
+	isExistingObject(applyBody, "APPLYBODY");
+	const expectedBodyNumKeys = 1;
+	checkKeysLength(applyBody, "APPLYBODY", expectedBodyNumKeys);
+
+	const applyToken = Object.keys(applyBody)[0];
+	isValidKey(applyBody[applyToken]);
+	isValidApplyToken(applyToken, applyBody[applyToken]);
+};
+
+const validateApply = (apply: any): string[] => {
+	if (!Array.isArray(apply)) {
+		throw new InsightError("APPLY must be an array");
+	}
+
+	let applyKeys: string[] = [];
+	for (const applyRule of apply) {
+		validateApplyRule(applyRule);
+		applyKeys.push(Object.keys(applyRule)[0]);
+	}
+	return applyKeys;
+};
+
+const validateTransformations = (transformations: any, columnKeys: string[]): void => {
+	const expectedNumKeys = 2;
+	checkKeysLength(transformations, "TRANSFORMATIONS", expectedNumKeys);
+	if (transformations.GROUP === undefined) {
+		throw new InsightError("TRANSFORMATIONS missing GROUP");
+	}
+	if (transformations.APPLY === undefined) {
+		throw new InsightError("TRANSFORMATIONS missing APPLY");
+	}
+
+	let groupKeys: string[] = validateGroup(transformations.GROUP);
+	let applyKeys: string[] = validateApply(transformations.GROUP);
+	const expectedColumnKeys = groupKeys.concat(applyKeys);
+
+	for (const column of columnKeys) {
+		if (!expectedColumnKeys.includes(column)) {
+			throw new InsightError("Invalid key " + column + " in COLUMNS");
+		}
+	}
+};
+
 const validateQuery = (query: any): void => {
 	let expectedNumKeys = 2;
 	let columns: string[];
@@ -199,7 +268,7 @@ const validateQuery = (query: any): void => {
 	// Validate Syntax - TRANSFORMATIONS Block
 	if (isExistingObject(query.TRANSFORMATIONS, "TRANSFORMATIONS")) {
 		expectedNumKeys = 3;
-		// TODO: validateTransformations (uses columns)
+		validateTransformations(query.TRANSFORMATIONS, columns);
 	}
 
 	checkKeysLength(query, "Query", expectedNumKeys);
