@@ -36,7 +36,7 @@ const isValidKey = (key: any, type?: "mkey" | "skey"): boolean => {
 	if (typeof key !== "string") {
 		return false;
 	}
-	let roomRegex = /^room_(fullname|shortname|number|name|address|type|furniture|href|lat|lon|seats)$/g;
+	let roomRegex = /^rooms_(fullname|shortname|number|name|address|type|furniture|href|lat|lon|seats)$/g;
 	let isValidRoomKey = key.match(roomRegex) !== null;
 	if (key.split("_", 1)[0] === "rooms" && !isValidRoomKey) {
 		throw new InsightError("\"rooms\" dataset id uses invalid key");
@@ -134,7 +134,7 @@ const validateOrderObj = (order: any, columns: string[]): void => {
 
 	if (order.dir === undefined) {
 		throw new InsightError("ORDER missing 'dir' key");
-	} else if (order.dir !== "UP" || order.dir !== "DOWN") {
+	} else if (order.dir !== "UP" && order.dir !== "DOWN") {
 		throw new InsightError("Invalid ORDER direction");
 	}
 
@@ -231,6 +231,9 @@ const validateApply = (apply: any): string[] => {
 	let applyKeys: string[] = [];
 	for (const applyRule of apply) {
 		validateApplyRule(applyRule);
+		if (applyKeys.includes(Object.keys(applyRule)[0])) {
+			throw new InsightError("Duplicate APPLYKEY " + Object.keys(applyRule)[0]);
+		}
 		applyKeys.push(Object.keys(applyRule)[0]);
 	}
 	return applyKeys;
@@ -247,7 +250,7 @@ const validateTransformations = (transformations: any, columnKeys: string[]): vo
 	}
 
 	let groupKeys: string[] = validateGroup(transformations.GROUP);
-	let applyKeys: string[] = validateApply(transformations.GROUP);
+	let applyKeys: string[] = validateApply(transformations.APPLY);
 	const expectedColumnKeys = groupKeys.concat(applyKeys);
 
 	for (const column of columnKeys) {

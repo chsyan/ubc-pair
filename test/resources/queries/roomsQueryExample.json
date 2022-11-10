@@ -1,5 +1,5 @@
 {
-	"title": "invalidApplyTargetKey",
+	"title": "roomsQueryExample",
 	"input": {
 		"WHERE": {
 			"AND": [
@@ -34,12 +34,25 @@
 			"APPLY": [
 				{
 					"maxSeats": {
-						"MAX": 0
+						"MAX": "rooms_seats"
 					}
 				}
 			]
 		}
 	},
-	"errorExpected": true,
-	"expected": "InsightError"
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_shortname": "OSBO",
+			"maxSeats": 442
+		},
+		{
+			"rooms_shortname": "HEBB",
+			"maxSeats": 375
+		},
+		{
+			"rooms_shortname": "LSC",
+			"maxSeats": 350
+		}
+	]
 }
