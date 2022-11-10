@@ -1,6 +1,7 @@
 import {pathExists, readdir, readJSON} from "fs-extra";
 import JSZip from "jszip";
 import {parse} from "parse5";
+import {Document, DocumentFragment} from "parse5/dist/tree-adapters/default";
 import {InsightDataset, InsightError} from "./IInsightFacade";
 
 interface Dataset {
@@ -121,15 +122,38 @@ const parseRooms = async (content: string): Promise<any[]> => {
 	}
 
 	const indexContent = await indexFile.async("string");
-	const indexParsed = parse(indexContent);
-	console.log(indexParsed.childNodes);
-	// Get all links using childNodes;
-	// Recursive?
+	const document = parse(indexContent);
+	let nodes = document.childNodes;
+	while (nodes.length > 0) {
+		const node = nodes.pop();
+		// Look for <tr> nodeNames
+		if (!node) {
+			continue;
+		}
+
+		// Check for <tr> node
+		if (node.nodeName === "tr") {
+			const room = parseRoom(node);
+			if (room) {
+				rooms.push(room);
+			}
+		}
+
+		const childNodes = (node as DocumentFragment).childNodes;
+		if (childNodes) {
+			nodes = nodes.concat(childNodes);
+		}
+	}
 
 	// if (rooms.length === 0) {
 	// 	throw new InsightError("Must have at least one valid section");
 	// }
 	return rooms;
+};
+
+const parseRoom = (node: any): any => {
+	const room: any = {};
+	const childNodes = node.childNodes;
 };
 
 const readDataDir = async (): Promise<Dataset[]> => {
