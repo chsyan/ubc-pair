@@ -36,9 +36,15 @@ const isValidKey = (key: any, type?: "mkey" | "skey"): boolean => {
 	if (typeof key !== "string") {
 		return false;
 	}
-	const isValidMKey = key.match(/^[^_]+_(avg|pass|fail|audit|year|lat|lon|seats)$/g) !== null;
-	const isValidSKey = key.match(/^[^_]+_(dept|id|instructor|title|uuid)$/g) !== null;
-	const isValidRoomKey = key.match(/^room_(fullname|shortname|number|name|address|type|furniture|href)$/g) !== null;
+	let roomRegex = /^room_(fullname|shortname|number|name|address|type|furniture|href|lat|lon|seats)$/g;
+	let isValidRoomKey = key.match(roomRegex) !== null;
+	if (key.split("_", 1)[0] === "rooms" && !isValidRoomKey) {
+		throw new InsightError("\"rooms\" dataset id uses invalid key");
+	}
+	let mRegex = /^[^_]+_(avg|pass|fail|audit|year|lat|lon|seats)$/g;
+	let sRegex = /^[^_]+_(dept|id|instructor|title|uuid|fullname|shortname|number|name|address|type|furniture|href)$/g;
+	let isValidMKey = key.match(mRegex) !== null;
+	let isValidSKey = key.match(sRegex) !== null;
 	if (type === "mkey") {
 		return isValidMKey;
 	} else if (type === "skey") {
@@ -179,7 +185,9 @@ const validateOptions = (options: any): string[] => {
 const validateGroup = (group: any): string[] => {
 	checkNonEmptyArray(group, "GROUP");
 	for (const key of group) {
-		isValidKey(key);
+		if (!isValidKey(key)) {
+			throw new InsightError("Invalid key used in Group");
+		}
 	}
 	return group;
 };
@@ -199,7 +207,9 @@ const validateApplyRule = (applyRule: any): void => {
 	checkKeysLength(applyRule, "APPLYRULE", expectedRuleNumKeys);
 
 	const applyKey = Object.keys(applyRule)[0];
-	isValidApplyKey(applyKey);
+	if (!isValidApplyKey(applyKey)) {
+		throw new InsightError("Invalid APPLYKEY");
+	}
 
 	const applyBody = applyRule[applyKey];
 	isExistingObject(applyBody, "APPLYBODY");
@@ -207,7 +217,9 @@ const validateApplyRule = (applyRule: any): void => {
 	checkKeysLength(applyBody, "APPLYBODY", expectedBodyNumKeys);
 
 	const applyToken = Object.keys(applyBody)[0];
-	isValidKey(applyBody[applyToken]);
+	if (!isValidKey(applyBody[applyToken])) {
+		throw new InsightError("Invalid key used in " + applyToken);
+	}
 	isValidApplyToken(applyToken, applyBody[applyToken]);
 };
 
