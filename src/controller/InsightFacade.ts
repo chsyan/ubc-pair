@@ -59,20 +59,21 @@ export default class InsightFacade implements IInsightFacade {
 			};
 		} else {
 			// InsightDatasetKind.Courses
-			const sections = await parseRooms(content);
+			const rooms = await parseRooms(content);
 
 			newDataset = {
 				insight: {
 					id: id,
 					kind: kind,
-					numRows: sections.length,
+					numRows: rooms.length,
 				},
-				sections: sections,
+				sections: rooms,
 			};
 		}
 
 		// Add new dataset to memory
 		this.dataset.push(newDataset);
+		console.log(newDataset);
 
 		// Write new dataset to disk
 		try {
