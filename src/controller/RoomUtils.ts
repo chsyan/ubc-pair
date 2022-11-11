@@ -1,8 +1,7 @@
-import {rejects} from "assert";
 import {get} from "http";
 import JSZip from "jszip";
 import {parse} from "parse5";
-import {ChildNode, Document, DocumentFragment, Node, TextNode} from "parse5/dist/tree-adapters/default";
+import {ChildNode, Document, DocumentFragment, Element, TextNode} from "parse5/dist/tree-adapters/default";
 import {InsightError} from "./IInsightFacade";
 interface BuildingInfo {
 	fullname: string | null;
@@ -12,14 +11,33 @@ interface BuildingInfo {
 	lon: number | null;
 }
 
+interface RoomOnlyInfo {
+	number: string | null;
+	seats: number | null;
+	type: string | null;
+	furniture: string | null;
+	href: string | null;
+}
+
 const blankBuildingInfo = (): BuildingInfo => {
-	return {
-		fullname: null,
-		shortname: null,
-		address: null,
-		lat: null,
-		lon: null,
-	};
+	return {fullname: null, shortname: null, address: null, lat: null, lon: null};
+};
+
+const blankRoomOnlyInfo = (): RoomOnlyInfo => {
+	return {number: null, seats: null, type: null, furniture: null, href: null};
+};
+
+const getChildText = (node: ChildNode): string => {
+	const textNode = (node as DocumentFragment).childNodes.find((child) => child.nodeName === "#text") as TextNode;
+	return textNode?.value.trim();
+};
+
+const getChildNodes = (node: ChildNode): ChildNode[] => {
+	return (node as DocumentFragment).childNodes;
+};
+
+const hasAttrValue = (node: Element, attrName: string, attrValue: string): boolean => {
+	return node.attrs.some((attr) => attr.name === attrName && attr.value.split(" ").includes(attrValue));
 };
 
 // Parse the zip file and return an array of room objects
@@ -54,10 +72,6 @@ const parseRooms = async (content: string): Promise<any[]> => {
 	return rooms;
 };
 
-const getChildNodes = (node: ChildNode): ChildNode[] => {
-	return (node as DocumentFragment).childNodes;
-};
-
 const parseDocument = (document: Document): string[] => {
 	let nodes = document.childNodes; // "stack" of nodes to visit
 	const buildingFiles: string[] = [];
@@ -81,7 +95,7 @@ const parseDocument = (document: Document): string[] => {
 			const href = node.attrs?.find((attr) => attr.name === "href");
 			// Remove leading ./ or / from file path
 			const path = href?.value.replace(/^\.?\/?/, "");
-			// Regex to check if href is a file path in ./campus dir
+			// Regex to check if href is a file path in ./campus/ dir
 			if (path && !buildingFiles.includes(path) && /^campus\//.test(path)) {
 				buildingFiles.push(path);
 			}
@@ -120,7 +134,7 @@ const parseBuildings = async (buildingFiles: string[], zip: JSZip) => {
 const parseBuilding = async (document: Document): Promise<any> => {
 	const rooms = [];
 	let nodes = document.childNodes; // "stack" of nodes to visit
-	let promises: Array<Promise<BuildingInfo>> = [];
+	let promises: Array<Promise<BuildingInfo | null>> = [];
 	let buildingShortName = "";
 
 	// Look for rooms and building info
@@ -160,12 +174,18 @@ const parseBuilding = async (document: Document): Promise<any> => {
 	}
 
 	const buildingInfo = await Promise.any(promises);
+	if (!buildingInfo) {
+		return [];
+	}
 	buildingInfo.shortname = buildingShortName;
+
+	// Append building info to each room
+	// rooms_name: string; The room id; should be rooms_shortname+"_"+rooms_number.
 
 	return rooms;
 };
 
-const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo> => {
+const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo | null> => {
 	const buildingInfo = blankBuildingInfo();
 	let nodes = [...inputNodes];
 	while (nodes.length > 0) {
@@ -178,16 +198,16 @@ const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo>
 		if (node.nodeName === "h2") {
 			// Building name is in <h2> node
 			// Look into the span node for the building name
-			const span = node.childNodes.find((child) => child.nodeName === "span") as DocumentFragment;
-			const text = span?.childNodes.find((child) => child.nodeName === "#text") as TextNode;
-			buildingInfo.fullname = text.value.trim();
+			const span = node.childNodes.find((child) => child.nodeName === "span");
+			if (span) {
+				buildingInfo.fullname = getChildText(span);
+			}
 		} else if (
 			node.nodeName === "div" &&
 			node.attrs?.find((attr) => attr.name === "class" && attr.value === "field-content")
 		) {
 			// Building address is in a <div> with class "field-content"
-			const text = node.childNodes.find((child) => child.nodeName === "#text") as TextNode;
-			buildingInfo.address = text?.value.trim();
+			buildingInfo.address = getChildText(node);
 		} else {
 			nodes = nodes.concat(getChildNodes(node));
 		}
@@ -200,18 +220,16 @@ const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo>
 			(res) => {
 				// get("http://cs310.students.cs.ubc.ca:11316/api/v1/project_team232/6270%20University%20Boulevard", (res) => {
 				let rawData = "";
-				res.on("data", (chunk) => {
-					rawData += chunk;
-				});
+				res.on("data", (chunk) => (rawData += chunk));
 
 				res.on("end", () => {
 					const parsedData = JSON.parse(rawData);
-					// console.log(parsedData);
 					if (!parsedData.error) {
 						buildingInfo.lat = parsedData.lat;
 						buildingInfo.lon = parsedData.lon;
+						resolve(buildingInfo);
 					}
-					resolve(buildingInfo);
+					resolve(null);
 				});
 			}
 		);
@@ -219,18 +237,39 @@ const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo>
 };
 
 // Parse a <tr> node and return a room object if it is a valid room
-const parseRoom = (node: ChildNode): any => {
-	// rooms_fullname: string; Full building name (e.g., "Hugh Dempster Pavilion").
-	// rooms_shortname: string; Short building name (e.g., "DMP").
-	// rooms_number: string; The room number. Not always a number, so represented as a string.
-	// rooms_name: string; The room id; should be rooms_shortname+"_"+rooms_number.
-	// rooms_address: string; The building address. (e.g., "6245 Agronomy Road V6T 1Z4").
-	// rooms_lat: number; The latitude of the building, as received via HTTP request.
-	// rooms_lon: number; The longitude of the building, as received via HTTP request.
-	// rooms_seats: number; The number of seats in the room. The default value for this field is 0.
-	// rooms_type: string; The room type (e.g., "Small Group").
-	// rooms_furniture: string; The room furniture (e.g., "Classroom-Movable Tables & Chairs").
-	// rooms_href: string; The link to full details online (e.g., "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-201").
+const parseRoom = (inputNode: ChildNode): any => {
+	const room = blankRoomOnlyInfo();
+	let nodes = getChildNodes(inputNode);
+	while (nodes.length > 0) {
+		const node = nodes.pop();
+		if (!node) {
+			continue;
+		}
+
+		// Any room info will be in a <td> node
+		if (node.nodeName === "td") {
+			if (hasAttrValue(node, "class", "views-field-field-room-number")) {
+				const a = node.childNodes.find((child) => child.nodeName === "a") as Element;
+				const value = a.attrs?.find((attr) => attr.name === "href")?.value;
+				if (value) {
+					room.href = value;
+				}
+				room.number = getChildText(a);
+			} else if (hasAttrValue(node, "class", "views-field-field-room-capacity")) {
+				room.seats = +getChildText(node);
+			} else if (hasAttrValue(node, "class", "views-field-field-room-furniture")) {
+				room.furniture = getChildText(node);
+			} else if (hasAttrValue(node, "class", "views-field-field-room-type")) {
+				room.type = getChildText(node);
+			}
+		} else {
+			nodes = nodes.concat(getChildNodes(node));
+		}
+	}
+
+	if (room.number && room.seats && room.type && room.furniture && room.href) {
+		return room;
+	}
 	return null;
 };
 

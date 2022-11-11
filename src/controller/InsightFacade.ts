@@ -73,7 +73,7 @@ export default class InsightFacade implements IInsightFacade {
 
 		// Add new dataset to memory
 		this.dataset.push(newDataset);
-		console.log(newDataset);
+		console.log(newDataset.insight.numRows);
 
 		// Write new dataset to disk
 		try {
