@@ -34,6 +34,7 @@ describe("InsightFacade", function () {
 		roomsNoIndex: "./test/resources/archives/roomsNoIndex.zip",
 		roomsNoBuildings: "./test/resources/archives/roomsNoBuildings.zip",
 		roomsNoBuildingsCampus: "./test/resources/archives/roomsNoBuildingsCampus.zip",
+		roomsMinus6: "./test/resources/archives/roomsMinus6.zip",
 	};
 
 	before(function () {
@@ -102,6 +103,26 @@ describe("InsightFacade", function () {
 							id: "roomsId",
 							kind: InsightDatasetKind.Rooms,
 							numRows: 364,
+						},
+					]);
+					expect(insightDatasets).to.be.an.instanceof(Array);
+					expect(insightDatasets).to.have.length(1);
+				});
+		});
+
+		it("should list one valid rooms dataset (minus 6 rows)", function () {
+			const sections: string = datasetContents.get("roomsMinus6") ?? "";
+			return insightFacade
+				.addDataset("roomsId", sections, InsightDatasetKind.Rooms)
+				.then(() => {
+					return insightFacade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([
+						{
+							id: "roomsId",
+							kind: InsightDatasetKind.Rooms,
+							numRows: 364 - 6,
 						},
 					]);
 					expect(insightDatasets).to.be.an.instanceof(Array);
