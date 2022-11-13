@@ -120,26 +120,27 @@ export default class InsightFacade implements IInsightFacade {
 		};
 
 		if (existInMemory()) {
-			let queryDataset = this.dataset[queryDatasetIndex];
-			let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, queryDatasetID));
-			let unordered = filtered.map((section: any) => handleColumns(section, query, queryDatasetID));
-			queryResult = handleOrder(unordered, query, queryDatasetID);
+			let queryDataset = this.datasetSections[queryDatasetIndex];
+			const datasetInsight = queryDataset.insight;
+			let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, datasetInsight));
+			let unordered = filtered.map((section: any) => handleColumns(section, query, datasetInsight));
+			queryResult = handleOrder(unordered, query, datasetInsight);
 		} else {
 			const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
 			if (!existInDisk) {
 				throw new InsightError("Query references dataset not added");
 			}
-			queryResult = await readDataset(queryDatasetID)
-				.then((queryDataset) => {
-					this.dataset.push(queryDataset);
-					return queryDataset.data.filter((section) => handleWhere(section, query, queryDatasetID));
-				})
-				.then((filteredSections) => {
-					return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));
-				})
-				.then((unorderedQueryResult) => {
-					return handleOrder(unorderedQueryResult, query, queryDatasetID);
-				});
+
+			let datasetInsight: InsightDataset;
+			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
+				this.datasetSections.push(queryDataset);
+				datasetInsight = queryDataset.insight;
+				return queryDataset.data.filter((section) => handleWhere(section, query, datasetInsight));
+			}).then((filteredSections) => {
+				return filteredSections.map((section) => handleColumns(section, query, datasetInsight));
+			}).then((unorderedQueryResult) => {
+				return handleOrder(unorderedQueryResult, query, datasetInsight);
+			});
 		}
 
 		if (queryResult.length > 5000) {
