@@ -29,6 +29,7 @@ export default class InsightFacade implements IInsightFacade {
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
 		// Validate id
 		validateId(id);
+		let parsedContent: any[];
 
 		/*
 		 * Check both in memory and disk for duplicate ids. If data dir is deleted, in memory datasets are still valid.
@@ -47,37 +48,24 @@ export default class InsightFacade implements IInsightFacade {
 		// Get sections from content buffer
 		let newDataset: Dataset;
 		if (kind === InsightDatasetKind.Sections) {
-			const sections = await parseSections(content);
-
-			newDataset = {
-				insight: {
-					id: id,
-					kind: kind,
-					numRows: sections.length,
-				},
-				sections: sections,
-			};
+			parsedContent = await parseSections(content);
 		} else {
 			// InsightDatasetKind.Courses
-			const rooms = await parseRooms(content);
-
-			newDataset = {
-				insight: {
-					id: id,
-					kind: kind,
-					numRows: rooms.length,
-				},
-				sections: rooms,
-			};
+			parsedContent = await parseRooms(content);
 		}
+
+		newDataset = {
+			insight: {id: id, kind: kind, numRows: parsedContent.length},
+			data: parsedContent,
+		};
 
 		// Add new dataset to memory
 		this.dataset.push(newDataset);
-		console.log(newDataset.insight.numRows);
 
 		// Write new dataset to disk
 		try {
 			await outputJSON(`${dataDir}/${id}.json`, newDataset);
+			await outputJSON(`${dataDir}1/${id}.json`, newDataset);
 		} catch (err) {
 			throw new InsightError("Error writing dataset to disk");
 		}
@@ -134,7 +122,7 @@ export default class InsightFacade implements IInsightFacade {
 
 		if (existInMemory()) {
 			let queryDataset = this.dataset[queryDatasetIndex];
-			let filtered = queryDataset.sections.filter((section: any) => handleWhere(section, query, queryDatasetID));
+			let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, queryDatasetID));
 			let unordered = filtered.map((section: any) => handleColumns(section, query, queryDatasetID));
 			queryResult = handleOrder(unordered, query, queryDatasetID);
 		} else {
@@ -145,7 +133,7 @@ export default class InsightFacade implements IInsightFacade {
 			queryResult = await readDataset(queryDatasetID)
 				.then((queryDataset) => {
 					this.dataset.push(queryDataset);
-					return queryDataset.sections.filter((section) => handleWhere(section, query, queryDatasetID));
+					return queryDataset.data.filter((section) => handleWhere(section, query, queryDatasetID));
 				})
 				.then((filteredSections) => {
 					return filteredSections.map((section) => handleColumns(section, query, queryDatasetID));

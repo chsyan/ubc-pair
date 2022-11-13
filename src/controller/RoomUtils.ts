@@ -3,42 +3,19 @@ import JSZip from "jszip";
 import {parse} from "parse5";
 import {ChildNode, Document, DocumentFragment, Element, TextNode} from "parse5/dist/tree-adapters/default";
 import {InsightError} from "./IInsightFacade";
-interface BuildingInfo {
-	fullname: string | null;
-	shortname: string | null;
-	address: string | null;
-	lat: number | null;
-	lon: number | null;
-}
-
-interface RoomOnlyInfo {
-	number: string | null;
-	seats: number | null;
-	type: string | null;
-	furniture: string | null;
-	href: string | null;
-}
-
-const blankBuildingInfo = (): BuildingInfo => {
-	return {fullname: null, shortname: null, address: null, lat: null, lon: null};
-};
-
-const blankRoomOnlyInfo = (): RoomOnlyInfo => {
-	return {number: null, seats: null, type: null, furniture: null, href: null};
-};
-
-const getChildText = (node: ChildNode): string => {
-	const textNode = (node as DocumentFragment).childNodes.find((child) => child.nodeName === "#text") as TextNode;
-	return textNode?.value.trim();
-};
-
-const getChildNodes = (node: ChildNode): ChildNode[] => {
-	return (node as DocumentFragment).childNodes;
-};
-
-const hasAttrValue = (node: Element, attrName: string, attrValue: string): boolean => {
-	return node.attrs.some((attr) => attr.name === attrName && attr.value.split(" ").includes(attrValue));
-};
+import {
+	getChildNodes,
+	BuildingOnlyInfo,
+	blankBuildingInfo,
+	getChildText,
+	blankRoomOnlyInfo,
+	hasAttrValue,
+	appendBuildingInfo,
+	RoomInfo,
+	RoomOnlyInfo,
+	populatedRoomOnlyInfo,
+	populatedBuildingInfo,
+} from "./RoomHelperUtils";
 
 // Parse the zip file and return an array of room objects
 const parseRooms = async (content: string): Promise<any[]> => {
@@ -61,7 +38,7 @@ const parseRooms = async (content: string): Promise<any[]> => {
 
 	// Parse index.htm
 	const indexContent = await indexFile.async("string");
-	const buildingFiles = parseDocument(parse(indexContent));
+	const buildingFiles = parseIndexContent(parse(indexContent));
 
 	if (buildingFiles.length === 0) {
 		throw new InsightError("No buildings found in index.htm");
@@ -69,10 +46,12 @@ const parseRooms = async (content: string): Promise<any[]> => {
 
 	// Parse each building file
 	const rooms: any[] = await parseBuildings(buildingFiles, zip);
+
 	return rooms;
 };
 
-const parseDocument = (document: Document): string[] => {
+// Parse the index file and return an array of building file paths
+const parseIndexContent = (document: Document): string[] => {
 	let nodes = document.childNodes; // "stack" of nodes to visit
 	const buildingFiles: string[] = [];
 	while (nodes.length > 0) {
@@ -107,8 +86,9 @@ const parseDocument = (document: Document): string[] => {
 	return buildingFiles;
 };
 
+// Given an array of building file paths, parse each building file and return an array of rooms
 const parseBuildings = async (buildingFiles: string[], zip: JSZip) => {
-	let rooms: any[] = [];
+	let rooms: RoomInfo[] = [];
 
 	// Parse each building file
 	const filePromises = buildingFiles.map(async (filePath) => {
@@ -128,14 +108,18 @@ const parseBuildings = async (buildingFiles: string[], zip: JSZip) => {
 	});
 
 	await Promise.all(filePromises);
-	return rooms;
+	return rooms.sort((a, b) => a.shortname.localeCompare(b.shortname));
 };
 
-const parseBuilding = async (document: Document): Promise<any> => {
-	const rooms = [];
+// Parse an individual building document/file
+const parseBuilding = async (document: Document): Promise<RoomInfo[]> => {
+	const roomsOnly: RoomOnlyInfo[] = [];
 	let nodes = document.childNodes; // "stack" of nodes to visit
-	let promises: Array<Promise<BuildingInfo | null>> = [];
-	let buildingShortName = "";
+
+	// Not sure how else to set an variable for http promise, so empty array here
+	let httpPromise: Array<Promise<BuildingOnlyInfo>> = [];
+
+	let buildingShortName: string | null = null;
 
 	// Look for rooms and building info
 	while (nodes.length > 0) {
@@ -158,14 +142,14 @@ const parseBuilding = async (document: Document): Promise<any> => {
 			node.nodeName === "div" &&
 			node.attrs?.find((attr) => attr.name === "id" && attr.value.split(" ").includes("building-info"))
 		) {
-			// Building info is in a <div> with id "building-info"
+			// Building info (excluding shotname) is in a <div> with id "building-info"
 			const children = getChildNodes(node);
-			promises.push(parseBuildingInfo(children));
+			httpPromise.push(parseBuildingInfo(children));
 		} else if (node.nodeName === "tr") {
 			// If <tr> node, try to  parse as room
 			const room = parseRoom(node);
 			if (room) {
-				rooms.push(room);
+				roomsOnly.push(room);
 			}
 		} else {
 			// Add child nodes to stack and continue searching
@@ -173,19 +157,20 @@ const parseBuilding = async (document: Document): Promise<any> => {
 		}
 	}
 
-	const buildingInfo = await Promise.any(promises);
-	if (!buildingInfo) {
-		return [];
+	const buildingInfo = await Promise.any(httpPromise); // Get building info without shortname
+	buildingInfo.shortname = buildingShortName; // Add shortname
+
+	// Make sure building info is populated
+	if (populatedBuildingInfo(buildingInfo)) {
+		// Append building info to each room
+		return appendBuildingInfo(roomsOnly, buildingInfo);
 	}
-	buildingInfo.shortname = buildingShortName;
 
-	// Append building info to each room
-	// rooms_name: string; The room id; should be rooms_shortname+"_"+rooms_number.
-
-	return rooms;
+	return [];
 };
 
-const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo | null> => {
+// Given the div nodes containing building info, parse (+ make the http req) and return building info (can have null fields);
+const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingOnlyInfo> => {
 	const buildingInfo = blankBuildingInfo();
 	let nodes = [...inputNodes];
 	while (nodes.length > 0) {
@@ -214,30 +199,30 @@ const parseBuildingInfo = async (inputNodes: ChildNode[]): Promise<BuildingInfo 
 	}
 
 	return new Promise((resolve) => {
-		// https://www.golinuxcloud.com/http-get-request-in-node-js/
 		get(
 			"http://cs310.students.cs.ubc.ca:11316/api/v1/project_team232/" + buildingInfo.address?.replace(" ", "%20"),
 			(res) => {
-				// get("http://cs310.students.cs.ubc.ca:11316/api/v1/project_team232/6270%20University%20Boulevard", (res) => {
+				// https://www.golinuxcloud.com/http-get-request-in-node-js/
+				// Get the raw data from response
 				let rawData = "";
 				res.on("data", (chunk) => (rawData += chunk));
 
+				// end listener happens when all data is received
 				res.on("end", () => {
 					const parsedData = JSON.parse(rawData);
 					if (!parsedData.error) {
 						buildingInfo.lat = parsedData.lat;
 						buildingInfo.lon = parsedData.lon;
-						resolve(buildingInfo);
 					}
-					resolve(null);
+					resolve(buildingInfo);
 				});
 			}
 		);
 	});
 };
 
-// Parse a <tr> node and return a room object if it is a valid room
-const parseRoom = (inputNode: ChildNode): any => {
+// Parse a <tr> node and return a room object if it is a valid room. Only returns populated RoomOnlyInfo
+const parseRoom = (inputNode: ChildNode): RoomOnlyInfo | null => {
 	const room = blankRoomOnlyInfo();
 	let nodes = getChildNodes(inputNode);
 	while (nodes.length > 0) {
@@ -247,7 +232,7 @@ const parseRoom = (inputNode: ChildNode): any => {
 		}
 
 		// Any room info will be in a <td> node
-		if (node.nodeName === "td") {
+		if (node.nodeName === "td" && hasAttrValue(node, "class", "views-field")) {
 			if (hasAttrValue(node, "class", "views-field-field-room-number")) {
 				const a = node.childNodes.find((child) => child.nodeName === "a") as Element;
 				const value = a.attrs?.find((attr) => attr.name === "href")?.value;
@@ -267,7 +252,8 @@ const parseRoom = (inputNode: ChildNode): any => {
 		}
 	}
 
-	if (room.number && room.seats && room.type && room.furniture && room.href) {
+	// Make sure all the required fields are not null
+	if (populatedRoomOnlyInfo(room)) {
 		return room;
 	}
 	return null;

@@ -3,7 +3,7 @@ import {InsightDataset, InsightError} from "./IInsightFacade";
 
 interface Dataset {
 	insight: InsightDataset;
-	sections: any[];
+	data: any[];
 }
 
 const dataDir = "./data";
