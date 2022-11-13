@@ -350,6 +350,7 @@ describe("InsightFacade", function () {
 					datasetContents.get("sections") ?? "",
 					InsightDatasetKind.Sections
 				),
+				insightFacade.addDataset("rooms", datasetContents.get("rooms") ?? "", InsightDatasetKind.Rooms),
 			];
 
 			return Promise.all(loadDatasetPromises);

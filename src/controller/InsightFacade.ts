@@ -120,7 +120,7 @@ export default class InsightFacade implements IInsightFacade {
 		};
 
 		if (existInMemory()) {
-			let queryDataset = this.datasetSections[queryDatasetIndex];
+			let queryDataset = this.dataset[queryDatasetIndex];
 			const datasetInsight = queryDataset.insight;
 			let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, datasetInsight));
 			let unordered = filtered.map((section: any) => handleColumns(section, query, datasetInsight));
@@ -133,7 +133,7 @@ export default class InsightFacade implements IInsightFacade {
 
 			let datasetInsight: InsightDataset;
 			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
-				this.datasetSections.push(queryDataset);
+				this.dataset.push(queryDataset);
 				datasetInsight = queryDataset.insight;
 				return queryDataset.data.filter((section) => handleWhere(section, query, datasetInsight));
 			}).then((filteredSections) => {
