@@ -65,7 +65,6 @@ export default class InsightFacade implements IInsightFacade {
 		// Write new dataset to disk
 		try {
 			await outputJSON(`${dataDir}/${id}.json`, newDataset);
-			await outputJSON(`${dataDir}1/${id}.json`, newDataset);
 		} catch (err) {
 			throw new InsightError("Error writing dataset to disk");
 		}
