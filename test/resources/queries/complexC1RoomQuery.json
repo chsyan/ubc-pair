@@ -1,0 +1,58 @@
+{
+	"title": "complexC1RoomQuery",
+	"input": {
+		"WHERE": {
+			"OR": [
+				{
+					"AND": [
+						{
+							"GT": {
+								"rooms_seats": 90
+							}
+						},
+						{
+							"IS": {
+								"rooms_fullname": "Hugh Dempster Pavilion"
+							}
+						}
+					]
+				},
+				{
+					"EQ": {
+						"rooms_seats": 90
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_seats",
+				"rooms_fullname"
+			],
+			"ORDER": "rooms_seats"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_seats": 90,
+			"rooms_fullname": "Anthropology and Sociology"
+		},
+		{
+			"rooms_seats": 90,
+			"rooms_fullname": "Chemistry"
+		},
+		{
+			"rooms_seats": 90,
+			"rooms_fullname": "Chemistry"
+		},
+		{
+			"rooms_seats": 120,
+			"rooms_fullname": "Hugh Dempster Pavilion"
+		},
+		{
+			"rooms_seats": 160,
+			"rooms_fullname": "Hugh Dempster Pavilion"
+		}
+	]
+}

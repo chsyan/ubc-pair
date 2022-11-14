@@ -1,4 +1,5 @@
 import {InsightDataset, InsightDatasetKind, InsightError, InsightResult} from "./IInsightFacade";
+import {Dataset} from "./DatasetUtils";
 
 /*
 *
@@ -36,8 +37,8 @@ const parseSectionsDatasetKey = (key: string, id: string): string => {
 	}
 };
 
-const parseRoomsDatasetKey = (key: string, id: string): string => {
-	return ""; // TODO rooms handling
+const parseRoomsDatasetKey = (key: string): string => {
+	return key.split("_")[1];
 };
 
 const parseDatasetKey = (key: string, insight: InsightDataset): string => {
@@ -45,7 +46,7 @@ const parseDatasetKey = (key: string, insight: InsightDataset): string => {
 	if (datasetKind === InsightDatasetKind.Sections) {
 		return parseSectionsDatasetKey(key, insight.id);
 	} else { // InsightDatasetKind.Rooms
-		return parseRoomsDatasetKey(key, insight.id);
+		return parseRoomsDatasetKey(key);
 	}
 };
 
@@ -143,55 +144,103 @@ const handleWhere = (section: any, query: any, insight: InsightDataset): boolean
 	return result;
 };
 
+const NonApplyKeySectionValue = (column: any, insight: InsightDataset, section: any): any => {
+	const sectionKey = parseDatasetKey(column, insight);
+	if (sectionKey === "Year" && section.Section === "overall") {
+		return 1900;
+	} else if (sectionKey === "Year") {
+		return Number(section[sectionKey]);
+	} else if (sectionKey === "id") {
+		return section[sectionKey].toString();
+	} else {
+		return section[sectionKey];
+	}
+};
+
 const handleColumns = (section: any, query: any, insight: InsightDataset): InsightResult => {
 	const columns = query.OPTIONS.COLUMNS;
 	let result: InsightResult = {};
 
-	let sectionValue;
 	for (const column of columns) {
-		const sectionKey = parseDatasetKey(column, insight);
-		if (sectionKey === "Year" && section.Section === "overall") {
-			sectionValue = 1900;
-		} else if (sectionKey === "Year") {
-			sectionValue = Number(section[sectionKey]);
-		} else if (sectionKey === "id") {
-			sectionValue = section[sectionKey].toString();
-		} else {
-			sectionValue = section[sectionKey];
-		}
-		result[column] = sectionValue;
+		result[column] = NonApplyKeySectionValue(column, insight, section);
 	}
 	return result;
 };
 
-const handleOrder = (unorderedQueryResult: any[], query: any, insight: InsightDataset): InsightResult[] => {
+const mkeyOrderUp = (insightResA: any, insightResB: any, order: string): number => {
+	return insightResA[order] - insightResB[order];
+};
+
+const mkeyOrderDown = (insightResA: any, insightResB: any, order: string): number => {
+	return insightResB[order] - insightResA[order];
+};
+
+const skeyOrderUp = (insightResA: any, insightResB: any, order: string): number => {
+	if(insightResA[order] < insightResB[order]) {
+		return -1;
+	} else if (insightResA[order] > insightResB[order]) {
+		return 1;
+	} else {
+		return 0;
+	}
+};
+
+const skeyOrderDown = (insightResA: any, insightResB: any, order: string): number => {
+	if(insightResB[order] < insightResA[order]) {
+		return -1;
+	} else if (insightResB[order] > insightResA[order]) {
+		return 1;
+	} else {
+		return 0;
+	}
+};
+
+const directionalOrder = (insightResA: any, insightResB: any, order: any, mkeys: string[], skeys: string[]): number => {
+	const dir = order["dir"];
+	const orderKeys = order["keys"];
+
+	let compareFnResult = 0;
+	for (const orderKey of orderKeys) {
+		if (dir === "UP" && mkeys.includes(orderKey.split("_")[1])) {
+			compareFnResult = mkeyOrderUp(insightResA, insightResB, orderKey);
+		} else if (dir === "DOWN" && mkeys.includes(orderKey.split("_")[1])) {
+			compareFnResult = mkeyOrderDown(insightResA, insightResB, orderKey);
+		} else if (dir === "UP" && skeys.includes(orderKey.split("_")[1])) {
+			compareFnResult = skeyOrderUp(insightResA, insightResB, orderKey);
+		} else if (dir === "DOWN" && skeys.includes(orderKey.split("_")[1])) {
+			compareFnResult = skeyOrderDown(insightResA, insightResB, orderKey);
+		} else {
+			throw new InsightError("Invalid Order Object in ORDER");
+		}
+
+		if (compareFnResult !== 0) {
+			return compareFnResult;
+		}
+	}
+
+	return compareFnResult;
+};
+
+const handleOrder = (unorderedQueryResult: any[], query: any): InsightResult[] => {
 	let queryResult: InsightResult[];
 	const order = query.OPTIONS.ORDER;
-	const id = insight.id;
+	let mkeys = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
+	let skeys = ["dept", "id", "instructor", "title", "uuid", "fullname", "shortname", "number", "name", "address",
+		"type", "furniture", "href"];
 
 	if (order === undefined) {
 		queryResult = unorderedQueryResult;
-	} else if (order === id + "_avg" ||
-		order === id + "_pass" ||
-		order === id + "_fail" ||
-		order === id + "_audit" ||
-		order === id + "_year") {
+	} else if (typeof order === "string" && mkeys.includes(order.split("_")[1])) {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
-			return insightResA[order] - insightResB[order];
+			return mkeyOrderUp(insightResA, insightResB, order);
 		});
-	} else if (order === id + "_dept" ||
-		order === id + "_id" ||
-		order === id + "_instructor" ||
-		order === id + "_title" ||
-		order === id + "_uuid") {
+	} else if (typeof order === "string" && skeys.includes(order.split("_")[1])) {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
-			if(insightResA[order] < insightResB[order]) {
-				return -1;
-			} else if (insightResA[order] > insightResB[order]) {
-				return 1;
-			} else {
-				return 0;
-			}
+			return skeyOrderUp(insightResA, insightResB, order);
+		});
+	} else if (typeof order === "object") {
+		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
+			return directionalOrder(insightResA, insightResB, order, mkeys, skeys);
 		});
 	} else {
 		throw new InsightError("Invalid dataset key in ORDER");
@@ -199,4 +248,11 @@ const handleOrder = (unorderedQueryResult: any[], query: any, insight: InsightDa
 	return queryResult;
 };
 
-export {getQueryDatasetID, handleWhere, handleColumns, handleOrder};
+const getQueryResult = (queryDataset: Dataset, query: any): InsightResult[] => {
+	const datasetInsight = queryDataset.insight;
+	let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, datasetInsight));
+	let unordered = filtered.map((section: any) => handleColumns(section, query, datasetInsight));
+	return handleOrder(unordered, query);
+};
+
+export {getQueryDatasetID, handleWhere, handleColumns, handleOrder, getQueryResult};
