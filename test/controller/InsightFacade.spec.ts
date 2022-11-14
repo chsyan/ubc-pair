@@ -30,6 +30,11 @@ describe("InsightFacade", function () {
 		noValidSection: "./test/resources/archives/notValid.zip",
 		extra: "./test/resources/archives/extra.zip",
 		nestedFolders: "./test/resources/archives/nestedFolders.zip",
+		rooms: "./test/resources/archives/rooms.zip",
+		roomsNoIndex: "./test/resources/archives/roomsNoIndex.zip",
+		roomsNoBuildings: "./test/resources/archives/roomsNoBuildings.zip",
+		roomsNoBuildingsCampus: "./test/resources/archives/roomsNoBuildingsCampus.zip",
+		roomsMinus6: "./test/resources/archives/roomsMinus6.zip",
 	};
 
 	before(function () {
@@ -73,6 +78,86 @@ describe("InsightFacade", function () {
 			return insightFacade
 				.addDataset(id, content, InsightDatasetKind.Sections)
 				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		// Repeat dataset tests for rooms
+		it("Should add a valid rooms dataset", function () {
+			const id: string = "rooms";
+			const content: string = datasetContents.get("rooms") ?? "";
+			const expected: string[] = [id];
+			return insightFacade
+				.addDataset(id, content, InsightDatasetKind.Rooms)
+				.then((result: string[]) => expect(result).to.deep.equal(expected));
+		});
+
+		it("should list one valid rooms dataset", function () {
+			const sections: string = datasetContents.get("rooms") ?? "";
+			return insightFacade
+				.addDataset("roomsId", sections, InsightDatasetKind.Rooms)
+				.then(() => {
+					return insightFacade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([
+						{
+							id: "roomsId",
+							kind: InsightDatasetKind.Rooms,
+							numRows: 364,
+						},
+					]);
+					expect(insightDatasets).to.be.an.instanceof(Array);
+					expect(insightDatasets).to.have.length(1);
+				});
+		});
+
+		it("should list one valid rooms dataset (minus 6 rows)", function () {
+			const sections: string = datasetContents.get("roomsMinus6") ?? "";
+			return insightFacade
+				.addDataset("roomsId", sections, InsightDatasetKind.Rooms)
+				.then(() => {
+					return insightFacade.listDatasets();
+				})
+				.then((insightDatasets) => {
+					expect(insightDatasets).to.deep.equal([
+						{
+							id: "roomsId",
+							kind: InsightDatasetKind.Rooms,
+							numRows: 364 - 6,
+						},
+					]);
+					expect(insightDatasets).to.be.an.instanceof(Array);
+					expect(insightDatasets).to.have.length(1);
+				});
+		});
+
+		it("Add a rooms dataset with kind sections should fail", function () {
+			const sections: string = datasetContents.get("rooms") ?? "";
+			const result = insightFacade.addDataset("roomsId", sections, InsightDatasetKind.Sections);
+			expect(result).eventually.to.be.rejectedWith(InsightError);
+		});
+
+		it("Add a rooms dataset with no index.htm should fail", function () {
+			const sections: string = datasetContents.get("roomsNoIndex") ?? "";
+			const result = insightFacade.addDataset("roomsId", sections, InsightDatasetKind.Sections);
+			expect(result).eventually.to.be.rejectedWith(InsightError);
+		});
+
+		it("Add a rooms dataset with no building files should fail", function () {
+			const sections: string = datasetContents.get("roomsNoBuildings") ?? "";
+			const result = insightFacade.addDataset("roomsId", sections, InsightDatasetKind.Sections);
+			expect(result).eventually.to.be.rejectedWith(InsightError);
+		});
+
+		it("Add a rooms dataset with no building files in campus folder should fail", function () {
+			const sections: string = datasetContents.get("roomsNoBuildingsCampus") ?? "";
+			const result = insightFacade.addDataset("roomsId", sections, InsightDatasetKind.Sections);
+			expect(result).eventually.to.be.rejectedWith(InsightError);
+		});
+
+		it("Add a sections dataset with room sections should fail", function () {
+			const sections: string = datasetContents.get("sections") ?? "";
+			const result = insightFacade.addDataset("roomsId", sections, InsightDatasetKind.Rooms);
+			expect(result).eventually.to.be.rejectedWith(InsightError);
 		});
 
 		//
@@ -265,6 +350,7 @@ describe("InsightFacade", function () {
 					datasetContents.get("sections") ?? "",
 					InsightDatasetKind.Sections
 				),
+				insightFacade.addDataset("rooms", datasetContents.get("rooms") ?? "", InsightDatasetKind.Rooms),
 			];
 
 			return Promise.all(loadDatasetPromises);

@@ -12,8 +12,9 @@
 		"decimal.js": "10.3.1",
 		"express": "4.17.2",
 		"fs-extra": "10.0.0",
+		"http": "^0.0.1-security",
 		"jszip": "3.7.1",
-		"parse5": "7.1.1"
+		"parse5": "^7.1.1"
 	},
 	"devDependencies": {
 		"@tsconfig/node16": "1.0.2",
