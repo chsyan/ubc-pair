@@ -28,19 +28,23 @@ const skeyOrderDown = (insightResA: any, insightResB: any, order: string): numbe
 	}
 };
 
+const isOrderedByXKey = (xkeys: string[], order: string): boolean => {
+	return xkeys.includes(order.split("_")[1]) || xkeys.includes(order);
+};
+
 const directionalOrder = (insightResA: any, insightResB: any, order: any, mkeys: string[], skeys: string[]): number => {
 	const dir = order["dir"];
 	const orderKeys = order["keys"];
 
 	let compareFnResult = 0;
 	for (const orderKey of orderKeys) {
-		if (dir === "UP" && mkeys.includes(orderKey.split("_")[1])) {
+		if (dir === "UP" && isOrderedByXKey(mkeys, orderKey)) {
 			compareFnResult = mkeyOrderUp(insightResA, insightResB, orderKey);
-		} else if (dir === "DOWN" && mkeys.includes(orderKey.split("_")[1])) {
+		} else if (dir === "DOWN" && isOrderedByXKey(mkeys, orderKey)) {
 			compareFnResult = mkeyOrderDown(insightResA, insightResB, orderKey);
-		} else if (dir === "UP" && skeys.includes(orderKey.split("_")[1])) {
+		} else if (dir === "UP" && isOrderedByXKey(skeys, orderKey)) {
 			compareFnResult = skeyOrderUp(insightResA, insightResB, orderKey);
-		} else if (dir === "DOWN" && skeys.includes(orderKey.split("_")[1])) {
+		} else if (dir === "DOWN" && isOrderedByXKey(skeys, orderKey)) {
 			compareFnResult = skeyOrderDown(insightResA, insightResB, orderKey);
 		} else {
 			throw new InsightError("Invalid Order Object in ORDER");
@@ -54,4 +58,4 @@ const directionalOrder = (insightResA: any, insightResB: any, order: any, mkeys:
 	return compareFnResult;
 };
 
-export {directionalOrder, skeyOrderUp, mkeyOrderUp};
+export {directionalOrder, skeyOrderUp, mkeyOrderUp, isOrderedByXKey};
