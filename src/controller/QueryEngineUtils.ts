@@ -37,6 +37,11 @@ const parseSectionsDatasetKey = (key: string, id: string): string => {
 };
 
 const parseRoomsDatasetKey = (key: string): string => {
+	const roomKeys = ["lat", "lon", "seats", "fullname", "shortname", "number", "name", "address", "type", "furniture",
+		"href"];
+	if (!roomKeys.includes(key.split("_")[1])) {
+		throw new InsightError("Invalid dataset key cannot be parsed");
+	}
 	return key.split("_")[1];
 };
 
