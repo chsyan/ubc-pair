@@ -1,0 +1,621 @@
+{
+	"title": "rooms_lat",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"rooms_lat": 49.265
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_lat",
+				"rooms_name"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_name"
+				]
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_lat": 49.26517,
+			"rooms_name": "WESB_201"
+		},
+		{
+			"rooms_lat": 49.26517,
+			"rooms_name": "WESB_100"
+		},
+		{
+			"rooms_lat": 49.26867,
+			"rooms_name": "UCLL_109"
+		},
+		{
+			"rooms_lat": 49.26867,
+			"rooms_name": "UCLL_107"
+		},
+		{
+			"rooms_lat": 49.26867,
+			"rooms_name": "UCLL_103"
+		},
+		{
+			"rooms_lat": 49.26867,
+			"rooms_name": "UCLL_101"
+		},
+		{
+			"rooms_lat": 49.2683,
+			"rooms_name": "SRC_220C"
+		},
+		{
+			"rooms_lat": 49.2683,
+			"rooms_name": "SRC_220B"
+		},
+		{
+			"rooms_lat": 49.2683,
+			"rooms_name": "SRC_220A"
+		},
+		{
+			"rooms_lat": 49.2663,
+			"rooms_name": "MGYM_208"
+		},
+		{
+			"rooms_lat": 49.2663,
+			"rooms_name": "MGYM_206"
+		},
+		{
+			"rooms_lat": 49.266089,
+			"rooms_name": "MATX_1100"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_225"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_204"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_203"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_202"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_105"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_104"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_102"
+		},
+		{
+			"rooms_lat": 49.266463,
+			"rooms_name": "MATH_100"
+		},
+		{
+			"rooms_lat": 49.26545,
+			"rooms_name": "LSK_462"
+		},
+		{
+			"rooms_lat": 49.26545,
+			"rooms_name": "LSK_460"
+		},
+		{
+			"rooms_lat": 49.26545,
+			"rooms_name": "LSK_201"
+		},
+		{
+			"rooms_lat": 49.26545,
+			"rooms_name": "LSK_200"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_5C"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_211"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_107"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_105"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_104"
+		},
+		{
+			"rooms_lat": 49.26767,
+			"rooms_name": "LASR_102"
+		},
+		{
+			"rooms_lat": 49.27106,
+			"rooms_name": "IONA_633"
+		},
+		{
+			"rooms_lat": 49.27106,
+			"rooms_name": "IONA_301"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_461"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_460"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_266"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_265"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_264"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_263"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_261"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_195"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_194"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_193"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_192"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_191"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_185"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_182"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_158"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_157"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_156"
+		},
+		{
+			"rooms_lat": 49.26766,
+			"rooms_name": "IBLC_155"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_304"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_302"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_301"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_202"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_201"
+		},
+		{
+			"rooms_lat": 49.26627,
+			"rooms_name": "HENN_200"
+		},
+		{
+			"rooms_lat": 49.2661,
+			"rooms_name": "HEBB_13"
+		},
+		{
+			"rooms_lat": 49.2661,
+			"rooms_name": "HEBB_12"
+		},
+		{
+			"rooms_lat": 49.2661,
+			"rooms_name": "HEBB_100"
+		},
+		{
+			"rooms_lat": 49.2661,
+			"rooms_name": "HEBB_10"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_242"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_214"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_212"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_201"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_200"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_147"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_101"
+		},
+		{
+			"rooms_lat": 49.26605,
+			"rooms_name": "GEOG_100"
+		},
+		{
+			"rooms_lat": 49.26541,
+			"rooms_name": "FRDM_153"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_D300"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_D200"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_C126"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_C124"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_B250"
+		},
+		{
+			"rooms_lat": 49.2659,
+			"rooms_name": "CHEM_B150"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D325"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D323"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D322"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D319"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D317"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D316"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D315"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D314"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D313"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D312"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D307"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D306"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D304"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D301"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D229"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D228"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D222"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D221"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D219"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D218"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D217"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D216"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D214"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D213"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D209"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D207"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D205"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D204"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_D201"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B319"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B318"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B316"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B315"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B313"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B312"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B310"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B309"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B308"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B307"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B306"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B304"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B303"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B302"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B219"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B218"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B216"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B215"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B213"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B211"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B210"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B209"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B208"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B142"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_B141"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A203"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A202"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A201"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A104"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A103"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A102"
+		},
+		{
+			"rooms_lat": 49.26826,
+			"rooms_name": "BUCH_A101"
+		},
+		{
+			"rooms_lat": 49.26862,
+			"rooms_name": "BRKX_2367"
+		},
+		{
+			"rooms_lat": 49.26862,
+			"rooms_name": "BRKX_2365"
+		},
+		{
+			"rooms_lat": 49.2666,
+			"rooms_name": "AUDX_157"
+		},
+		{
+			"rooms_lat": 49.2666,
+			"rooms_name": "AUDX_142"
+		},
+		{
+			"rooms_lat": 49.26958,
+			"rooms_name": "ANSO_207"
+		},
+		{
+			"rooms_lat": 49.26958,
+			"rooms_name": "ANSO_205"
+		},
+		{
+			"rooms_lat": 49.26958,
+			"rooms_name": "ANSO_203"
+		},
+		{
+			"rooms_lat": 49.26958,
+			"rooms_name": "ANSO_202"
+		},
+		{
+			"rooms_lat": 49.2699,
+			"rooms_name": "ALRD_B101"
+		},
+		{
+			"rooms_lat": 49.2699,
+			"rooms_name": "ALRD_121"
+		},
+		{
+			"rooms_lat": 49.2699,
+			"rooms_name": "ALRD_113"
+		},
+		{
+			"rooms_lat": 49.2699,
+			"rooms_name": "ALRD_112"
+		},
+		{
+			"rooms_lat": 49.2699,
+			"rooms_name": "ALRD_105"
+		}
+	]
+}

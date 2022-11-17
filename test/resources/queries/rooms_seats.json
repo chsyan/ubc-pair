@@ -1,0 +1,37 @@
+{
+	"title": "rooms_seats",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"rooms_seats": 100
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_seats",
+				"rooms_name"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_name"
+				]
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_seats": 100,
+			"rooms_name": "IONA_301"
+		},
+		{
+			"rooms_seats": 100,
+			"rooms_name": "GEOG_200"
+		},
+		{
+			"rooms_seats": 100,
+			"rooms_name": "CEME_1202"
+		}
+	]
+}

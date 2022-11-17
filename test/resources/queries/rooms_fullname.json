@@ -1,0 +1,45 @@
+{
+	"title": "rooms_fullname",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"rooms_fullname": "All*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_fullname",
+				"rooms_name"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_name"
+				]
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_name": "ALRD_B101"
+		},
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_name": "ALRD_121"
+		},
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_name": "ALRD_113"
+		},
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_name": "ALRD_112"
+		},
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_name": "ALRD_105"
+		}
+	]
+}
