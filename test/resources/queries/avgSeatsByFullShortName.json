@@ -1,0 +1,255 @@
+{
+	"title": "avgSeatsByFullShortName",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_fullname",
+				"rooms_shortname",
+				"overallAvg"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_fullname"
+				]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"rooms_fullname",
+				"rooms_shortname"
+			],
+			"APPLY": [
+				{
+					"overallAvg": {
+						"AVG": "rooms_seats"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+			"rooms_shortname": "WOOD",
+			"overallAvg": 81.06
+		},
+		{
+			"rooms_fullname": "West Mall Swing Space",
+			"rooms_shortname": "SWNG",
+			"overallAvg": 64.59
+		},
+		{
+			"rooms_fullname": "Wesbrook",
+			"rooms_shortname": "WESB",
+			"overallAvg": 213.5
+		},
+		{
+			"rooms_fullname": "War Memorial Gymnasium",
+			"rooms_shortname": "MGYM",
+			"overallAvg": 32.5
+		},
+		{
+			"rooms_fullname": "The Leon and Thea Koerner University Centre",
+			"rooms_shortname": "UCLL",
+			"overallAvg": 40.75
+		},
+		{
+			"rooms_fullname": "Student Recreation Centre",
+			"rooms_shortname": "SRC",
+			"overallAvg": 299
+		},
+		{
+			"rooms_fullname": "School of Population and Public Health",
+			"rooms_shortname": "SPPH",
+			"overallAvg": 27.67
+		},
+		{
+			"rooms_fullname": "Robert F. Osborne Centre",
+			"rooms_shortname": "OSBO",
+			"overallAvg": 173.67
+		},
+		{
+			"rooms_fullname": "Ponderosa Commons: Oak House",
+			"rooms_shortname": "PCOH",
+			"overallAvg": 30
+		},
+		{
+			"rooms_fullname": "Pharmaceutical Sciences Building",
+			"rooms_shortname": "PHRM",
+			"overallAvg": 48.91
+		},
+		{
+			"rooms_fullname": "Orchard Commons",
+			"rooms_shortname": "ORCH",
+			"overallAvg": 31.52
+		},
+		{
+			"rooms_fullname": "Neville Scarfe",
+			"rooms_shortname": "SCRF",
+			"overallAvg": 45.64
+		},
+		{
+			"rooms_fullname": "Mathematics Annex",
+			"rooms_shortname": "MATX",
+			"overallAvg": 106
+		},
+		{
+			"rooms_fullname": "Mathematics",
+			"rooms_shortname": "MATH",
+			"overallAvg": 61.88
+		},
+		{
+			"rooms_fullname": "MacMillan",
+			"rooms_shortname": "MCML",
+			"overallAvg": 30.16
+		},
+		{
+			"rooms_fullname": "MacLeod",
+			"rooms_shortname": "MCLD",
+			"overallAvg": 83.83
+		},
+		{
+			"rooms_fullname": "Life Sciences Centre",
+			"rooms_shortname": "LSC",
+			"overallAvg": 275
+		},
+		{
+			"rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+			"rooms_shortname": "LSK",
+			"overallAvg": 126.25
+		},
+		{
+			"rooms_fullname": "Jack Bell Building for the School of Social Work",
+			"rooms_shortname": "SOWK",
+			"overallAvg": 28.71
+		},
+		{
+			"rooms_fullname": "Irving K Barber Learning Centre",
+			"rooms_shortname": "IBLC",
+			"overallAvg": 31.56
+		},
+		{
+			"rooms_fullname": "Iona Building",
+			"rooms_shortname": "IONA",
+			"overallAvg": 75
+		},
+		{
+			"rooms_fullname": "Hugh Dempster Pavilion",
+			"rooms_shortname": "DMP",
+			"overallAvg": 88
+		},
+		{
+			"rooms_fullname": "Henry Angus",
+			"rooms_shortname": "ANGU",
+			"overallAvg": 55.21
+		},
+		{
+			"rooms_fullname": "Hennings",
+			"rooms_shortname": "HENN",
+			"overallAvg": 109.67
+		},
+		{
+			"rooms_fullname": "Hebb",
+			"rooms_shortname": "HEBB",
+			"overallAvg": 134.25
+		},
+		{
+			"rooms_fullname": "Geography",
+			"rooms_shortname": "GEOG",
+			"overallAvg": 77.38
+		},
+		{
+			"rooms_fullname": "Friedman Building",
+			"rooms_shortname": "FRDM",
+			"overallAvg": 160
+		},
+		{
+			"rooms_fullname": "Frederic Lasserre",
+			"rooms_shortname": "LASR",
+			"overallAvg": 54.17
+		},
+		{
+			"rooms_fullname": "Frank Forward",
+			"rooms_shortname": "FORW",
+			"overallAvg": 47.33
+		},
+		{
+			"rooms_fullname": "Forest Sciences Centre",
+			"rooms_shortname": "FSC",
+			"overallAvg": 62.1
+		},
+		{
+			"rooms_fullname": "Food, Nutrition and Health",
+			"rooms_shortname": "FNH",
+			"overallAvg": 43.83
+		},
+		{
+			"rooms_fullname": "Earth and Ocean Sciences - Main",
+			"rooms_shortname": "EOSM",
+			"overallAvg": 50
+		},
+		{
+			"rooms_fullname": "Earth Sciences Building",
+			"rooms_shortname": "ESB",
+			"overallAvg": 193.33
+		},
+		{
+			"rooms_fullname": "Civil and Mechanical Engineering",
+			"rooms_shortname": "CEME",
+			"overallAvg": 48.17
+		},
+		{
+			"rooms_fullname": "Chemistry",
+			"rooms_shortname": "CHEM",
+			"overallAvg": 152.17
+		},
+		{
+			"rooms_fullname": "Chemical and Biological Engineering Building",
+			"rooms_shortname": "CHBE",
+			"overallAvg": 118
+		},
+		{
+			"rooms_fullname": "Centre for Interactive  Research on Sustainability",
+			"rooms_shortname": "CIRS",
+			"overallAvg": 426
+		},
+		{
+			"rooms_fullname": "Buchanan",
+			"rooms_shortname": "BUCH",
+			"overallAvg": 52.3
+		},
+		{
+			"rooms_fullname": "Brock Hall Annex",
+			"rooms_shortname": "BRKX",
+			"overallAvg": 47
+		},
+		{
+			"rooms_fullname": "Biological Sciences",
+			"rooms_shortname": "BIOL",
+			"overallAvg": 84
+		},
+		{
+			"rooms_fullname": "Auditorium Annex",
+			"rooms_shortname": "AUDX",
+			"overallAvg": 20.5
+		},
+		{
+			"rooms_fullname": "Aquatic Ecosystems Research Laboratory",
+			"rooms_shortname": "AERL",
+			"overallAvg": 144
+		},
+		{
+			"rooms_fullname": "Anthropology and Sociology",
+			"rooms_shortname": "ANSO",
+			"overallAvg": 46.5
+		},
+		{
+			"rooms_fullname": "Allard Hall (LAW)",
+			"rooms_shortname": "ALRD",
+			"overallAvg": 45.6
+		}
+	]
+}

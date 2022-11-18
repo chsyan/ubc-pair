@@ -1,0 +1,30 @@
+{
+	"title": "Duplicate APPLY key aggregation",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_fullname"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"rooms_fullname"
+			],
+			"APPLY": [
+				{
+					"aggregation": {
+						"MIN": "rooms_seats"
+					}
+				},
+				{
+					"aggregation": {
+						"MAX": "rooms_lat"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
