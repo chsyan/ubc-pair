@@ -1,14 +1,14 @@
 import {InsightDataset, InsightDatasetKind, InsightError, InsightResult} from "./IInsightFacade";
+import {Dataset} from "./DatasetUtils";
+import {directionalOrder, isOrderedByXKey, mkeyOrderUp, skeyOrderUp} from "./OrderUtils";
+import {handleFilter} from "./WhereUtils";
+import {createMapKey, getKeyInsightResultValue, groupInsightResult} from "./ColumnTransformationsUtils";
 
 /*
 *
 * Process Query Util (POST-VALIDATION)
 *
 */
-
-const getQueryDatasetID = (query: any): string => {
-	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
-};
 
 const parseSectionsDatasetKey = (key: string, id: string): string => {
 	if (key === id + "_avg") {
@@ -36,8 +36,13 @@ const parseSectionsDatasetKey = (key: string, id: string): string => {
 	}
 };
 
-const parseRoomsDatasetKey = (key: string, id: string): string => {
-	return ""; // TODO rooms handling
+const parseRoomsDatasetKey = (key: string): string => {
+	const roomKeys = ["lat", "lon", "seats", "fullname", "shortname", "number", "name", "address", "type", "furniture",
+		"href"];
+	if (!roomKeys.includes(key.split("_")[1])) {
+		throw new InsightError("Invalid dataset key cannot be parsed");
+	}
+	return key.split("_")[1];
 };
 
 const parseDatasetKey = (key: string, insight: InsightDataset): string => {
@@ -45,92 +50,11 @@ const parseDatasetKey = (key: string, insight: InsightDataset): string => {
 	if (datasetKind === InsightDatasetKind.Sections) {
 		return parseSectionsDatasetKey(key, insight.id);
 	} else { // InsightDatasetKind.Rooms
-		return parseRoomsDatasetKey(key, insight.id);
+		return parseRoomsDatasetKey(key);
 	}
 };
 
-const handleMCompare = (section: any, mComparison: any, insight: InsightDataset, comp: "GT" | "EQ" | "LT"): boolean => {
-	const mkey = Object.keys(mComparison)[0];
-	const sectionKey = parseDatasetKey(mkey, insight);
-	let sectionValue: number;
-	if (sectionKey === "Year" && section.Section === "overall") {
-		sectionValue = 1900;
-	} else {
-		sectionValue = section[sectionKey];
-	}
-
-	if (comp === "GT") {
-		return sectionValue > mComparison[mkey];
-	} else if (comp === "EQ") {
-		return sectionValue === mComparison[mkey];
-	} else { // "LT"
-		return sectionValue < mComparison[mkey];
-	}
-};
-
-const handleSCompare = (section: any, sComparison: any, insight: InsightDataset): boolean => {
-	const skey = Object.keys(sComparison)[0];
-	const inputString = sComparison[skey];
-	const sectionKey = parseDatasetKey(skey, insight);
-	if (!(typeof inputString === "string")) {
-		throw new InsightError("IS input string must be a string");
-	}
-	const inputNoAsterisk = inputString.replaceAll("*", "");
-	const startsWithAsterisk = inputString.startsWith("*");
-	const endsWithAsterisk = inputString.endsWith("*");
-
-	if (startsWithAsterisk && endsWithAsterisk) {
-		return section[sectionKey].includes(inputNoAsterisk);
-	} else if (startsWithAsterisk) {
-		return section[sectionKey].endsWith(inputNoAsterisk);
-	} else if (endsWithAsterisk) {
-		return section[sectionKey].startsWith(inputNoAsterisk);
-	} else {
-		return section[sectionKey] === sComparison[skey];
-	}
-};
-
-const handleNegation = (section: any, negatedFilter: any, insight: InsightDataset): boolean => {
-	return !handleFilter(section, negatedFilter, insight);
-};
-
-const handleLogic = (section: any, logicFilters: any, insight: InsightDataset, logic: "AND" | "OR"): boolean => {
-	let result = true;
-	if (logic === "AND") {
-		for (const logicFilter of logicFilters) {
-			result = result && handleFilter(section, logicFilter, insight);
-		}
-	} else if (logic === "OR") {
-		result = false;
-		for (const logicFilter of logicFilters) {
-			result = result || handleFilter(section, logicFilter, insight);
-		}
-	} else {
-		throw new InsightError("Invalid Logic Used");
-	}
-
-	return result;
-};
-
-const handleFilter = (section: any, filter: any, insight: InsightDataset): boolean => {
-	if (filter.GT !== undefined) {
-		return handleMCompare(section, filter.GT, insight, "GT");
-	} else if (filter.EQ !== undefined) {
-		return handleMCompare(section, filter.EQ, insight, "EQ");
-	} else if (filter.LT !== undefined) {
-		return handleMCompare(section, filter.LT, insight, "LT");
-	} else if (filter.IS !== undefined) {
-		return handleSCompare(section, filter.IS, insight);
-	} else if (filter.NOT !== undefined) {
-		return handleNegation(section, filter.NOT, insight);
-	} else if (filter.AND !== undefined) {
-		return handleLogic(section, filter.AND, insight, "AND");
-	} else { // OR
-		return handleLogic(section, filter.OR, insight, "OR");
-	}
-};
-
-const handleWhere = (section: any, query: any, insight: InsightDataset): boolean => {
+const handleWhere = (data: any, query: any, insight: InsightDataset): boolean => {
 	const where = query.WHERE;
 	let result = true;
 
@@ -138,60 +62,77 @@ const handleWhere = (section: any, query: any, insight: InsightDataset): boolean
 		return result;
 	}
 
-	result = handleFilter(section, where, insight);
+	result = handleFilter(data, where, insight);
 
 	return result;
 };
 
-const handleColumns = (section: any, query: any, insight: InsightDataset): InsightResult => {
+const handleColumns = (data: any, query: any, insight: InsightDataset): InsightResult => {
 	const columns = query.OPTIONS.COLUMNS;
 	let result: InsightResult = {};
 
-	let sectionValue;
 	for (const column of columns) {
-		const sectionKey = parseDatasetKey(column, insight);
-		if (sectionKey === "Year" && section.Section === "overall") {
-			sectionValue = 1900;
-		} else if (sectionKey === "Year") {
-			sectionValue = Number(section[sectionKey]);
-		} else if (sectionKey === "id") {
-			sectionValue = section[sectionKey].toString();
-		} else {
-			sectionValue = section[sectionKey];
-		}
-		result[column] = sectionValue;
+		result[column] = getKeyInsightResultValue(column, insight, data);
 	}
 	return result;
 };
 
-const handleOrder = (unorderedQueryResult: any[], query: any, insight: InsightDataset): InsightResult[] => {
+const handleTransformations = (dataset: any, transformations: any, insight: InsightDataset): InsightResult[] => {
+	const groupKeys = transformations.GROUP;
+	const applyRules = transformations.APPLY;
+	let groups = new Map();
+	let result: InsightResult[] = [];
+
+	for(const data of dataset) {
+		let mapKey = createMapKey(data, groupKeys, insight);
+		if (!groups.has(mapKey)) {
+			groups.set(mapKey, []);
+		}
+		groups.get(mapKey).push(data);
+	}
+
+	groups.forEach((group) => {
+		result.push(groupInsightResult(group, groupKeys, applyRules, insight));
+	});
+
+	return result;
+};
+
+const handleOrder = (unorderedQueryResult: any[], query: any): InsightResult[] => {
 	let queryResult: InsightResult[];
 	const order = query.OPTIONS.ORDER;
-	const id = insight.id;
+	let applyRules = [];
+	let mkeys = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
+	let skeys = ["dept", "id", "instructor", "title", "uuid", "fullname", "shortname", "number", "name", "address",
+		"type", "furniture", "href"];
+
+	if (query.TRANSFORMATIONS !== undefined) {
+		applyRules = query.TRANSFORMATIONS.APPLY;
+	}
+	for (const applyRule of applyRules) {
+		const applyKey = Object.keys(applyRule)[0];
+		const applyOperand = Object.values(applyRule[applyKey])[0];
+
+		if (typeof applyOperand === "string" && mkeys.includes(applyOperand.split("_")[1])) {
+			mkeys.push(applyKey);
+		} else {
+			skeys.push(applyKey);
+		}
+	}
 
 	if (order === undefined) {
 		queryResult = unorderedQueryResult;
-	} else if (order === id + "_avg" ||
-		order === id + "_pass" ||
-		order === id + "_fail" ||
-		order === id + "_audit" ||
-		order === id + "_year") {
+	} else if (typeof order === "string" && isOrderedByXKey(mkeys, order)) {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
-			return insightResA[order] - insightResB[order];
+			return mkeyOrderUp(insightResA, insightResB, order);
 		});
-	} else if (order === id + "_dept" ||
-		order === id + "_id" ||
-		order === id + "_instructor" ||
-		order === id + "_title" ||
-		order === id + "_uuid") {
+	} else if (typeof order === "string" && isOrderedByXKey(skeys, order)) {
 		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
-			if(insightResA[order] < insightResB[order]) {
-				return -1;
-			} else if (insightResA[order] > insightResB[order]) {
-				return 1;
-			} else {
-				return 0;
-			}
+			return skeyOrderUp(insightResA, insightResB, order);
+		});
+	} else if (typeof order === "object") {
+		queryResult = unorderedQueryResult.sort((insightResA, insightResB) => {
+			return directionalOrder(insightResA, insightResB, order, mkeys, skeys);
 		});
 	} else {
 		throw new InsightError("Invalid dataset key in ORDER");
@@ -199,4 +140,20 @@ const handleOrder = (unorderedQueryResult: any[], query: any, insight: InsightDa
 	return queryResult;
 };
 
-export {getQueryDatasetID, handleWhere, handleColumns, handleOrder};
+const getQueryDatasetID = (query: any): string => {
+	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
+};
+
+const getQueryResult = (queryDataset: Dataset, query: any): InsightResult[] => {
+	const datasetInsight = queryDataset.insight;
+	let filtered = queryDataset.data.filter((data: any) => handleWhere(data, query, datasetInsight));
+	let unordered: InsightResult[];
+	if (query.TRANSFORMATIONS !== undefined) {
+		unordered = handleTransformations(filtered, query.TRANSFORMATIONS, datasetInsight);
+	} else {
+		unordered = filtered.map((data: any) => handleColumns(data, query, datasetInsight));
+	}
+	return handleOrder(unordered, query);
+};
+
+export {getQueryDatasetID, handleWhere, handleColumns, handleOrder, getQueryResult, parseDatasetKey};

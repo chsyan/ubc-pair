@@ -1,0 +1,185 @@
+{
+	"title": "rooms_shortname",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"rooms_shortname": "A*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_shortname",
+				"rooms_name"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_name"
+				]
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_shortname": "AUDX",
+			"rooms_name": "AUDX_157"
+		},
+		{
+			"rooms_shortname": "AUDX",
+			"rooms_name": "AUDX_142"
+		},
+		{
+			"rooms_shortname": "ANSO",
+			"rooms_name": "ANSO_207"
+		},
+		{
+			"rooms_shortname": "ANSO",
+			"rooms_name": "ANSO_205"
+		},
+		{
+			"rooms_shortname": "ANSO",
+			"rooms_name": "ANSO_203"
+		},
+		{
+			"rooms_shortname": "ANSO",
+			"rooms_name": "ANSO_202"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_437"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_435"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_434"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_432"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_354"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_350"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_347"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_345"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_343"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_339"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_335"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_334"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_332"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_296"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_295"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_293"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_292"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_291"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_254"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_243"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_241"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_237"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_235"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_234"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_232"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_098"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_039"
+		},
+		{
+			"rooms_shortname": "ANGU",
+			"rooms_name": "ANGU_037"
+		},
+		{
+			"rooms_shortname": "ALRD",
+			"rooms_name": "ALRD_B101"
+		},
+		{
+			"rooms_shortname": "ALRD",
+			"rooms_name": "ALRD_121"
+		},
+		{
+			"rooms_shortname": "ALRD",
+			"rooms_name": "ALRD_113"
+		},
+		{
+			"rooms_shortname": "ALRD",
+			"rooms_name": "ALRD_112"
+		},
+		{
+			"rooms_shortname": "ALRD",
+			"rooms_name": "ALRD_105"
+		},
+		{
+			"rooms_shortname": "AERL",
+			"rooms_name": "AERL_120"
+		}
+	]
+}

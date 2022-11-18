@@ -1,0 +1,232 @@
+{
+	"title": "rooms_name",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"rooms_name": "*10*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_name",
+				"rooms_name"
+			],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": [
+					"rooms_name"
+				]
+			}
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_name": "WESB_100"
+		},
+		{
+			"rooms_name": "UCLL_109"
+		},
+		{
+			"rooms_name": "UCLL_107"
+		},
+		{
+			"rooms_name": "UCLL_103"
+		},
+		{
+			"rooms_name": "UCLL_101"
+		},
+		{
+			"rooms_name": "SWNG_410"
+		},
+		{
+			"rooms_name": "SWNG_310"
+		},
+		{
+			"rooms_name": "SWNG_110"
+		},
+		{
+			"rooms_name": "SWNG_109"
+		},
+		{
+			"rooms_name": "SWNG_108"
+		},
+		{
+			"rooms_name": "SWNG_107"
+		},
+		{
+			"rooms_name": "SWNG_106"
+		},
+		{
+			"rooms_name": "SWNG_105"
+		},
+		{
+			"rooms_name": "SPPH_B108"
+		},
+		{
+			"rooms_name": "SCRF_210"
+		},
+		{
+			"rooms_name": "SCRF_1024"
+		},
+		{
+			"rooms_name": "SCRF_1023"
+		},
+		{
+			"rooms_name": "SCRF_1022"
+		},
+		{
+			"rooms_name": "SCRF_1021"
+		},
+		{
+			"rooms_name": "SCRF_1020"
+		},
+		{
+			"rooms_name": "SCRF_1005"
+		},
+		{
+			"rooms_name": "SCRF_1004"
+		},
+		{
+			"rooms_name": "SCRF_1003"
+		},
+		{
+			"rooms_name": "SCRF_100"
+		},
+		{
+			"rooms_name": "PHRM_1101"
+		},
+		{
+			"rooms_name": "PCOH_1011"
+		},
+		{
+			"rooms_name": "PCOH_1009"
+		},
+		{
+			"rooms_name": "PCOH_1008"
+		},
+		{
+			"rooms_name": "PCOH_1003"
+		},
+		{
+			"rooms_name": "PCOH_1002"
+		},
+		{
+			"rooms_name": "PCOH_1001"
+		},
+		{
+			"rooms_name": "ORCH_1001"
+		},
+		{
+			"rooms_name": "MATX_1100"
+		},
+		{
+			"rooms_name": "MATH_105"
+		},
+		{
+			"rooms_name": "MATH_104"
+		},
+		{
+			"rooms_name": "MATH_102"
+		},
+		{
+			"rooms_name": "MATH_100"
+		},
+		{
+			"rooms_name": "LSC_1003"
+		},
+		{
+			"rooms_name": "LSC_1002"
+		},
+		{
+			"rooms_name": "LSC_1001"
+		},
+		{
+			"rooms_name": "LASR_107"
+		},
+		{
+			"rooms_name": "LASR_105"
+		},
+		{
+			"rooms_name": "LASR_104"
+		},
+		{
+			"rooms_name": "LASR_102"
+		},
+		{
+			"rooms_name": "HEBB_100"
+		},
+		{
+			"rooms_name": "HEBB_10"
+		},
+		{
+			"rooms_name": "GEOG_101"
+		},
+		{
+			"rooms_name": "GEOG_100"
+		},
+		{
+			"rooms_name": "FSC_1005"
+		},
+		{
+			"rooms_name": "FSC_1003"
+		},
+		{
+			"rooms_name": "FSC_1002"
+		},
+		{
+			"rooms_name": "FSC_1001"
+		},
+		{
+			"rooms_name": "ESB_1013"
+		},
+		{
+			"rooms_name": "ESB_1012"
+		},
+		{
+			"rooms_name": "DMP_310"
+		},
+		{
+			"rooms_name": "DMP_110"
+		},
+		{
+			"rooms_name": "DMP_101"
+		},
+		{
+			"rooms_name": "CHBE_103"
+		},
+		{
+			"rooms_name": "CHBE_102"
+		},
+		{
+			"rooms_name": "CHBE_101"
+		},
+		{
+			"rooms_name": "CEME_1210"
+		},
+		{
+			"rooms_name": "BUCH_B310"
+		},
+		{
+			"rooms_name": "BUCH_B210"
+		},
+		{
+			"rooms_name": "BUCH_A104"
+		},
+		{
+			"rooms_name": "BUCH_A103"
+		},
+		{
+			"rooms_name": "BUCH_A102"
+		},
+		{
+			"rooms_name": "BUCH_A101"
+		},
+		{
+			"rooms_name": "ALRD_B101"
+		},
+		{
+			"rooms_name": "ALRD_105"
+		}
+	]
+}

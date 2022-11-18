@@ -9,7 +9,7 @@ import {
 	NotFoundError,
 	ResultTooLargeError,
 } from "./IInsightFacade";
-import {getQueryDatasetID, handleColumns, handleOrder, handleWhere} from "./QueryEngineUtils";
+import {getQueryDatasetID, getQueryResult} from "./QueryEngineUtils";
 import {validateQuery} from "./QueryValidationUtils";
 import {parseRooms} from "./RoomUtils";
 import {parseSections} from "./SectionsUtils";
@@ -121,26 +121,18 @@ export default class InsightFacade implements IInsightFacade {
 
 		if (existInMemory()) {
 			let queryDataset = this.dataset[queryDatasetIndex];
-			const datasetInsight = queryDataset.insight;
-			let filtered = queryDataset.data.filter((section: any) => handleWhere(section, query, datasetInsight));
-			let unordered = filtered.map((section: any) => handleColumns(section, query, datasetInsight));
-			queryResult = handleOrder(unordered, query, datasetInsight);
+			queryResult = getQueryResult(queryDataset, query);
 		} else {
 			const existInDisk = await pathExists(`${dataDir}/${queryDatasetID}.json`);
 			if (!existInDisk) {
 				throw new InsightError("Query references dataset not added");
 			}
 
-			let datasetInsight: InsightDataset;
-			queryResult = await readDataset(queryDatasetID).then((queryDataset) => {
-				this.dataset.push(queryDataset);
-				datasetInsight = queryDataset.insight;
-				return queryDataset.data.filter((section) => handleWhere(section, query, datasetInsight));
-			}).then((filteredSections) => {
-				return filteredSections.map((section) => handleColumns(section, query, datasetInsight));
-			}).then((unorderedQueryResult) => {
-				return handleOrder(unorderedQueryResult, query, datasetInsight);
+			let queryDataset = await readDataset(queryDatasetID).then((readQueryDataset) => {
+				this.dataset.push(readQueryDataset);
+				return readQueryDataset;
 			});
+			queryResult = getQueryResult(queryDataset, query);
 		}
 
 		if (queryResult.length > 5000) {

@@ -1,0 +1,20 @@
+{
+	"title": "InvalidOrderKeysCantBeArray",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"sections_dept": "cpsc*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"sections_avg"
+			],
+			"ORDER": [
+				"sections_avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
