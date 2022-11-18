@@ -77,9 +77,10 @@ const handleColumns = (data: any, query: any, insight: InsightDataset): InsightR
 	return result;
 };
 
-const handleTransformations = (dataset: any, transformations: any, insight: InsightDataset): InsightResult[] => {
-	const groupKeys = transformations.GROUP;
-	const applyRules = transformations.APPLY;
+const handleTransformations = (dataset: any, query: any, insight: InsightDataset): InsightResult[] => {
+	const columnKeys = query.OPTIONS.COLUMNS;
+	const groupKeys = query.TRANSFORMATIONS.GROUP;
+	const applyRules = query.TRANSFORMATIONS.APPLY;
 	let groups = new Map();
 	let result: InsightResult[] = [];
 
@@ -92,7 +93,7 @@ const handleTransformations = (dataset: any, transformations: any, insight: Insi
 	}
 
 	groups.forEach((group) => {
-		result.push(groupInsightResult(group, groupKeys, applyRules, insight));
+		result.push(groupInsightResult(group, groupKeys, applyRules, columnKeys, insight));
 	});
 
 	return result;
@@ -141,7 +142,17 @@ const handleOrder = (unorderedQueryResult: any[], query: any): InsightResult[] =
 };
 
 const getQueryDatasetID = (query: any): string => {
-	return query.OPTIONS.COLUMNS[0].split("_", 1)[0];
+	let columns: string[] = query.OPTIONS.COLUMNS;
+	let queryDatasetID = "";
+	for (const column of columns) {
+		if (column.includes("_")) {
+			queryDatasetID = column.split("_", 1)[0];
+		}
+	}
+	if (queryDatasetID === "" && query.TRANSFORMATIONS !== undefined) {
+		queryDatasetID = query.TRANSFORMATIONS.GROUP[0].split("_", 1)[0];
+	}
+	return queryDatasetID;
 };
 
 const getQueryResult = (queryDataset: Dataset, query: any): InsightResult[] => {
@@ -149,7 +160,7 @@ const getQueryResult = (queryDataset: Dataset, query: any): InsightResult[] => {
 	let filtered = queryDataset.data.filter((data: any) => handleWhere(data, query, datasetInsight));
 	let unordered: InsightResult[];
 	if (query.TRANSFORMATIONS !== undefined) {
-		unordered = handleTransformations(filtered, query.TRANSFORMATIONS, datasetInsight);
+		unordered = handleTransformations(filtered, query, datasetInsight);
 	} else {
 		unordered = filtered.map((data: any) => handleColumns(data, query, datasetInsight));
 	}

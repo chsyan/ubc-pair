@@ -5,24 +5,28 @@ import Decimal from "decimal.js";
 const applyMax = (group: any, applyOperand: string, insight: InsightDataset): number => {
 	const applyOperandKey = parseDatasetKey(applyOperand, insight);
 
-	let currentMax = group.shift()[applyOperandKey];
+	let firstData = group.shift();
+	let currentMax = firstData[applyOperandKey];
 	for (const data of group) {
 		if (data[applyOperandKey] > currentMax) {
 			currentMax = data[applyOperandKey];
 		}
 	}
+	group.push(firstData);
 	return currentMax;
 };
 
 const applyMin = (group: any, applyOperand: string, insight: InsightDataset): number => {
 	const applyOperandKey = parseDatasetKey(applyOperand, insight);
 
-	let currentMin = group.shift()[applyOperandKey];
+	let firstData = group.shift();
+	let currentMin = firstData[applyOperandKey];
 	for (const data of group) {
 		if (data[applyOperandKey] < currentMin) {
 			currentMin = data[applyOperandKey];
 		}
 	}
+	group.push(firstData);
 	return currentMin;
 };
 
@@ -42,8 +46,9 @@ const applyCount = (group: any, applyOperand: string, insight: InsightDataset): 
 
 const applyAvg = (group: any, applyOperand: string, insight: InsightDataset): number => {
 	const applyOperandKey = parseDatasetKey(applyOperand, insight);
+
 	let numRows = group.length;
-	let total = new Decimal(group.shift()[applyOperandKey]);
+	let total = new Decimal(0);
 	for (const data of group) {
 		let nextToAdd = new Decimal(data[applyOperandKey]);
 		total = total.add(nextToAdd);
@@ -89,18 +94,24 @@ const getKeyInsightResultValue = (column: any, insight: InsightDataset, data: an
 	}
 };
 
-const groupInsightResult = (group: any, groupKeys: any, applyRules: any, insight: InsightDataset): InsightResult => {
+const groupInsightResult = (group: any, groupKeys: any, applyRules: any, columnKeys: string[], insight: InsightDataset):
+	InsightResult => {
+
 	let insightResult: InsightResult = {};
 
 	for (const groupKey of groupKeys) {
-		insightResult[groupKey] = getKeyInsightResultValue(groupKey, insight, group[0]);
+		if (columnKeys.includes(groupKey)) {
+			insightResult[groupKey] = getKeyInsightResultValue(groupKey, insight, group[0]);
+		}
 	}
 
 	for (const applyRule of applyRules) {
 		const applyKey = Object.keys(applyRule)[0];
 		const applyOperation = applyRule[applyKey];
 
-		insightResult[applyKey] = getApplyKeyInsightResultValue(group, applyOperation, insight);
+		if (columnKeys.includes(applyKey)) {
+			insightResult[applyKey] = getApplyKeyInsightResultValue(group, applyOperation, insight);
+		}
 	}
 
 	return insightResult;
