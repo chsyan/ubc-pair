@@ -1,0 +1,26 @@
+{
+	"title": "Keys in COLUMNS must be in GROUP or APPLY when TRANSFORMATIONS is present",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_name",
+				"overallAvg"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"rooms_seats"
+			],
+			"APPLY": [
+				{
+					"overallAvg": {
+						"AVG": "rooms_seats"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

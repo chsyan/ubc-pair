@@ -1,0 +1,59 @@
+{
+	"title": "AvgRoomSeatsByType",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": [
+				"rooms_type",
+				"overallAvg"
+			]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": [
+				"rooms_type"
+			],
+			"APPLY": [
+				{
+					"overallAvg": {
+						"AVG": "rooms_seats"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{
+			"rooms_type": "Case Style",
+			"overallAvg": 63.54
+		},
+		{
+			"rooms_type": "Open Design General Purpose",
+			"overallAvg": 50.28
+		},
+		{
+			"rooms_type": "Small Group",
+			"overallAvg": 23.75
+		},
+		{
+			"rooms_type": "Tiered Large Group",
+			"overallAvg": 161.92
+		},
+		{
+			"rooms_type": "",
+			"overallAvg": 60
+		},
+		{
+			"rooms_type": "TBD",
+			"overallAvg": 232.25
+		},
+		{
+			"rooms_type": "Active Learning",
+			"overallAvg": 30.22
+		},
+		{
+			"rooms_type": "Studio Lab",
+			"overallAvg": 50
+		}
+	]
+}
