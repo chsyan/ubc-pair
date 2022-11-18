@@ -1,5 +1,6 @@
 import {InsightDataset, InsightResult} from "./IInsightFacade";
 import {parseDatasetKey} from "./QueryEngineUtils";
+import Decimal from "decimal.js";
 
 const applyMax = (group: any, applyOperand: string, insight: InsightDataset): number => {
 	const applyOperandKey = parseDatasetKey(applyOperand, insight);
@@ -39,6 +40,18 @@ const applyCount = (group: any, applyOperand: string, insight: InsightDataset): 
 	return currentCount;
 };
 
+const applyAvg = (group: any, applyOperand: string, insight: InsightDataset): number => {
+	const applyOperandKey = parseDatasetKey(applyOperand, insight);
+	let numRows = group.length;
+	let total = new Decimal(group.shift()[applyOperandKey]);
+	for (const data of group) {
+		let nextToAdd = new Decimal(data[applyOperandKey]);
+		total = total.add(nextToAdd);
+	}
+	let avg = total.toNumber() / numRows;
+	return Number(avg.toFixed(2));
+};
+
 const applySum = (group: any, applyOperand: string, insight: InsightDataset): number => {
 	const applyOperandKey = parseDatasetKey(applyOperand, insight);
 
@@ -55,7 +68,7 @@ const getApplyKeyInsightResultValue = (group: any, applyOperation: any, insight:
 	} else if (applyOperation.MIN !== undefined) {
 		return applyMin(group, applyOperation.MIN, insight);
 	} else if (applyOperation.AVG !== undefined) {
-		return 0; // TODO applyAvg(group, applyOperation.AVG, insight);
+		return applyAvg(group, applyOperation.AVG, insight);
 	} else if (applyOperation.COUNT !== undefined) {
 		return applyCount(group, applyOperation.COUNT, insight);
 	} else { // SUM
