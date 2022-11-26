@@ -51,6 +51,7 @@
 		"pretty": "prettier --config ./.prettierrc.json --write \"./**/*.ts\"",
 		"lint": "eslint src test --ext .ts",
 		"fix": "yarn lint --fix",
-		"start": "ts-node src/App.ts"
+		"start": "ts-node src/App.ts",
+		"discord": "ts-node frontend/src/App.ts"
 	}
 }
