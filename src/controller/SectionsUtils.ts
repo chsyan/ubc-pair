@@ -46,6 +46,7 @@ const parseSections = async (content: string): Promise<any[]> => {
 
 		await Promise.all(filePromises);
 	} catch (err) {
+		console.log(err);
 		throw new InsightError("Error decoding zip file");
 	}
 	if (sections.length === 0) {
