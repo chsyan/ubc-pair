@@ -1,19 +1,14 @@
-import {
-	ChatInputApplicationCommandData,
-	ClientApplication,
-	CommandInteractionOptionResolver,
-	REST,
-	Routes,
-} from "discord.js";
+import {ChatInputApplicationCommandData, ClientApplication, CommandInteraction, REST, Routes} from "discord.js";
 import {token} from "../App";
-import dataset from "./dataset";
-import { CommandInteraction } from 'discord.js';
+import add from "./add";
+import avg from "./avg";
+import list from "./list";
 
 interface Command extends ChatInputApplicationCommandData {
 	execute: (interaction: CommandInteraction) => Promise<void>;
 }
 
-const commands: Command[] = [dataset];
+const commands: Command[] = [add, list, avg];
 
 const loadCommands = async (app: ClientApplication, commands: Command[]) => {
 	const rest = new REST({version: "10"}).setToken(token);
