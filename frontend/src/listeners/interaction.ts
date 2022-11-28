@@ -1,5 +1,6 @@
 import {Client} from "discord.js";
-import {commands} from "../commands/utils";
+import {adminCommands, regularCommands} from "../commands/utils";
+import {isAdmin} from "../utils";
 
 const interaction = async (client: Client) => {
 	client.on("interactionCreate", async (interaction) => {
@@ -8,13 +9,23 @@ const interaction = async (client: Client) => {
 		}
 
 		// Get command from our registered commands
-		const command = commands.find((command) => command.name === interaction.commandName);
-		if (!command) {
+		const regularCommand = regularCommands.find((command) => command.name === interaction.commandName);
+		const adminCommand = adminCommands.find((command) => command.name === interaction.commandName);
+		if (regularCommand) {
+			regularCommand.execute(interaction);
+		} else if (adminCommand) {
+			if (isAdmin(interaction.member?.user.id ?? "")) {
+				adminCommand.execute(interaction);
+			} else {
+				const username = interaction.member?.user.username ?? "Unknown";
+				await interaction.reply({
+					content: `${username} is not in the sudoers file. This incident will be reported.`,
+					ephemeral: true,
+				});
+			}
+		} else {
 			interaction.reply("Command not found");
-			return;
 		}
-
-		command.execute(interaction);
 	});
 };
 

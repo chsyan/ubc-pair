@@ -8,24 +8,23 @@ interface Command extends ChatInputApplicationCommandData {
 	execute: (interaction: CommandInteraction) => Promise<void>;
 }
 
-const commands: Command[] = [add, list, avg];
+const regularCommands: Command[] = [avg];
+const adminCommands: Command[] = [add, list];
+const commands = regularCommands.concat(adminCommands);
 
 const loadCommands = async (app: ClientApplication, commands: Command[]) => {
-	const rest = new REST({version: "10"}).setToken(token);
+	try {
+		const rest = new REST({version: "10"}).setToken(token);
+		console.log(`Loading ${commands.length} slash commands`);
 
-	(async () => {
-		try {
-			console.log(`Loading ${commands.length} slash commands`);
+		await rest.put(Routes.applicationCommands(app.id), {
+			body: commands,
+		});
 
-			await rest.put(Routes.applicationCommands(app.id), {
-				body: commands,
-			});
-
-			console.log(`Loaded ${commands.length} slash commands`);
-		} catch (error) {
-			console.error(error);
-		}
-	})();
+		console.log(`Loaded ${commands.length} slash commands`);
+	} catch (_err) {
+		console.error("Error loading slash commands");
+	}
 };
 
-export {Command, loadCommands, commands};
+export {Command, loadCommands, commands, regularCommands, adminCommands};

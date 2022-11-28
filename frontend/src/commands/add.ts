@@ -2,6 +2,7 @@ import {ApplicationCommandOptionType, CommandInteraction, InteractionType} from 
 import {get} from "https";
 import {InsightDatasetKind} from "../../../src/controller/IInsightFacade";
 import {insightFacade} from "../App";
+import {isAdmin} from "../utils";
 import {Command} from "./utils";
 
 // Wrapped addDataset. Return empty array on error.
@@ -89,7 +90,7 @@ const add: Command = {
 		},
 	],
 	execute: async (interaction: CommandInteraction) => {
-		addDataset(interaction);
+			addDataset(interaction);
 	},
 };
 

@@ -8,6 +8,9 @@ require("dotenv").config();
 export const token = process.env.TOKEN || "";
 export const insightFacade = new InsightFacade();
 
+// A bit hardcoded, relies on admin.json being valid
+export const adminIds = Object.entries(require("../../admin.json"))[0][1] as string[];
+
 if (!token) {
 	console.error("No token found");
 	process.exit(1);
