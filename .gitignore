@@ -13,6 +13,9 @@ dist/
 # Persist Dir
 data/
 
+# Frontend
+admin.json
+
 # Normal Things
 .DS_Store
 .env
