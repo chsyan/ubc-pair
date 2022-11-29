@@ -1,16 +1,18 @@
+import get from "axios";
 import {CommandInteraction} from "discord.js";
-import {insightFacade} from "../App";
+import {apiUrl} from "../App";
 import {Command} from "./utils";
 
 const listDatasets = async (interaction: CommandInteraction) => {
 	await interaction.reply({content: "Getting list of datasets...", ephemeral: true});
-	// TODO: Change this to use api
-	const datasets = await insightFacade.listDatasets();
-	if (datasets.length === 0) {
-		await interaction.editReply("No datasets found");
-	} else {
-		await interaction.editReply("Cached ids: " + JSON.stringify(datasets, null, 2));
-	}
+	get(apiUrl + "/datasets").then((res) => {
+		const datasets = res.data.result;
+		if (datasets.length === 0) {
+			interaction.editReply("No datasets found");
+		} else {
+			interaction.editReply("Added datasets: " + JSON.stringify(datasets, null, 2));
+		}
+	});
 };
 
 const list: Command = {

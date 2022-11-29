@@ -1,16 +1,21 @@
-import {ApplicationCommandOptionType, CommandInteraction, InteractionType} from "discord.js";
-import {get} from "https";
+import {default as get, default as put} from "axios";
+import {ApplicationCommandOptionType, CommandInteraction} from "discord.js";
 import {InsightDatasetKind} from "../../../src/controller/IInsightFacade";
-import {insightFacade} from "../App";
-import {isAdmin} from "../utils";
+import {apiUrl} from "../App";
 import {Command} from "./utils";
 
 // Wrapped addDataset. Return empty array on error.
-const addDatasetWrapped = async (id: string, data: string, kind: InsightDatasetKind) => {
+const addDatasetWrapped = async (id: string, data: string, kind: InsightDatasetKind): Promise<string[]> => {
 	try {
-		const ids = await insightFacade.addDataset(id, data, kind);
-		return ids;
-	} catch (_err) {
+		const res = await put(`${apiUrl}/dataset/${id}/${kind}`, {
+			headers: {
+				"Content-Type": "application/x-zip-compressed",
+			},
+			method: "put",
+			data: Buffer.from(data),
+		});
+		return res.data.result;
+	} catch (err) {
 		return [];
 	}
 };
@@ -18,41 +23,38 @@ const addDatasetWrapped = async (id: string, data: string, kind: InsightDatasetK
 const addDataset = async (interaction: CommandInteraction) => {
 	await interaction.reply({content: "Processing file...", ephemeral: true});
 
+	// Discord generates a link to the file
 	const file = interaction.options.get("attachment")?.attachment?.url;
 	// kind is either the provided value or defauls to sections
 	let kind = (interaction.options.get("kind")?.value as InsightDatasetKind) ?? InsightDatasetKind.Sections;
 	const id = (interaction.options.get("id")?.value as string) ?? new Date().getTime().toString();
+
 	if (!file) {
 		await interaction.editReply("Error retrieving file");
 		return;
 	}
-	get(file, (res) => {
-		// Set encoding since addDataset expects b64e
-		res.setEncoding("base64");
-		let rawData = "";
-		res.on("data", (chunk) => (rawData += chunk));
 
-		res.on("end", async () => {
-			let ids: string[] = [];
-
-			ids = await addDatasetWrapped(id, rawData, kind);
-			if (ids.length === 0) {
-				// If above fails, try again as rooms kind since default (no kind provided) is sections
-				kind = InsightDatasetKind.Rooms;
-				await interaction.editReply(`Error adding dataset as ${kind}. Trying to add as ${kind}...`);
-				ids = await addDatasetWrapped(id, rawData, kind);
-			}
-
-			// Reply with the right response depending on if there was a successful addDataset or not
-			if (ids.length === 0) {
-				await interaction.editReply("Error adding dataset");
-			} else {
-				await interaction.editReply(
-					`Successfully added ${kind} with id: ${id}.\nCached ids: ${ids.join(", ")}`
-				);
-			}
-		});
+	const res = await get(file, {
+		responseType: "arraybuffer",
+		responseEncoding: "binary",
 	});
+	let ids: string[] = [];
+
+	ids = await addDatasetWrapped(id, res.data, kind);
+
+	if (ids.length === 0) {
+		// If above fails, try again as rooms kind since default (no kind provided) is sections
+		kind = InsightDatasetKind.Rooms;
+		await interaction.editReply(`Error adding dataset as ${kind}. Trying to add as ${kind}...`);
+		ids = await addDatasetWrapped(id, res.data, kind);
+	}
+
+	// Reply with the right response depending on if there was a successful addDataset or not
+	if (ids.length === 0) {
+		await interaction.editReply("Error adding dataset");
+	} else {
+		await interaction.editReply(`Successfully added ${kind} with id: ${id}.\Added ids: ${ids.join(", ")}`);
+	}
 };
 
 const add: Command = {
@@ -90,7 +92,7 @@ const add: Command = {
 		},
 	],
 	execute: async (interaction: CommandInteraction) => {
-			addDataset(interaction);
+		addDataset(interaction);
 	},
 };
 

@@ -1,36 +1,30 @@
+import put from "axios";
 import * as fs from "fs-extra";
 import {InsightDatasetKind} from "../../src/controller/IInsightFacade";
-import {adminIds, insightFacade} from "./App";
+import {adminIds, apiUrl} from "./App";
 
-// Probably move this to different file
+const apiAddDataset = async (id: string, data: Buffer, kind: InsightDatasetKind) => {
+	put(`${apiUrl}/dataset/${id}/${kind}`, {
+		headers: {
+			"Content-Type": "application/x-zip-compressed",
+		},
+		method: "put",
+		data: data,
+	})
+		.then(() => {
+			console.log("Loaded default dataset " + id);
+		})
+		.catch((err) => {
+			console.log(`Error adding dataset ${id}. ${err.response.data.error}`);
+		});
+};
+
 const loadDefaultDatasets = async () => {
 	console.log("Loading default datasets");
 
-	// Taken from InsightFacade.spec.ts
-	// TODO: Change this to use api
-	fs.removeSync("./data");
-
-	const datasetContents = new Map<string, string>();
-	const datasetsToLoad: {[key: string]: string} = {
-		sections: "./frontend/data/pair.zip",
-		rooms: "./frontend/data/rooms.zip",
-	};
-
-	for (const key of Object.keys(datasetsToLoad)) {
-		const content = fs.readFileSync(datasetsToLoad[key]).toString("base64");
-		datasetContents.set(key, content);
-	}
-
-	Promise.all([
-		insightFacade.addDataset("sections", datasetContents.get("sections") ?? "", InsightDatasetKind.Sections),
-		insightFacade.addDataset("rooms", datasetContents.get("rooms") ?? "", InsightDatasetKind.Rooms),
-	])
-		.then(() => {
-			console.log("Loaded default datasets");
-		})
-		.catch((_err) => {
-			console.log("Error loading default datasets");
-		});
+	const dataLocation = "./frontend/data/";
+	apiAddDataset("sections", fs.readFileSync(dataLocation + "pair.zip"), InsightDatasetKind.Sections);
+	apiAddDataset("rooms", fs.readFileSync(dataLocation + "rooms.zip"), InsightDatasetKind.Rooms);
 };
 
 const isAdmin = (id: string) => {

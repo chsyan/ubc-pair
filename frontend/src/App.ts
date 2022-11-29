@@ -7,6 +7,7 @@ import ready from "./listeners/ready";
 require("dotenv").config();
 export const token = process.env.TOKEN || "";
 export const insightFacade = new InsightFacade();
+export const apiUrl = "http://localhost:4321";
 
 // A bit hardcoded, relies on admin.json being valid
 export const adminIds = Object.entries(require("../../admin.json"))[0][1] as string[];

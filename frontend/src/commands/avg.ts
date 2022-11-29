@@ -1,5 +1,5 @@
+import post from "axios";
 import {ApplicationCommandOptionType, CommandInteraction} from "discord.js";
-import {insightFacade} from "../App";
 import {Command} from "./utils";
 
 const queryAvg = async (interaction: CommandInteraction) => {
@@ -19,36 +19,43 @@ const queryAvg = async (interaction: CommandInteraction) => {
 			},
 		},
 		OPTIONS: {
-			COLUMNS: ["overallAvg", "sections_title"],
+			COLUMNS: ["overallAvg", `${id}_title`],
 			ORDER: {
 				dir: "DOWN",
 				keys: ["overallAvg"],
 			},
 		},
 		TRANSFORMATIONS: {
-			GROUP: ["sections_title"],
+			GROUP: [`${id}_title`],
 			APPLY: [
 				{
 					overallAvg: {
-						AVG: "sections_avg",
+						AVG: `${id}_avg`,
 					},
 				},
 			],
 		},
 	};
 
-	// TODO: Change this to use api
-	const queryResult = await insightFacade.performQuery(query);
+	try {
+		const requestResult = await post("http://localhost:4321/query", {
+			method: "post",
+			data: query,
+		});
 
-	// Get the maximum string length of title column
-	const key = id + "_title";
-	let reply = "";
-	for (const result of queryResult) {
-		// Round to 2 dec to try to align cols
-		reply += `${(result.overallAvg as number).toFixed(2)}\t${result[key]}\n`;
+		const queryResult = requestResult.data.result;
+
+		// Format the percents in the result
+		const key = id + "_title";
+		let reply = "";
+		for (const result of queryResult) {
+			// Round to 2 dec to try to align cols
+			reply += `${(result.overallAvg as number).toFixed(2)}%\t${result[key]}\n`;
+		}
+		await interaction.editReply("Courses with average >" + percent.value + "%:\n" + reply);
+	} catch (_err) {
+		await interaction.editReply("Error processing query");
 	}
-	await interaction.editReply("Query result:\n" + reply);
-	// await interaction.reply(JSON.stringify(result, null, 2));
 };
 
 const avg: Command = {
