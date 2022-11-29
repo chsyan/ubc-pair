@@ -3,7 +3,7 @@ import InsightFacade from "../controller/InsightFacade";
 
 const listRequest = async (req: Request, res: Response, facade: InsightFacade) => {
 	const response = await facade.listDatasets();
-	res.status(200).send(response);
+	res.status(200).json({result: response});
 };
 
 export {listRequest};
