@@ -14,13 +14,9 @@ const addRequest = async (req: Request, res: Response, facade: InsightFacade) =>
 			throw new Error("Invalid InsightDatasetKind");
 		}
 		const response = await facade.addDataset(req.params.id, req.body, kind);
-		res.status(200).send(response);
+		res.status(200).json({result: response});
 	} catch (err: any) {
-		let error: Error = new Error("Invalid Add Request");
-		if (err instanceof Error) {
-			error = err;
-		}
-		res.status(400).send(error.message);
+		res.status(400).json({error: err.message});
 	}
 };
 
