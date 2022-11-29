@@ -1,17 +1,24 @@
-import express, {Application, Request, Response} from "express";
+import express, {Application} from "express";
 import * as http from "http";
 import cors from "cors";
+import {echo} from "./Echo";
+import {addRequest} from "./AddRequest";
+import {removeRequest} from "./RemoveRequest";
+import {queryRequest} from "./QueryRequest";
+import {listRequest} from "./ListRequest";
+import InsightFacade from "../controller/InsightFacade";
 
 export default class Server {
 	private readonly port: number;
 	private express: Application;
 	private server: http.Server | undefined;
+	public insightFacade: InsightFacade;
 
 	constructor(port: number) {
 		console.info(`Server::<init>( ${port} )`);
 		this.port = port;
 		this.express = express();
-
+		this.insightFacade = new InsightFacade();
 		this.registerMiddleware();
 		this.registerRoutes();
 
@@ -82,30 +89,23 @@ export default class Server {
 	private registerRoutes() {
 		// This is an example endpoint this you can invoke by accessing this URL in your browser:
 		// http://localhost:4321/echo/hello
-		this.express.get("/echo/:msg", Server.echo);
+		this.express.get("/echo/:msg", echo);
 
 		// TODO: your other endpoints should go here
-
+		this.express.put("/dataset/:id/:kind", (req, res) => {
+			addRequest(req, res, this.insightFacade).then(() => console.log("addRequest Complete"));
+		});
+		this.express.delete("/dataset/:id", (req, res) => {
+			removeRequest(req, res, this.insightFacade).then(() => console.log("removeRequest Complete"));
+		});
+		this.express.post("/query", (req, res) => {
+			queryRequest(req, res, this.insightFacade).then(() => console.log("queryRequest Complete"));
+		});
+		this.express.get("/datasets", (req, res) => {
+			listRequest(req, res, this.insightFacade).then(() => console.log("listRequest Complete"));
+		});
 	}
 
-	// The next two methods handle the echo service.
-	// These are almost certainly not the best place to put these, but are here for your reference.
-	// By updating the Server.echo function pointer above, these methods can be easily moved.
-	private static echo(req: Request, res: Response) {
-		try {
-			console.log(`Server::echo(..) - params: ${JSON.stringify(req.params)}`);
-			const response = Server.performEcho(req.params.msg);
-			res.status(200).json({result: response});
-		} catch (err) {
-			res.status(400).json({error: err});
-		}
-	}
-
-	private static performEcho(msg: string): string {
-		if (typeof msg !== "undefined" && msg !== null) {
-			return `${msg}...${msg}`;
-		} else {
-			return "Message not provided";
-		}
-	}
 }
+
+export {Server};
