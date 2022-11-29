@@ -1,5 +1,5 @@
 import {outputJSON, pathExists, remove} from "fs-extra";
-import {dataDir, Dataset, readDataset, validateId} from "./DatasetUtils";
+import {dataDir, Dataset, readDataDir, readDataset, validateId} from "./DatasetUtils";
 import {
 	IInsightFacade,
 	InsightDataset,
@@ -23,7 +23,7 @@ export default class InsightFacade implements IInsightFacade {
 
 	constructor() {
 		console.log("InsightFacadeImpl::init()");
-		this.dataset = [];
+		this.dataset = readDataDir();
 	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {

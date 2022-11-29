@@ -1,5 +1,6 @@
-import {pathExists, readdir, readJSON} from "fs-extra";
+import {pathExists, pathExistsSync, readdir, readJSON, readJSONSync} from "fs-extra";
 import {InsightDataset, InsightError} from "./IInsightFacade";
+import {readdirSync} from "fs";
 
 interface Dataset {
 	insight: InsightDataset;
@@ -30,24 +31,28 @@ const validateId = (id: string): void => {
 	}
 };
 
-const readDataDir = async (): Promise<Dataset[]> => {
+const readDataDir = (): Dataset[] => {
 	// If data dir doesn't exist, return empty array
-	if (!(await pathExists(dataDir))) {
+	if (!(pathExistsSync(dataDir))) {
 		return [];
 	}
 
 	// Map filenames to datasets
-	const fileNames = await readdir(dataDir);
+	const fileNames = readdirSync(dataDir);
 	const datasets: Dataset[] = [];
-	const readDatasetPromises = fileNames.map(async (fileName) => {
-		// Remove the .json file extension
-		return readDataset(fileName.replace(".json", "")).then((dataset) => {
-			datasets.push(dataset);
-		});
-	});
-	await Promise.all(readDatasetPromises);
+	for (const fileName of fileNames) {
+		datasets.push(readDatasetSync(fileName.replace(".json", "")));
+	}
 
 	return datasets;
+};
+
+const readDatasetSync = (id: string): Dataset => {
+	try {
+		return readJSONSync(`${dataDir}/${id}.json`);
+	} catch (err) {
+		throw new InsightError("Error reading dataset from disk");
+	}
 };
 
 const readDataset = async (id: string): Promise<Dataset> => {
