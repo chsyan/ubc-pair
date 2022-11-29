@@ -9,7 +9,7 @@ const queryAvg = async (interaction: CommandInteraction) => {
 	const id = (interaction.options.get("id")?.value as String) ?? "sections";
 	const percent = interaction.options.get("percent");
 	if (!percent) {
-		await interaction.reply("Error in percent");
+		interaction.editReply("Error in percent");
 		return;
 	}
 	const query = {
@@ -37,25 +37,30 @@ const queryAvg = async (interaction: CommandInteraction) => {
 		},
 	};
 
-	try {
-		const requestResult = await post("http://localhost:4321/query", {
-			method: "post",
-			data: query,
+	post("http://localhost:4321/query", {
+		method: "post",
+		data: query,
+	})
+		.then((res) => {
+			const queryResult = res.data.result;
+
+			// Format the percents in the result
+			const key = id + "_title";
+			let reply = "";
+			for (const result of queryResult) {
+				// Round to 2 dec to try to align cols
+				reply += `${(result.overallAvg as number).toFixed(2)}%\t${result[key]}\n`;
+			}
+			// Discord has max chars limit
+			if (reply.length > 1900) {
+				reply = reply.substring(0, 1900) + "\n...";
+			}
+
+			interaction.editReply("Courses with average >" + percent.value + "%:\n" + reply);
+		})
+		.catch((err) => {
+			interaction.editReply("Error: " + err);
 		});
-
-		const queryResult = requestResult.data.result;
-
-		// Format the percents in the result
-		const key = id + "_title";
-		let reply = "";
-		for (const result of queryResult) {
-			// Round to 2 dec to try to align cols
-			reply += `${(result.overallAvg as number).toFixed(2)}%\t${result[key]}\n`;
-		}
-		await interaction.editReply("Courses with average >" + percent.value + "%:\n" + reply);
-	} catch (_err) {
-		await interaction.editReply("Error processing query");
-	}
 };
 
 const avg: Command = {
