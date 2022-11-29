@@ -3,7 +3,7 @@ import {ApplicationCommandOptionType, CommandInteraction} from "discord.js";
 import {Command} from "./utils";
 
 const queryAvg = async (interaction: CommandInteraction) => {
-	await interaction.reply({content: "Processing query...", ephemeral: true});
+	await interaction.reply("Processing query...");
 
 	// id defaults to sections
 	const id = (interaction.options.get("id")?.value as String) ?? "sections";
