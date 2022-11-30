@@ -7,6 +7,8 @@ import {removeRequest} from "./RemoveRequest";
 import {queryRequest} from "./QueryRequest";
 import {listRequest} from "./ListRequest";
 import InsightFacade from "../controller/InsightFacade";
+import {avgIDRequest} from "./AvgIDRequest";
+import {avgRequest} from "./AvgRequest";
 
 export default class Server {
 	private readonly port: number;
@@ -103,6 +105,12 @@ export default class Server {
 		});
 		this.express.get("/datasets", (req, res) => {
 			listRequest(req, res, this.insightFacade).then(() => console.log("listRequest Complete"));
+		});
+		this.express.post("/avg/:percent/:id", (req, res) => {
+			avgIDRequest(req, res, this.insightFacade).then(() => console.log("avgIDRequest Complete"));
+		});
+		this.express.post("/avg/:percent", (req, res) => {
+			avgRequest(req, res, this.insightFacade).then(() => console.log("avgRequest Complete"));
 		});
 	}
 
