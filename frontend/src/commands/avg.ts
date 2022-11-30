@@ -2,6 +2,29 @@ import post from "axios";
 import {ApplicationCommandOptionType, CommandInteraction} from "discord.js";
 import {Command} from "./utils";
 
+type Query = {
+	WHERE: {
+		GT: {
+			[key: string]: number;
+		};
+	};
+	OPTIONS: {
+		COLUMNS: string[];
+		ORDER: {
+			dir: string;
+			keys: string[];
+		};
+	};
+	TRANSFORMATIONS: {
+		GROUP: string[];
+		APPLY: {
+			overallAvg: {
+				[key: string]: string;
+			};
+		}[];
+	};
+};
+
 const queryAvg = async (interaction: CommandInteraction) => {
 	await interaction.reply("Processing query...");
 
@@ -12,11 +35,9 @@ const queryAvg = async (interaction: CommandInteraction) => {
 		interaction.editReply("Error in percent");
 		return;
 	}
-	const query = {
+	const query: Query = {
 		WHERE: {
-			GT: {
-				sections_avg: percent.value as number,
-			},
+			GT: {},
 		},
 		OPTIONS: {
 			COLUMNS: ["overallAvg", `${id}_title`],
@@ -36,6 +57,7 @@ const queryAvg = async (interaction: CommandInteraction) => {
 			],
 		},
 	};
+	query.WHERE.GT[`${id}_avg`] = percent.value as number;
 
 	post("http://localhost:4321/query", {
 		method: "post",
