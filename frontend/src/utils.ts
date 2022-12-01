@@ -22,7 +22,7 @@ const apiAddDataset = async (id: string, data: Buffer, kind: InsightDatasetKind)
 const loadDefaultDatasets = async () => {
 	console.log("Loading default datasets");
 
-	const dataLocation = "./frontend/data/";
+	const dataLocation = "./frontend/default_data/";
 	apiAddDataset("sections", fs.readFileSync(dataLocation + "pair.zip"), InsightDatasetKind.Sections);
 	apiAddDataset("rooms", fs.readFileSync(dataLocation + "rooms.zip"), InsightDatasetKind.Rooms);
 };
