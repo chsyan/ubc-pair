@@ -1,9 +1,49 @@
 # CPSC 310 Project Repository
 
-This repository contains starter code for the class project.
-Please keep your repository private.
+# Installation and setup
+Clone the repo
+```
+git clone https://github.com/chsyan/ubc-pair
+cd ubc-pair
+npm install
+```
 
-For information about the project, autotest, and the checkpoints, see the course webpage.
+[Create](https://discordjs.guide/preparations/setting-up-a-bot-application.html) a discord bot.
+
+Add the bot token to `.env`
+```
+TOKEN=THISISAFAKETOKEN12345
+```
+
+Add your discord id to `admin.json`
+```
+{
+	"id": ["01234"]
+}
+```
+
+Now add the bot to a server.
+
+Refer to `.env.example` and `admin.json.example`.
+
+# Running the project
+First start the server
+```
+yarn start
+```
+
+Once the server has started, you can start the discord bot, which depends on the server to be running
+```
+yarn discord
+```
+
+You will need two sessions to run the commands. Alternatively, run the server in the background
+```
+yarn start &
+```
+
+
+
 
 ## Configuring your environment
 
