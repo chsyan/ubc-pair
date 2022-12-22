@@ -5,7 +5,7 @@ Clone the repo
 ```
 git clone https://github.com/chsyan/ubc-pair
 cd ubc-pair
-npm install
+yarn install
 ```
 
 [Create](https://discordjs.guide/preparations/setting-up-a-bot-application.html) a discord bot.
